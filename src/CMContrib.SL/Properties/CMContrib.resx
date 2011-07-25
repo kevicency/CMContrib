@@ -135,6 +135,9 @@
   <data name="Answer_Yes" xml:space="preserve">
     <value>Foo</value>
   </data>
+  <data name="DefaultBusyMessage" xml:space="preserve">
+    <value>Please Wait...</value>
+  </data>
   <data name="DialogType_Error" xml:space="preserve">
     <value>Error</value>
   </data>

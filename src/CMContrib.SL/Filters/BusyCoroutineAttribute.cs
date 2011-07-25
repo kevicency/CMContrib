@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Caliburn.Micro.Contrib.Results;
 
 namespace Caliburn.Micro.Contrib.Filters
@@ -11,16 +12,20 @@ namespace Caliburn.Micro.Contrib.Filters
     {
         public string Message { get; set; }
 
+        public BusyCoroutineAttribute()
+        {
+            Message = Localizer.GetString("DefaultBusyMessage");
+        }
+
         public override IEnumerable<IResult> Decorate(IEnumerable<IResult> coroutine, ActionExecutionContext context)
         {
             yield return BusyResult.Show(Message);
 
-            foreach (var result in base.Decorate(coroutine, context))
-            {
-                yield return result;
-            }
+            var async = base.Decorate(coroutine, context).Single();
+            async.Completed += (sender, args) =>
+                Coroutine.BeginExecute(new SingleResultEnumerator(BusyResult.Hide()), context);
 
-            yield return BusyResult.Hide();
+            yield return async;
         }
     }
 }
