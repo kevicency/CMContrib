@@ -14,22 +14,19 @@ namespace Caliburn.Micro.Contrib.Helper
         }
 
         public IResult Inner { get; private set; }
-        public IResult Decorator { get; private set; }
 
         #region IExceptionHandler<T> Members
 
-        public IResult With(Action<T> action, bool cancelResult = true)
+        public IResult Invoke(Action<T> action, bool cancelResult = true)
         {
-            Func<T, IEnumerable<IResult>> func = e => new[] {new DelegateResult(() => action(e))};
+            Func<T, IEnumerable<IResult>> func = e => new[] { new DelegateResult(() => action(e)) };
 
-            return With(func, cancelResult);
+            return Execute(func, cancelResult);
         }
 
-        public IResult With(Func<T, IEnumerable<IResult>> coroutine, bool cancelResult = true)
+        public IResult Execute(Func<T, IEnumerable<IResult>> coroutine, bool cancelResult = true)
         {
-            Decorator = new RescueResultDecorator<T>(Inner, coroutine, cancelResult);
-
-            return Decorator;
+            return new RescueResultDecorator<T>(Inner, coroutine, cancelResult);
         }
 
         #endregion

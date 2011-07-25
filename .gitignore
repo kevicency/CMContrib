@@ -41,6 +41,7 @@ _ReSharper*/
 #Subversion/Mercurial files
 .svn
 .hg
+.hgignore
 
 # Office Temp Files
 ~$*

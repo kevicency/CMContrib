@@ -31,7 +31,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
                                                           return new ResultCompletionEventArgs();
                                                       });
 
-            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsCoroutine());
+            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsCoroutine);
 
             sut.BlockingExecute();
 
@@ -47,7 +47,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
                 .Raises(x => x.Completed += null, new ResultCompletionEventArgs())
                 .Verifiable("wrong context");
 
-            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsCoroutine());
+            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsCoroutine);
 
             sut.BlockingExecute(context);
 
@@ -57,7 +57,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
         [Test]
         public void ResultIsStillCancelled()
         {
-            var sut = new ContinueResultDecorator(_inner, TestHelper.EmptyCoroutine);
+            var sut = new ContinueResultDecorator(_inner, () => TestHelper.EmptyCoroutine);
 
             var args = sut.BlockingExecute();
 
@@ -70,7 +70,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
             var error = new Exception();
             var failingResult = TestHelper.MockResult(false, error).Object;
 
-            var sut = new ContinueResultDecorator(_inner, failingResult.AsCoroutine());
+            var sut = new ContinueResultDecorator(_inner, failingResult.AsCoroutine);
 
             var args = sut.BlockingExecute();
 

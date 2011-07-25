@@ -68,6 +68,7 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\OverrideCancelResultDecorator.cs" />
     <Compile Include="Extensions\ActionExecutionContextExtensions.cs" />
     <Compile Include="Decorators\CatchResultDecorator.cs" />
     <Compile Include="Filters\AsyncCoroutineAttribute.cs" />

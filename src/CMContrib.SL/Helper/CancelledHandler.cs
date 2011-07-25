@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Caliburn.Micro.Contrib.Decorators;
 using Caliburn.Micro.Contrib.Results;
 
@@ -12,20 +13,22 @@ namespace Caliburn.Micro.Contrib.Helper
         }
 
         public IResult Inner { get; private set; }
-        public IResult Decorator { get; private set; }
 
         #region ICancelledHandler Members
 
-        public IResult Execute(System.Action action)
+        public IResult Invoke(System.Action action)
         {
-            return Execute(new DelegateResult(action).AsCoroutine());
+            return Execute(() => new DelegateResult(action).AsCoroutine());
         }
 
-        public IResult Execute(IEnumerable<IResult> coroutine)
+        public IResult Execute(Func<IEnumerable<IResult>> coroutine)
         {
-            Decorator = new ContinueResultDecorator(Inner, coroutine);
+            return new ContinueResultDecorator(Inner, coroutine);
+        }
 
-            return Decorator;
+        public IResult Override()
+        {
+            return new OverrideCancelResultDecorator(Inner);
         }
 
         #endregion

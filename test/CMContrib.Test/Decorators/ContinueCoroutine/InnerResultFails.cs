@@ -28,7 +28,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
             coroutineMock.Setup(x => x.Execute(It.IsAny<ActionExecutionContext>()))
                 .Callback(() => coroutineExecuted = true);
 
-            var sut = new ContinueResultDecorator(_inner, coroutineMock.Object.AsCoroutine());
+            var sut = new ContinueResultDecorator(_inner, () => coroutineMock.Object.AsCoroutine());
 
             sut.BlockingExecute();
 
@@ -43,7 +43,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
             coroutineMock.Setup(x => x.GetEnumerator())
                 .Callback(() => coroutineEnumerated = true);
 
-            var sut = new ContinueResultDecorator(_inner, coroutineMock.Object);
+            var sut = new ContinueResultDecorator(_inner, () => coroutineMock.Object);
 
             sut.BlockingExecute();
 
@@ -53,7 +53,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
         [Test]
         public void ResultStillFailsWithSameError()
         {
-            var sut = new ContinueResultDecorator(_inner, TestHelper.EmptyCoroutine);
+            var sut = new ContinueResultDecorator(_inner, () => TestHelper.EmptyCoroutine);
 
             var args = sut.BlockingExecute();
 

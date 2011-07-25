@@ -51,11 +51,11 @@ namespace Caliburn.Micro.Contrib.Results
                 {
                     if (_show)
                     {
-                        indicator.Show(_message);
+                        indicator.Busy(_message);
                     }
                     else
                     {
-                        indicator.Hide();
+                        indicator.Idle();
                     }
                     break;
                 }
@@ -94,11 +94,11 @@ namespace Caliburn.Micro.Contrib.Results
                 {
                     if (_show)
                     {
-                        indicator.Show(_message);
+                        indicator.Busy(_message);
                     }
                     else
                     {
-                        indicator.Hide();
+                        indicator.Idle();
                     }
                     return true;
                 }

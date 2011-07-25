@@ -36,7 +36,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                          fileContents.Add(File.ReadAllText(file));
                                      }
                                  })
-                .WhenCancelled().Execute(OnCancel());
+                                 .WhenCancelled().Execute(OnCancel);
 
             foreach (var fileContent in fileContents)
             {
@@ -55,7 +55,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                       .AddAllFilesFilter(isDefault: true))
                 .In(@"C:\")
                 .WithFileDo(file => { File.WriteAllText(file, "test"); })
-                .WhenCancelled().Execute(OnCancel());
+                .WhenCancelled().Execute(OnCancel);
 
             yield return new LogResult("Saving successfull");
         }
@@ -76,7 +76,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                         });
 
             yield return browseResult
-                .WhenCancelled().Execute(OnCancel());
+                .WhenCancelled().Execute(OnCancel);
 
             yield return new LogResult(string.Format("Files in {0}:", browseResult.SelectedPath));
 
@@ -123,7 +123,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                args.Result = result;
                            })
                 .WithResultDo((param, res) => message = string.Format("{0}! = {1}", param, res))
-                .WhenCancelled().Execute(OnCancel());
+                .WhenCancelled().Execute(OnCancel);
 
             yield return new LogResult(message);
         }
@@ -153,7 +153,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
 
             yield return question.AsResult()
                 .CancelOnResponse(Answer.Cancel)
-                .WhenCancelled().Execute(OnCancel());
+                .WhenCancelled().Execute(OnCancel);
 
             yield return new LogResult(string.Format("You responded with {0}", question.GivenResponse));
         }
@@ -174,7 +174,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
 
             yield return warning.AsResult()
                 .CancelOnResponse(Answer.Abort)
-               .WhenCancelled().Execute(OnCancel());
+               .WhenCancelled().Execute(OnCancel);
 
             yield return new LogResult(string.Format("You responded with {0}", warning.GivenResponse));
         }
@@ -186,7 +186,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
 
             yield return error.AsResult()
                 .CancelOnResponse(Answer.Cancel)
-               .WhenCancelled().Execute(OnCancel());
+               .WhenCancelled().Execute(OnCancel);
 
             yield return new LogResult(string.Format("You responded with {0}", error.GivenResponse));
         }

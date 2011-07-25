@@ -25,7 +25,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
             coroutineMock.Setup(x => x.GetEnumerator())
                 .Callback(() => coroutineExecuted = true);
 
-            var sut = new ContinueResultDecorator(_inner, coroutineMock.Object);
+            var sut = new ContinueResultDecorator(_inner, () => coroutineMock.Object);
 
             sut.BlockingExecute();
 
@@ -35,7 +35,7 @@ namespace CMContrib.Test.Decorators.ContinueCoroutine
         [Test]
         public void ResultStillCompletes()
         {
-            var sut = new ContinueResultDecorator(_inner, TestHelper.EmptyCoroutine);
+            var sut = new ContinueResultDecorator(_inner, () => TestHelper.EmptyCoroutine);
 
             var args = sut.BlockingExecute();
 

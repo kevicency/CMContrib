@@ -17,64 +17,73 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
         }
 
         [BusyCoroutine]
-        [CatchCoroutine(MethodName= "Rescue")]
-        public IEnumerable<IResult> BusyAndThreadPool(int ms)
+        public IEnumerable<IResult> Busy(int ms)
         {
             yield return new DelegateResult(() => LongRunningTask(ms));
         }
 
-        public IEnumerable<IResult> ErrorCoroutine()
+        [CatchCoroutine(MethodName = "GeneralRescue")]
+        public IEnumerable<IResult> Catch()
         {
-            var error = new ArgumentException("Some error");
-
-            yield return new ErrorResult(error)
-                .Rescue<ArgumentException>().With(coroutine: RescueCoroutine);
+            yield return new DelegateResult(() =>
+                                            {
+                                                throw new Exception();
+                                            });
         }
 
-        public IEnumerable<IResult> CancelCoroutine()
+        public IEnumerable<IResult> Rescue()
+        {
+            var ex = new Exception("General Exception");
+            var argEx = new ArgumentException("Specific Exception");
+
+            yield return new ErrorResult(ex)
+                    .Rescue().Execute(GeneralRescue, false);
+
+            yield return new ErrorResult(argEx)
+                    .Rescue<ArgumentException>().Execute(ArgumentRescue, false);
+
+            yield return new ErrorResult(ex)
+                    .Rescue().Invoke(RescueAction);
+        }
+
+        public IEnumerable<IResult> Cancel()
         {
             yield return new CancelResult()
-            .WhenCancelled().Execute(ContinueCoroutine());
-        }
+               .WhenCancelled().Execute(ContinueCoroutine)
+               .WhenCancelled().Override();
 
-        public IEnumerable<IResult> CancelAction()
-        {
             yield return new CancelResult()
-                .WhenCancelled().Execute(ContinueAction);
+                .WhenCancelled().Invoke(ContinueAction);
         }
-
-        public IEnumerable<IResult> ErrorAction()
-        {
-            var error = new ArgumentException("Some error");
-
-            yield return new ErrorResult(error)
-                .Rescue<ArgumentException>().With(ex => Console.WriteLine(ex.Message));
-        }
-
 
         private void LongRunningTask(int ms)
         {
             Thread.Sleep(ms);
         }
 
-        private static IEnumerable<IResult> RescueCoroutine(ArgumentException e)
+        private static IEnumerable<IResult> GeneralRescue(Exception e)
         {
-            yield return new LogResult(string.Format("Exception catched with Coroutine: {0} - {1}", e.GetType(), e.Message));
+            yield return new LogResult(string.Format("Rescued Exception of type \'{0}\' with coroutine", e.GetType()));
+        }
+
+        private static IEnumerable<IResult> ArgumentRescue(ArgumentException e)
+        {
+            yield return new LogResult("Rescued ArgumentException with coroutine");
         }
 
         private static void RescueAction(Exception e)
         {
-            IoC.Get<IShell>().Log(string.Format("Exception catched with Action: {0} - {1}", e.GetType(), e.Message));
-        }
-
-        private static IEnumerable<IResult> ContinueCoroutine()
-        {
-            yield return new LogResult(string.Format("Continued with coroutine"));
+            IoC.Get<IShell>().Log(string.Format("Rescued {0} with an action", e.GetType()));
         }
 
         private static void ContinueAction()
         {
             IoC.Get<IShell>().Log(string.Format("Continued with action"));
+        }
+
+        private static IEnumerable<IResult> ContinueCoroutine()
+        {
+            yield return new LogResult("Continued with a coroutine");
         }
     }
 }

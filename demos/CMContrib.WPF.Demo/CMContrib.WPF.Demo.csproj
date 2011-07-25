@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Results\CancelResult.cs" />
     <Compile Include="Results\ErrorResult.cs" />
+    <Compile Include="Results\LogResult.cs" />
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>

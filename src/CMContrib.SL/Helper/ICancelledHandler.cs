@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Caliburn.Micro.Contrib.Helper
 {
@@ -9,13 +10,15 @@ namespace Caliburn.Micro.Contrib.Helper
         /// </summary>
         /// <param name = "action"></param>
         /// <returns></returns>
-        IResult Execute(System.Action action);
+        IResult Invoke(System.Action action);
 
         /// <summary>
         ///   Executes a <paramref name = "coroutine" /> when the result was cancelled
         /// </summary>
         /// <param name = "coroutine"></param>
         /// <returns></returns>
-        IResult Execute(IEnumerable<IResult> coroutine);
+        IResult Execute(Func<IEnumerable<IResult>> coroutine);
+
+        IResult Override();
     }
 }

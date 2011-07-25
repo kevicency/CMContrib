@@ -10,10 +10,10 @@ namespace Caliburn.Micro.Contrib.Decorators
     {
         private static readonly ILog _log = LogManager.GetLog(typeof(ContinueResultDecorator));
 
-        private readonly IEnumerable<IResult> _coroutine;
+        private readonly Func<IEnumerable<IResult>> _coroutine;
         private ActionExecutionContext _context;
 
-        public ContinueResultDecorator(IResult inner, IEnumerable<IResult> coroutine)
+        public ContinueResultDecorator(IResult inner, Func<IEnumerable<IResult>> coroutine)
             : base(inner)
         {
             if (coroutine == null) throw new ArgumentNullException("coroutine");
@@ -44,7 +44,7 @@ namespace Caliburn.Micro.Contrib.Decorators
             {
                 Log.Info(string.Format("Executing coroutine because {0} was cancelled", Inner.GetType().Name));
 
-                var cancelResult = new SequentialResult(_coroutine.GetEnumerator());
+                var cancelResult = new SequentialResult(_coroutine().GetEnumerator());
                 cancelResult.Completed += HandleCancelCompleted;
 
                 cancelResult.Execute(_context);

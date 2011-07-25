@@ -76,6 +76,9 @@
     <Compile Include="..\CMContrib.SL\Decorators\ContinueResultDecorator.cs">
       <Link>Decorators\ContinueResultDecorator.cs</Link>
     </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\OverrideCancelResultDecorator.cs">
+      <Link>Decorators\OverrideCancelResultDecorator.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.SL\Decorators\RescueResultDecorator.cs">
       <Link>Decorators\RescueResultDecorator.cs</Link>
     </Compile>

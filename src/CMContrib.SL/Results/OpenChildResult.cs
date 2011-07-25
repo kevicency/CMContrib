@@ -19,8 +19,8 @@ namespace Caliburn.Micro.Contrib.Results
         private void SafeExecute(IResult result, ActionExecutionContext context)
         {
             result
-                .Rescue().With(x => OnCompleted(x, false))
-                .WhenCancelled().Execute(() => OnCompleted(null, true))
+                .Rescue().Invoke(x => OnCompleted(x, false))
+                .WhenCancelled().Invoke(() => OnCompleted(null, true))
                 .BlockingExecute(context);
         }
 

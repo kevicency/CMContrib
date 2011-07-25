@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Caliburn.Micro.Contrib.Decorators;
+using System.Linq;
+using System.Reflection;
 
 namespace Caliburn.Micro.Contrib.Filters
 {
@@ -11,6 +12,11 @@ namespace Caliburn.Micro.Contrib.Filters
     {
         public string MethodName { get; set; }
 
+        public CatchCoroutineAttribute()
+        {
+            MethodName = "Rescue";
+        }
+
         public override IEnumerable<IResult> Decorate(IEnumerable<IResult> coroutine, ActionExecutionContext context)
         {
             var targetType = context.Target.GetType();
@@ -19,45 +25,36 @@ namespace Caliburn.Micro.Contrib.Filters
 
             var sequentialResult = new SequentialResult(coroutine.GetEnumerator());
 
-            yield return new CatchResultDecorator(sequentialResult, handler);
+            yield return sequentialResult
+                .Rescue().Execute(handler);
         }
 
         private Func<Exception, IEnumerable<IResult>> CreateHandler(ActionExecutionContext context, Type targetType)
         {
             Func<Exception, IEnumerable<IResult>> handler = null;
 
-            var method = targetType.GetMethod(MethodName, new[] {typeof (Exception)});
-            if (method != null)
-            {
-                handler = ex =>
-                          {
-                              var result = method.Invoke(context.Target, new object[] { ex });
-                              if (result is IResult) return new[] { result as IResult };
-                              if (result is IEnumerable<IResult>) return result as IEnumerable<IResult>;
+            const BindingFlags bindingFlags = BindingFlags.NonPublic | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
 
-                              return new IResult[0];
-                          };
-            }
-            else
-            {
-                method = targetType.GetMethod(MethodName, Type.EmptyTypes);
+            var method = targetType.GetMethod(MethodName, bindingFlags, Type.DefaultBinder, new[] { typeof(Exception) }, null)
+                ?? targetType.GetMethod(MethodName, bindingFlags);
 
-                if (method != null)
-                {
-                    handler = ex =>
-                              {
-                                  var result = method.Invoke(context.Target, new object[0]);
-                                  if (result is IResult) return new[] { result as IResult };
-                                  if (result is IEnumerable<IResult>) return result as IEnumerable<IResult>;
+            if (method == null)
+                throw new Exception(string.Format("Could not find method {0} on type {1}",
+                                                  MethodName,
+                                                  targetType.Name));
 
-                                  return new IResult[0];
-                              };
-                }
-                else
-                    throw new Exception(string.Format("Could not find method {0} on type {1}",
-                                                      MethodName,
-                                                      targetType.Name));
-            }
+            var obj = method.IsStatic ? null : context.Target;
+            handler = ex =>
+                      {
+                          var param = method.GetParameters().Any() ? new object[] { ex } : new object[0];
+                          object result = method.Invoke(obj, param);
+
+                          if (result is IResult) return new[] { result as IResult };
+                          if (result is IEnumerable<IResult>) return result as IEnumerable<IResult>;
+
+                          return new IResult[0];
+                      };
+
             return handler;
         }
     }

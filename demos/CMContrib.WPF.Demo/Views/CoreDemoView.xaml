@@ -5,21 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended" xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
     <StackPanel>
         <DockPanel HorizontalAlignment="Stretch">
-            <Button Content="Be Busy" Micro:Message.Attach="BusyAndThreadPool(BusyTime.Value)" />
+            <Button Content="Busy" Micro:Message.Attach="Busy(BusyDuration.Value)" />
             <TextBlock Margin="3 3 3 1"
                                VerticalAlignment="Center"
                                Text="ms:" />
-            <Controls:IntegerUpDown x:Name="BusyTime"
+            <Controls:IntegerUpDown x:Name="BusyDuration"
                                             VerticalAlignment="Center"
                                             DockPanel.Dock="Right"
                                             Increment="250"
-                                            Maximum="5000"
-                                            Minimum="3000"
-                                            Value="4000" />
+                                            Maximum="10000"
+                                            Minimum="2000"
+                                            Value="5000" />
         </DockPanel>
-        <Button Content="Rescue Action" Micro:Message.Attach="ErrorCoroutine" />
-        <Button Content="Rescue Coroutine" Micro:Message.Attach="ErrorAction" />
-        <Button Content="Continue Action" Micro:Message.Attach="CancelAction" />
-        <Button Content="Cont. Coroutine" Micro:Message.Attach="CancelCoroutine" />
+        <Button Content="Catch" Micro:Message.Attach="Catch" />
+        <Button Content="Rescue" Micro:Message.Attach="Rescue" />
+        <Button Content="Cancel" Micro:Message.Attach="Cancel" />
     </StackPanel>            
 </UserControl>
