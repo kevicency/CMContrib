@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Caliburn.Micro.Contrib.WPF.Demo.Views.DialogsDemoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
+             mc:Ignorable="d">
+    <StackPanel>
+
+        <Button Content="Open File" Micro:Message.Attach="OpenFile()" />
+        <Button Content="Save File" Micro:Message.Attach="SaveFile()" />
+
+        <DockPanel>
+            <Button Content="Browse Folder" Micro:Message.Attach="Browse(SpecialFolders.SelectedValue)" />
+            <ComboBox x:Name="SpecialFolders"
+                      VerticalAlignment="Center"
+                      DockPanel.Dock="Right" />
+        </DockPanel>
+
+        <DockPanel>
+            <Button Content="Progress Dialog" Micro:Message.Attach="Calculate(Parameter.Value)" />
+            <TextBlock Margin="3 3 3 1"
+                       VerticalAlignment="Center"
+                       Text="Parameter:" />
+            <Controls:IntegerUpDown x:Name="Parameter"
+                                    MinWidth="45"
+                                    VerticalAlignment="Center"
+                                    DockPanel.Dock="Right"
+                                    Increment="1"
+                                    Maximum="20"
+                                    Minimum="0"
+                                    Value="0" />
+        </DockPanel>
+
+        <Button Content="Question" Micro:Message.Attach="ShowQuestion" />
+        <Button Content="Error" Micro:Message.Attach="ShowError" />
+        <Button Content="Warning" Micro:Message.Attach="ShowWarning" />
+        <Button Content="Information" Micro:Message.Attach="ShowInformation" />
+    </StackPanel>
+
+</UserControl>

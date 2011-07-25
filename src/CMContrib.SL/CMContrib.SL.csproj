@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{00BEBA5F-71B3-45C0-AD68-D3BA60F96427}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Caliburn.Micro.Contrib</RootNamespace>
+    <AssemblyName>Caliburn.Micro.Contrib</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\SL\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\..\packages\Caliburn.Micro.1.1.0\lib\SL40\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Caliburn.Micro.1.1.0\lib\SL40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\ActionExecutionContextExtensions.cs" />
+    <Compile Include="Decorators\CatchResultDecorator.cs" />
+    <Compile Include="Filters\AsyncCoroutineAttribute.cs" />
+    <Compile Include="Filters\BusyCoroutineAttribute.cs" />
+    <Compile Include="Filters\DecorateCoroutineAttribute.cs" />
+    <Compile Include="Filters\IDecorateCoroutineFilter.cs" />
+    <Compile Include="Filters\IFilter.cs" />
+    <Compile Include="Decorators\AsyncResultDecorator.cs" />
+    <Compile Include="Filters\CatchCoroutineAttribute.cs" />
+    <Compile Include="Interaction\IBusyIndicator.cs" />
+    <Compile Include="Localizer.cs" />
+    <Compile Include="MessageSyntaxes.cs" />
+    <Compile Include="Properties\CMContrib.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMContrib.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\EnumLocalizer.cs" />
+    <Compile Include="ConsoleLog.cs" />
+    <Compile Include="Decorators\ResultDecoratorBase.cs" />
+    <Compile Include="Decorators\ContinueResultDecorator.cs" />
+    <Compile Include="Decorators\RescueResultDecorator.cs" />
+    <Compile Include="DialogCloser.cs" />
+    <Compile Include="Dynamic.cs" />
+    <Compile Include="Extensions\FrameworkExtensions.cs" />
+    <Compile Include="Helper\CancelledHandler.cs" />
+    <Compile Include="Helper\ICancelledHandler.cs" />
+    <Compile Include="Helper\IExceptionHandler.cs" />
+    <Compile Include="Helper\RescueHandler.cs" />
+    <Compile Include="Results\DelegateResult.cs" />
+    <Compile Include="Results\IOpenResult.cs" />
+    <Compile Include="Results\OpenChildResult.cs" />
+    <Compile Include="Results\OpenResultBase.cs" />
+    <Compile Include="SingleResultEnumerator.cs" />
+    <Compile Include="Extensions\DialogExtensions.cs" />
+    <Compile Include="Interaction\Answer.cs" />
+    <Compile Include="Interaction\BindableResponse.cs" />
+    <Compile Include="Interaction\Error.cs" />
+    <Compile Include="Interaction\IDialogViewModel.cs" />
+    <Compile Include="Interaction\Information.cs" />
+    <Compile Include="Interaction\DialogType.cs" />
+    <Compile Include="Interaction\Dialog.cs" />
+    <Compile Include="Interaction\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Interaction\DialogViewModel.cs" />
+    <Compile Include="Interaction\Question.cs" />
+    <Compile Include="Interaction\Warning.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions\ResultExtensions.cs" />
+    <Compile Include="Results\BusyResult.cs" />
+    <Compile Include="Results\DialogResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Interaction\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\CMContrib.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CMContrib.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <!--<Import Project="..\..\nuget\NuGet.targets" />
+
+  <Target Name="CreateNuGetPackage" AfterTargets="Build" DependsOnTargets="NuGetPack">
+    <Message Text="Created package: %(NuGetPackages.FullPath)" />
+  </Target>-->
+  <Target Name="AfterCompile">
+    <NotifyPropertyWeaverMsBuildTask.WeavingTask />
+  </Target>
+  <UsingTask TaskName="NotifyPropertyWeaverMsBuildTask.WeavingTask" AssemblyFile="$(SolutionDir)Tools\NotifyPropertyWeaverMsBuildTask.dll" />
+</Project>

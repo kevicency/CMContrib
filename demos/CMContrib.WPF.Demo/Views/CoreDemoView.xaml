@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Caliburn.Micro.Contrib.WPF.Demo.Views.CoreDemoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended" xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
+    <StackPanel>
+        <DockPanel HorizontalAlignment="Stretch">
+            <Button Content="Be Busy" Micro:Message.Attach="BusyAndThreadPool(BusyTime.Value)" />
+            <TextBlock Margin="3 3 3 1"
+                               VerticalAlignment="Center"
+                               Text="ms:" />
+            <Controls:IntegerUpDown x:Name="BusyTime"
+                                            VerticalAlignment="Center"
+                                            DockPanel.Dock="Right"
+                                            Increment="250"
+                                            Maximum="5000"
+                                            Minimum="3000"
+                                            Value="4000" />
+        </DockPanel>
+        <Button Content="Rescue Action" Micro:Message.Attach="ErrorCoroutine" />
+        <Button Content="Rescue Coroutine" Micro:Message.Attach="ErrorAction" />
+        <Button Content="Continue Action" Micro:Message.Attach="CancelAction" />
+        <Button Content="Cont. Coroutine" Micro:Message.Attach="CancelCoroutine" />
+    </StackPanel>            
+</UserControl>

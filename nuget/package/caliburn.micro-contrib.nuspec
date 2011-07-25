@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Caliburn.Micro-Contrib</id>
+    <version>0.8.3.1</version>
+    <authors>Kevin Mees</authors>
+    <description>Contributions to Caliburn.Micro</description>
+    <language>en-US</language>
+    <tags>Caliburn Caliburn.Micro MVVM Silverlight WPF</tags>
+  <dependencies>
+    <dependency id="Caliburn.Micro" version="1.1.0" />
+	</dependencies> 
+	    <frameworkAssemblies>
+	  <frameworkAssembly assemblyName="System.Drawing" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework="net40, sl40" />
+	  <frameworkAssembly assemblyName="System.ComponentModel.Composition.Initialization" targetFramework="sl40" />
+	</frameworkAssemblies>
+	</metadata>
+</package>

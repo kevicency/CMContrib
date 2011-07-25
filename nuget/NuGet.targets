@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<NuGetSpecFile Condition=" '$(NuGetSpecFile)' == '' ">$(MSBuildProjectDirectory)\$(MSBuildProjectName).nuspec</NuGetSpecFile>
+		<NuGetProgramName>NuGet.exe</NuGetProgramName>
+		<NuGetProgram Condition=" '$(NuGetProgram)' == '' ">$(MSBuildThisFileDirectory)$(NuGetProgramName)</NuGetProgram>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<NuGetProjectFile Condition=" '$(NuGetProjectFile)' == '' ">$(MSBuildProjectFullPath)</NuGetProjectFile>
+		<NuGetOutDir Condition=" '$(NuGetOutDir)' == '' ">$(OutDir)</NuGetOutDir>
+		<NuGetBasePath Condition=" '$(NuGetBasePath)' == '' "></NuGetBasePath>
+		<NuGetTool Condition=" '$(NuGetTool)' == '' ">False</NuGetTool>
+		<NuGetVersion Condition=" '$(NuGetVersion)' == '' "></NuGetVersion>
+		<NuGetSymbols Condition=" '$(NuGetSymbols)' == '' ">True</NuGetSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<NuGetExclude Include="**\*.snk" />
+		<NuGetExclude Include="**\*CodeAnalysisLog.xml" />
+	</ItemGroup>
+
+	<Choose>
+		<When Condition=" EXISTS('$(NuGetSpecFile)') AND '$(Configuration)' == 'Release' ">
+			<PropertyGroup Condition=" '$(NuGetPackEnabled)' == '' ">
+				<NuGetPackEnabled>True</NuGetPackEnabled>
+			</PropertyGroup>
+		</When>
+		<Otherwise>
+			<PropertyGroup Condition=" '$(NuGetPackEnabled)' == '' ">
+				<NuGetPackEnabled>False</NuGetPackEnabled>
+			</PropertyGroup>
+		</Otherwise>
+	</Choose>
+
+	<UsingTask TaskName="NuGetPack" TaskFactory="CodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll">
+		<ParameterGroup>
+			<Packages ParameterType="Microsoft.Build.Framework.ITaskItem[]" Output="True" />
+
+			<ProjectFile Required="True" />
+
+			<OutputDirectory Required="False" />
+
+			<!-- 
+			<Properties ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="False" />
+			-->
+			<Configuration Required="False" />
+			<Platform Required="False" />
+			<Excludes ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="False" />
+			<Tool ParameterType="System.Boolean" Required="False" />
+			<Symbols ParameterType="System.Boolean" Required="False" />
+			<Version Required="False" />
+			<BasePath Required="False" />
+		</ParameterGroup>
+		<Task>
+			<Reference Include="NuGet" />
+			<Reference Include="Microsoft.CSharp" />
+			<Reference Include="Microsoft.Build" />
+			<Reference Include="System.Xml" />
+			<Using Namespace="System" />
+			<Using Namespace="System.Collections.Generic" />
+			<Using Namespace="System.IO" />
+			<Using Namespace="System.Linq" />
+			<Using Namespace="Microsoft.Build.Evaluation" />
+			<Using Namespace="Microsoft.Build.Framework" />
+			<Using Namespace="Microsoft.Build.Utilities" />
+			<Using Namespace="System.Reflection" />
+			<Using Namespace="NuGet" />
+			<Using Namespace="NuGet.Commands" />
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+const string packageExtension = ".nupkg";
+const string symbolsPackageExtension = ".symbols" + packageExtension;
+const BindingFlags privateInstanceBinding = BindingFlags.NonPublic | BindingFlags.Instance;
+
+Packages = new TaskItem[Symbols ? 2 : 1];
+
+/* A new project collection is required to workaround an issue with MSBuild's shared project
+ * system, which throws when attempting to load the project into the global collection while
+ * it's already loaded by the build system in Visual Studio.  (The error occurs on subsequent
+ * builds, not the first build.)
+ */
+using (var projectCollection = new ProjectCollection())
+{
+	var project = new Project(ProjectFile, null, null, projectCollection);
+	
+	Type factoryType = Type.GetType("NuGet.Commands.ProjectFactory, NuGet");
+	
+	object factory = Activator.CreateInstance(factoryType, project);
+	
+	factoryType.GetProperty("IsTool").SetValue(factory, Tool, null);
+	factoryType.GetProperty("Logger").SetValue(factory, new NuGet.Common.Console(), null);
+	
+	var properties = (IDictionary<string, string>) factoryType.GetProperty("Properties").GetValue(factory, null);
+	
+	if (!string.IsNullOrEmpty(Configuration))
+		properties.Add("Configuration", Configuration);
+		
+	if (!string.IsNullOrEmpty(Platform))
+		properties.Add("Platform", Platform);
+	
+	/* The following property is required to prevent recursion in the MSBuild target that executes this task, because for 
+	 * some unknown reason NuGet insists on building the project even though the output already exists, instead of simply 
+	 * reading and packaging the existing output.  (Hopefully by running this MSBuild task in-proc it will at least prevent 
+	 * a full rebuild if MSBuild can detect that the output files are still up-to-date.)
+	 * 
+	 * Update: We can't rebuild the project while a build is currently in progress.  See the mega-comment below for more 
+	 * information.
+	 */
+	//properties.Add("NuGetBuild", "True");
+	
+	// No longer needed.  See mega-comment below.
+	/*
+	if (Properties != null)
+	{
+		foreach (var item in Properties)
+		{
+			var pair = item.ItemSpec.Split(',');
+		
+			if (pair.Length == 2)
+				properties.Add(pair[0], pair[1]);
+		}
+	}
+	*/
+	
+	PackageBuilder builder = null;
+	
+	/* The following function was taken from ProjectFactory.cs and modified to avoid rebuilding the project, which doesn't 
+	 * work anyway because MSBuild doesn't allow a project to be built while a build is currently in progress.  Trust me, 
+	 * I tried a few things, including calling a separate target from the MSBuild task and even invoking it through MSBuild 
+	 * on the command-line via the Exec task, but MSBuild always fails reporting that the project is currently being built.
+	 * Regardless, I have no idea why NuGet insists on building the project anyway - it appears to be pointless.  As a "package" 
+	 * generator, it should leave the "build" up to build tools that were designed for this, instead of duplicating a subset 
+	 * of the build functionality that MSBuild offers (e.g., configuration, platform, other properties, environment, etc.) 
+	 * merely to ensure that the output exists?
+	 * 
+	 * We can build our own projects and then point the NuGet MSBuild task to the project file so that it can determine where 
+	 * to look for the output and pull data for the replacement tokens.  It should also have an optional Assembly parameter so 
+	 * that the exact output file can be specified, eliminating the need to get the target from the project file, if it differs.
+	 */
+	Func<PackageBuilder> createBuilder = () =>
+		{
+			builder = new PackageBuilder();
+			
+			foreach (var property in properties)
+			{
+				project.SetProperty(property.Key, property.Value);
+			}
+			
+			project.ReevaluateIfNecessary();
+			
+			var targetPath = project.GetPropertyValue("TargetPath");
+			
+			factoryType.GetProperty("TargetPath", privateInstanceBinding).SetValue(factory, targetPath, null);
+	
+			try
+			{
+				AssemblyMetadataExtractor.ExtractMetadata(builder, targetPath);
+			}
+			catch
+			{
+				factoryType.GetMethod("ExtractMetadataFromProject").Invoke(factory, new[] { builder });
+			}
+			
+			var privateProperties = (IDictionary<string, string>) factoryType.GetField("_properties", privateInstanceBinding).GetValue(factory);
+			
+			privateProperties.Clear();
+			privateProperties.Add("Id", builder.Id);
+			privateProperties.Add("Version", builder.Version.ToString());
+	
+			if (!string.IsNullOrEmpty(builder.Description))
+				privateProperties.Add("Description", builder.Description);
+	
+			string projectAuthor = builder.Authors.FirstOrDefault();
+			if (!string.IsNullOrEmpty(projectAuthor))
+				privateProperties.Add("Author", projectAuthor);
+			
+			factoryType.GetMethod("ProcessNuspec", privateInstanceBinding).Invoke(factory, new[] { builder });
+			
+			if (builder.Authors.Count > 1)
+				builder.Authors.Remove(projectAuthor);
+	
+			builder.Version = VersionUtility.TrimVersion(builder.Version);
+			
+			// Add output files
+			factoryType.GetMethod("AddOutputFiles", privateInstanceBinding).Invoke(factory, new[] { builder });
+	
+			// Add content files
+			factoryType.GetMethod("AddFiles", privateInstanceBinding).Invoke(factory, new object[] { builder, "Content", "content" });
+	
+			if ((bool) factoryType.GetProperty("IncludeSymbols").GetValue(factory, null))
+				factoryType.GetMethod("AddFiles", privateInstanceBinding).Invoke(factory, new object[] { builder, "Compile", "src" });
+	
+			factoryType.GetMethod("ProcessDependencies", privateInstanceBinding).Invoke(factory, new[] { builder });
+	
+			if (string.IsNullOrEmpty(builder.Description))
+				builder.Description = "Description";
+	
+			if (!builder.Authors.Any())
+				builder.Authors.Add(Environment.UserName);
+	
+			return builder;
+		};
+		
+	createBuilder();
+	
+	if (!string.IsNullOrEmpty(Version))
+	{
+			builder.Version = new System.Version(Version);
+	}
+	
+	Action<int, string> build = (packageIndex, outputFileExtension) =>
+		{
+			if (string.IsNullOrEmpty(BasePath))
+				BasePath = Path.GetDirectoryName(Path.GetFullPath(ProjectFile));
+			
+			Func<IPackageFile, string> resolvePath = packageFile =>
+				{
+					var physicalPackageFile = packageFile as PhysicalPackageFile;
+			
+					if (physicalPackageFile == null)
+						return packageFile.Path;
+				
+					var path = physicalPackageFile.SourcePath;
+			
+					int index = path.IndexOf(BasePath, StringComparison.OrdinalIgnoreCase);
+			
+					if (index != -1)
+						path = path.Substring(index + BasePath.Length).TrimStart(Path.DirectorySeparatorChar);
+	
+					return path;
+				};
+	
+			if (!BasePath.EndsWith(@"\"))
+				BasePath = BasePath + '\\';
+			
+			var excludes = Excludes != null ? Excludes
+				.Select(item => new Uri(BasePath)
+					.MakeRelativeUri(new Uri(item.ItemSpec, UriKind.RelativeOrAbsolute))
+					.ToString()
+					.Replace("/", @"\"))
+				.Concat(new[] { @"**\*.nuspec", @"**\*" + packageExtension }) : new string[0];
+			
+			PathResolver.FilterPackageFiles(builder.Files, resolvePath, excludes);
+			
+			string outputFileName = builder.Id + "." + builder.Version.ToString() + outputFileExtension;
+			
+			string outputPath = Path.Combine(OutputDirectory ?? Directory.GetCurrentDirectory(), outputFileName);
+	
+			bool isExistingPackage = File.Exists(outputPath);
+			
+			try
+			{
+					using (Stream stream = File.Create(outputPath))
+					{
+						builder.Save(stream);
+					}
+			}
+			catch
+			{
+					if (!isExistingPackage && File.Exists(outputPath))
+					{
+						File.Delete(outputPath);
+					}
+					throw;
+			}
+			
+			Packages[packageIndex] = new TaskItem(outputPath);
+	
+			Log.LogMessage("Package built successfully: {0}", outputPath);
+		};
+	
+	string projectName = Path.GetFileName(ProjectFile);
+	
+	Log.LogMessage("Building package for {0}...", projectName);
+	
+	build(0, packageExtension);
+	
+	if (Symbols)
+	{
+		Log.LogMessage("Building symbols package for {0}...", projectName);
+	
+		factoryType.GetProperty("IncludeSymbols").SetValue(factory, true, null);
+		
+		createBuilder();
+		
+		build(1, symbolsPackageExtension);
+	}
+}
+]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+	<Target Name="NuGetPack" Condition=" $(NuGetPackEnabled) == True ">
+
+		<!-- 
+			Workaround for an in-line task bug that causes Reference assemblies to be loaded from the 
+			MSBuild bin path even though the full assembly path is specified in the Reference element
+			and the assembly is successfully loaded during pre-processing of the UsingTask element (I know 
+			this because the binding error shows the full assembly display name, not the specified path.).
+		-->
+		<Copy Condition=" '$(BuildingInsideVisualStudio)' == False AND !EXISTS('$(MSBuildBinPath)$(NuGetProgramName)') "
+			SourceFiles="$(NuGetProgram)" DestinationFolder="$(MSBuildBinPath)" />
+		<Copy Condition=" '$(BuildingInsideVisualStudio)' == True AND !EXISTS('$(DevEnvDir)\$(NuGetProgramName)') " 
+			SourceFiles="$(NuGetProgram)" DestinationFolder="$(DevEnvDir)" />
+
+		<PropertyGroup>
+			<_NuGetExclude>@(NuGetExclude->'%(FullPath)')</_NuGetExclude>
+		</PropertyGroup>
+
+		<NuGetPack ProjectFile="$(NuGetProjectFile)"
+							 Configuration="$(Configuration)" Platform="$(Platform)"
+							 OutputDirectory="$(NuGetOutDir)" Excludes="$(_NuGetExclude)"
+							 BasePath="$(NuGetBasePath)" Version="$(NuGetVersion)"
+							 Tool="$(NuGetTool)" Symbols="$(NuGetSymbols)">
+			<Output TaskParameter="Packages" ItemName="NuGetPackages" />
+		</NuGetPack>
+
+	</Target>
+
+</Project>
