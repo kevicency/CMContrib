@@ -60,6 +60,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPF.Themes">
+      <HintPath>..\..\packages\wpfthemes.0.0.1\lib\WPF.Themes.dll</HintPath>
+    </Reference>
     <Reference Include="WPFToolkit.Extended">
       <HintPath>..\..\packages\Extended.Wpf.Toolkit.1.4.0\lib\40\WPFToolkit.Extended.dll</HintPath>
     </Reference>

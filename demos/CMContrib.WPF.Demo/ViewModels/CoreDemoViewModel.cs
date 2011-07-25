@@ -16,7 +16,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
             DisplayName = "Core Demo";
         }
 
-        [BusyCoroutine]
+        [BusyCoroutine(Message = "Custom Busy Message...")]
         public IEnumerable<IResult> Busy(int ms)
         {
             yield return new DelegateResult(() => LongRunningTask(ms));

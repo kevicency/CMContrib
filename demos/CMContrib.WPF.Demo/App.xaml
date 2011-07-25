@@ -1,19 +1,23 @@
 ﻿<Application x:Class="Caliburn.Micro.Contrib.WPF.Demo.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Caliburn.Micro.Contrib.WPF.Demo" xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended">
+             xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+             xmlns:local="clr-namespace:Caliburn.Micro.Contrib.WPF.Demo">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
                     <local:AppBootstrapper x:Key="bootstrapper" />
                 </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="/WPF.Themes;component/ExpressionDark/Theme.xaml" />
+        </ResourceDictionary.MergedDictionaries>
+            <Geometry x:Key="CloseX">M0,0 L1,1 M0,1 L1,0</Geometry>
+            
             <Style x:Key="{x:Type Button}" TargetType="Button">
                 <Setter Property="Margin" Value="3 5" />
                 <Setter Property="MinWidth" Value="100" />
                 <Setter Property="DockPanel.Dock" Value="Left" />
-                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="HorizontalAlignment" Value="Left" />
             </Style>
             <Style x:Key="{x:Type CheckBox}" TargetType="CheckBox">
                 <Setter Property="Margin" Value="3" />

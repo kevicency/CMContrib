@@ -33,11 +33,14 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                  {
                                      foreach (var file in files)
                                      {
-                                         fileContents.Add(File.ReadAllText(file));
+                                         var content = file + Environment.NewLine;
+                                         content += File.ReadAllText(file);
+                                         fileContents.Add(content);
                                      }
                                  })
-                                 .WhenCancelled().Execute(OnCancel);
+                                 .WhenCancelled().Execute(new LogResult("OpenFile cancelled").AsCoroutine);
 
+            yield return new LogResult("File contents:");
             foreach (var fileContent in fileContents)
             {
                 yield return new LogResult(fileContent);
@@ -55,7 +58,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                       .AddAllFilesFilter(isDefault: true))
                 .In(@"C:\")
                 .WithFileDo(file => { File.WriteAllText(file, "test"); })
-                .WhenCancelled().Execute(OnCancel);
+                .WhenCancelled().Execute(new LogResult("SaveFile cancelled").AsCoroutine);
 
             yield return new LogResult("Saving successfull");
         }
@@ -76,7 +79,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                         });
 
             yield return browseResult
-                .WhenCancelled().Execute(OnCancel);
+                .WhenCancelled().Execute(new LogResult("BrowseFolder cancelled").AsCoroutine);
 
             yield return new LogResult(string.Format("Files in {0}:", browseResult.SelectedPath));
 
@@ -123,7 +126,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                args.Result = result;
                            })
                 .WithResultDo((param, res) => message = string.Format("{0}! = {1}", param, res))
-                .WhenCancelled().Execute(OnCancel);
+                .WhenCancelled().Execute(new LogResult("Calculation cancelled").AsCoroutine);
 
             yield return new LogResult(message);
         }
@@ -152,8 +155,8 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                         Answer.Yes, Answer.No);
 
             yield return question.AsResult()
-                .CancelOnResponse(Answer.Cancel)
-                .WhenCancelled().Execute(OnCancel);
+                .CancelOnResponse(Answer.No)
+                .WhenCancelled().Execute(new LogResult("ShowQuestion cancelled").AsCoroutine);
 
             yield return new LogResult(string.Format("You responded with {0}", question.GivenResponse));
         }
@@ -161,7 +164,8 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
         public IEnumerable<IResult> ShowInformation()
         {
             var information = new Information("An Information",
-                                              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet?");
+                                              "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet?",
+                                              Answer.Ok);
 
             yield return information.AsResult();
         }
@@ -174,7 +178,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
 
             yield return warning.AsResult()
                 .CancelOnResponse(Answer.Abort)
-               .WhenCancelled().Execute(OnCancel);
+               .WhenCancelled().Execute(new LogResult("Aborted").AsCoroutine);
 
             yield return new LogResult(string.Format("You responded with {0}", warning.GivenResponse));
         }
@@ -182,18 +186,12 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
         public IEnumerable<IResult> ShowError()
         {
             var error = new Error("A Question",
-                                  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet?");
+                                  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet?",
+                                  Answer.Ok);
 
-            yield return error.AsResult()
-                .CancelOnResponse(Answer.Cancel)
-               .WhenCancelled().Execute(OnCancel);
+            yield return error.AsResult();
 
             yield return new LogResult(string.Format("You responded with {0}", error.GivenResponse));
-        }
-
-        private static IEnumerable<IResult> OnCancel()
-        {
-            yield return new LogResult(string.Format("Coroutine was cancelled"));
         }
     }
 }
