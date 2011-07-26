@@ -1,4 +1,6 @@
-﻿namespace Caliburn.Micro.Contrib.Interaction
+﻿using System.Collections.Generic;
+
+namespace Caliburn.Micro.Contrib.Interaction
 {
     public interface IDialogViewModel<TResponse>
     {

@@ -126,7 +126,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Page Include="Interaction\DialogView.xaml">
       <SubType>Designer</SubType>

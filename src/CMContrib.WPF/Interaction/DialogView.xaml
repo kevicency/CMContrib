@@ -14,7 +14,7 @@
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterOwner"
-        WindowStyle="SingleBorderWindow">
+        WindowStyle="ToolWindow">
     <Window.Resources>
         <Converter:DialogTypeToSystemIconConverter x:Key="IconConverter" />
         <Converter:EnumLocalizer x:Key="EnumLocalizer" />

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Caliburn.Micro.Contrib.Decorators;
 
 namespace Caliburn.Micro.Contrib.Filters
@@ -6,6 +7,7 @@ namespace Caliburn.Micro.Contrib.Filters
     /// <summary>
     ///   Delegates the execution of the coroutine to the thread pool
     /// </summary>
+    [AttributeUsage(AttributeTargets.Method)]
     public class AsyncCoroutineAttribute : DecorateCoroutineAttribute
     {
         public override IEnumerable<IResult> Decorate(IEnumerable<IResult> coroutine, ActionExecutionContext context)

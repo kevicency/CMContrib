@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Caliburn.Micro.Contrib.Results;
 
@@ -8,6 +9,7 @@ namespace Caliburn.Micro.Contrib.Filters
     ///   Shows a busy indicator to the user while the coroutine is executed. 
     ///   Also delegates the execution of the coroutine to the ThreadPool b/c the ui would block during the execution otherwise
     /// </summary>
+    [AttributeUsage(AttributeTargets.Method)]
     public class BusyCoroutineAttribute : AsyncCoroutineAttribute
     {
         public string Message { get; set; }
