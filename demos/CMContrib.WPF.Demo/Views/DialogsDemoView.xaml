@@ -24,7 +24,7 @@
                        VerticalAlignment="Center"
                        Text="Parameter:" />
             <Controls:IntegerUpDown x:Name="Parameter"
-                                    MinWidth="45"
+                                    MinWidth="45" Margin="3"
                                     VerticalAlignment="Center"
                                     DockPanel.Dock="Right"
                                     Increment="1"

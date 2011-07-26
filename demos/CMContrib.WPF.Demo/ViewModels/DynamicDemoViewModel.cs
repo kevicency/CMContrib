@@ -24,7 +24,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
             bool b)
         {
             yield return new LogResult(string.Format(
-                "DataContext: {0}\nTitle: {1}\nArgs: {2}\nButtonState: {3}\nBinding: {4}\nButtonContent: {5}\nBoolValue: {6}",
+                "Parameter Values:\nDataContext: {0}\nTitle: {1}\nArgs: {2}\nButtonState: {3}\nBinding: {4}\nButtonContent: {5}\nBoolValue: {6}",
                 dataContext,
                 title,
                 eventArgs,

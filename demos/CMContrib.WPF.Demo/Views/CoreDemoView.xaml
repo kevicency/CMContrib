@@ -1,24 +1,27 @@
 ﻿<UserControl x:Class="Caliburn.Micro.Contrib.WPF.Demo.Views.CoreDemoView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended" xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
+             xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
     <StackPanel>
         <DockPanel HorizontalAlignment="Stretch">
             <Button Content="Busy" Micro:Message.Attach="Busy(BusyDuration.Value)" />
             <TextBlock Margin="3 3 3 1"
-                               VerticalAlignment="Center"
-                               Text="ms:" />
+                       VerticalAlignment="Center"
+                       Text="ms:" />
             <Controls:IntegerUpDown x:Name="BusyDuration"
-                                            VerticalAlignment="Center"
-                                            DockPanel.Dock="Right"
-                                            Increment="250"
-                                            Maximum="10000"
-                                            Minimum="2000"
-                                            Value="5000" />
+                                    Margin="3"
+                                    VerticalAlignment="Center"
+                                    DockPanel.Dock="Right"
+                                    Increment="250"
+                                    Maximum="10000"
+                                    Minimum="2000"
+                                    Value="5000" />
         </DockPanel>
         <Button Content="Catch" Micro:Message.Attach="Catch" />
         <Button Content="Rescue" Micro:Message.Attach="Rescue" />
         <Button Content="Cancel" Micro:Message.Attach="Cancel" />
-    </StackPanel>            
+    </StackPanel>
 </UserControl>

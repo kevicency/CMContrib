@@ -11,28 +11,7 @@
                 </ResourceDictionary>
             <ResourceDictionary Source="/WPF.Themes;component/ExpressionDark/Theme.xaml" />
         </ResourceDictionary.MergedDictionaries>
-            <Geometry x:Key="CloseX">M0,0 L1,1 M0,1 L1,0</Geometry>
-            
-            <Style x:Key="{x:Type Button}" TargetType="Button">
-                <Setter Property="Margin" Value="3 5" />
-                <Setter Property="MinWidth" Value="100" />
-                <Setter Property="DockPanel.Dock" Value="Left" />
-                <Setter Property="HorizontalAlignment" Value="Left" />
-            </Style>
-            <Style x:Key="{x:Type CheckBox}" TargetType="CheckBox">
-                <Setter Property="Margin" Value="3" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="DockPanel.Dock" Value="Right" />
-            </Style>
-            <Style x:Key="{x:Type DockPanel}" TargetType="DockPanel">
-                <Setter Property="LastChildFill" Value="true" />
-            </Style>
-            <Style x:Key="{x:Type Controls:IntegerUpDown}" TargetType="Controls:IntegerUpDown">
-                <Setter Property="Margin" Value="3" />
-            </Style>
-            <Style x:Key="{x:Type ComboBox}" TargetType="ComboBox">
-                <Setter Property="Margin" Value="3" />
-            </Style>
+            <Geometry x:Key="CloseX">M0,0 L1,1 M0,1 L1,0</Geometry>          
         </ResourceDictionary>
     </Application.Resources>
 </Application>

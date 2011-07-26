@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using Caliburn.Micro.Contrib.Interaction;
 using Caliburn.Micro.Contrib.Results;
@@ -40,7 +41,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
                                  })
                                  .WhenCancelled().Execute(new LogResult("OpenFile cancelled").AsCoroutine);
 
-            yield return new LogResult("File contents:");
+
             foreach (var fileContent in fileContents)
             {
                 yield return new LogResult(fileContent);
@@ -50,7 +51,6 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
         public IEnumerable<IResult> SaveFile()
         {
             yield return new SaveFileResult()
-                .PromptForCreate()
                 .PromptForOverwrite()
                 .FilterFiles(x => x.AddFilter("xml").WithDefaultDescription()
                                       .AddFilter("txt").WithDescription("Text files")
@@ -81,12 +81,9 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
             yield return browseResult
                 .WhenCancelled().Execute(new LogResult("BrowseFolder cancelled").AsCoroutine);
 
-            yield return new LogResult(string.Format("Files in {0}:", browseResult.SelectedPath));
-
-            foreach (var folderItem in folderItems)
-            {
-                yield return new LogResult(folderItem);
-            }
+            yield return new LogResult(string.Format("Files in {0}:\n{1}",
+                                                     browseResult.SelectedPath,
+                                                     String.Join(Environment.NewLine, folderItems.ToArray())));
         }
 
         public IEnumerable<IResult> Calculate(int parameter)
