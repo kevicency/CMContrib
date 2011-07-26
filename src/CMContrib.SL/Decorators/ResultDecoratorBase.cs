@@ -22,9 +22,10 @@ namespace Caliburn.Micro.Contrib.Decorators
 
         public virtual void Execute(ActionExecutionContext context)
         {
-            var wrapper = _inner is SequentialResult
-                                  ? _inner
-                                  : new SequentialResult(new SingleResultEnumerator(_inner));
+            // Avoid deep nesting
+            var wrapper = (_inner is SequentialResult || _inner is ResultDecoratorBase)
+                              ? _inner
+                              : new SequentialResult(new SingleResultEnumerator(_inner));
 
             wrapper.Completed += InnerCompleted;
 

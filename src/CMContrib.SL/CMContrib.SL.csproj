@@ -70,14 +70,13 @@
   <ItemGroup>
     <Compile Include="Decorators\OverrideCancelResultDecorator.cs" />
     <Compile Include="Extensions\ActionExecutionContextExtensions.cs" />
-    <Compile Include="Decorators\CatchResultDecorator.cs" />
     <Compile Include="Filters\AsyncCoroutineAttribute.cs" />
     <Compile Include="Filters\BusyCoroutineAttribute.cs" />
     <Compile Include="Filters\DecorateCoroutineAttribute.cs" />
     <Compile Include="Filters\IDecorateCoroutineFilter.cs" />
     <Compile Include="Filters\IFilter.cs" />
     <Compile Include="Decorators\AsyncResultDecorator.cs" />
-    <Compile Include="Filters\CatchCoroutineAttribute.cs" />
+    <Compile Include="Filters\RescueAttribute.cs" />
     <Compile Include="Interaction\IBusyIndicator.cs" />
     <Compile Include="Localizer.cs" />
     <Compile Include="MessageSyntaxes.cs" />

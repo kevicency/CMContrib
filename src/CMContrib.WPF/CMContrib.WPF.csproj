@@ -70,9 +70,6 @@
     <Compile Include="..\CMContrib.SL\Decorators\AsyncResultDecorator.cs">
       <Link>Decorators\AsyncResultDecorator.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Decorators\CatchResultDecorator.cs">
-      <Link>Decorators\CatchResultDecorator.cs</Link>
-    </Compile>
     <Compile Include="..\CMContrib.SL\Decorators\ContinueResultDecorator.cs">
       <Link>Decorators\ContinueResultDecorator.cs</Link>
     </Compile>

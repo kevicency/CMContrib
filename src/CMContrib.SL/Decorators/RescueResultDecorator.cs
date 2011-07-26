@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Caliburn.Micro.Contrib.Decorators
 {
+    /// <summary>
+    ///   A result decorator which rescues errors from the inner result by executing a rescue coroutine
+    /// </summary>
     internal class RescueResultDecorator : RescueResultDecorator<Exception>
     {
         public RescueResultDecorator(IResult inner, Func<Exception, IEnumerable<IResult>> rescue, bool cancelResult)
@@ -13,7 +16,7 @@ namespace Caliburn.Micro.Contrib.Decorators
     }
 
     /// <summary>
-    ///   A result decorator which executes a coroutine when the inner result completes with an error
+    ///   A result decorator which rescues errors from the inner result by executing a rescue coroutine
     /// </summary>
     /// <typeparam name = "TException">The type of the exception we want to perform the rescue on</typeparam>
     internal class RescueResultDecorator<TException> : ResultDecoratorBase
@@ -43,7 +46,7 @@ namespace Caliburn.Micro.Contrib.Decorators
             get { return _log; }
         }
 
-        private void LogRescuedError(TException error)
+        private static void LogRescuedError(TException error)
         {
             var sb = new StringBuilder();
             sb.AppendFormat("Rescued {0}", error.GetType().FullName).AppendLine();
@@ -56,7 +59,29 @@ namespace Caliburn.Micro.Contrib.Decorators
         public override void Execute(ActionExecutionContext context)
         {
             _context = context;
-            base.Execute(context);
+            try
+            {
+                base.Execute(context);
+            }
+            catch (TException e)
+            {
+                Handle(e);
+            }
+        }
+        
+        private void Handle(TException error)
+        {
+            LogRescuedError(error);
+
+            try
+            {
+                Rescue(error);
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                OnCompleted(new ResultCompletionEventArgs {Error = e});
+            }
         }
 
         protected override void InnerCompleted(object sender, ResultCompletionEventArgs args)
@@ -65,19 +90,7 @@ namespace Caliburn.Micro.Contrib.Decorators
 
             if (args.Error is TException)
             {
-                var error = (TException) args.Error;
-
-                LogRescuedError(error);
-
-                try
-                {
-                    Rescue(error);
-                }
-                catch (Exception e)
-                {
-                    Log.Error(e);
-                    OnCompleted(new ResultCompletionEventArgs {Error = e});
-                }
+                Handle(args.Error as TException);
             }
             else
             {
