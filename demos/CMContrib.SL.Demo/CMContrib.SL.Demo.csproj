@@ -9,8 +9,8 @@
     <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CMContrib.SL.Demo</RootNamespace>
-    <AssemblyName>CMContrib.SL.Demo</AssemblyName>
+    <RootNamespace>Caliburn.Micro.Contrib.Demo</RootNamespace>
+    <AssemblyName>Caliburn.Micro.Contrib.SL.Demo</AssemblyName>
     <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
@@ -19,9 +19,9 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>CMContrib.SL.Demo.xap</XapFilename>
+    <XapFilename>Caliburn.Micro.Contrib.SL.Demo.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <SilverlightAppEntry>CMContrib.SL.Demo.App</SilverlightAppEntry>
+    <SilverlightAppEntry>Caliburn.Micro.Contrib.Demo.App</SilverlightAppEntry>
     <TestPageFileName>CMContrib.SL.DemoTestPage.html</TestPageFileName>
     <CreateTestPage>true</CreateTestPage>
     <ValidateXaml>true</ValidateXaml>
@@ -73,6 +73,19 @@
     <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Caliburn.Micro.1.1.0\lib\SL40\System.Windows.Controls.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SilverlightToolkit-Input.4.2010.4\lib\sl4\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SilverlightToolkit-Layout.4.2010.4\lib\sl4\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Theming.ExpressionDark, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SilverlightToolkit-Theming.4.2010.4\lib\sl4\System.Windows.Controls.Theming.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SilverlightToolkit-Core.4.2010.4\lib\sl4\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Caliburn.Micro.1.1.0\lib\SL40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -80,20 +93,76 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CMContrib.WPF.Demo\Results\CancelResult.cs">
+      <Link>Results\CancelResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\Results\ErrorResult.cs">
+      <Link>Results\ErrorResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\Results\LogResult.cs">
+      <Link>Results\LogResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\ShellViewModel.cs">
+      <Link>ShellViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\CoreDemoViewModel.cs">
+      <Link>ViewModels\CoreDemoViewModel.cs</Link>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="IShell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShellViewModel.cs" />
+    <Compile Include="ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DialogsDemoViewModel.cs" />
+    <Compile Include="ViewModels\DynamicDemoViewModel.cs" />
+    <Compile Include="Views\CoreDemoView.xaml.cs">
+      <DependentUpon>CoreDemoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DialogsDemoView.xaml.cs">
+      <DependentUpon>DialogsDemoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DynamicDemoView.xaml.cs">
+      <DependentUpon>DynamicDemoView.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="..\CMContrib.WPF.Demo\Properties\Demo.resx">
+      <Link>Properties\Demo.resx</Link>
+    </EmbeddedResource>
+    <Compile Include="..\CMContrib.WPF.Demo\Properties\Demo.Designer.cs">
+      <Link>Properties\Demo.Designer.cs</Link>
+    </Compile>
+    <EmbeddedResource Include="..\CMContrib.WPF.Demo\Properties\Demo.de-DE.resx">
+      <Link>Properties\Demo.de-DE.resx</Link>
+    </EmbeddedResource>
+    <Compile Include="..\CMContrib.WPF.Demo\Properties\Demo.de-DE.Designer.cs">
+      <Link>Properties\Demo.de-DE.Designer.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CoreDemoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DialogsDemoView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DynamicDemoView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -111,6 +180,7 @@
       <Name>CMContrib.SL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

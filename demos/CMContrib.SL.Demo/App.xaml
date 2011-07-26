@@ -1,7 +1,15 @@
-﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:CMContrib.SL.Demo" x:Class="CMContrib.SL.Demo.App"
-             >
-<Application.Resources>
-        <local:AppBootstrapper x:Key="bootstrapper" />
+﻿<Application x:Class="Caliburn.Micro.Contrib.Demo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:Caliburn.Micro.Contrib.Demo" xmlns:System="clr-namespace:System;assembly=mscorlib" xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:AppBootstrapper x:Key="bootstrapper" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="/Caliburn.Micro.Contrib.SL.Demo;component/Resources/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
+    
 </Application>

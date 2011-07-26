@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.Win32;
 
-namespace Caliburn.Micro.Contrib.WPF.Demo
+namespace Caliburn.Micro.Contrib.Demo
 {
     /// <summary>
     /// Interaction logic for App.xaml

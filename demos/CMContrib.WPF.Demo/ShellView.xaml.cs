@@ -1,7 +1,8 @@
 using System.Windows;
 using Caliburn.Micro.Contrib.Interaction;
+using WPF.Themes;
 
-namespace Caliburn.Micro.Contrib.WPF.Demo
+namespace Caliburn.Micro.Contrib.Demo
 {
     public partial class ShellView : Window, IBusyIndicator
     {

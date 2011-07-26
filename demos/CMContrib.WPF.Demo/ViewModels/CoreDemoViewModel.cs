@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Threading;
+using Caliburn.Micro.Contrib.Demo.Results;
 using Caliburn.Micro.Contrib.Filters;
 using Caliburn.Micro.Contrib.Results;
-using Caliburn.Micro.Contrib.WPF.Demo.Results;
 
-namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
+namespace Caliburn.Micro.Contrib.Demo.ViewModels
 {
     [Export(typeof(IDemo))]
     public class CoreDemoViewModel : Screen, IDemo
@@ -22,7 +22,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
             yield return new DelegateResult(() => LongRunningTask(ms));
         }
 
-        [CatchCoroutine(MethodName = "GeneralRescue")]
+        [Rescue(MethodName = "GeneralRescue")]
         public IEnumerable<IResult> Catch()
         {
             yield return new DelegateResult(() =>
@@ -61,7 +61,7 @@ namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
             Thread.Sleep(ms);
         }
 
-        private static IEnumerable<IResult> GeneralRescue(Exception e)
+        public static IEnumerable<IResult> GeneralRescue(Exception e)
         {
             yield return new LogResult(string.Format("Rescued Exception of type \'{0}\' with coroutine", e.GetType()));
         }

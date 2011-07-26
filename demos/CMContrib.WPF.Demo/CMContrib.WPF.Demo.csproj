@@ -8,7 +8,7 @@
     <ProjectGuid>{B591FF84-1963-4078-8CEE-00494CAA9CE0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Caliburn.Micro.Contrib.WPF.Demo</RootNamespace>
+    <RootNamespace>Caliburn.Micro.Contrib.Demo</RootNamespace>
     <AssemblyName>Caliburn.Micro.Contrib.WPF.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
@@ -102,6 +102,10 @@
     <Compile Include="Views\DynamicDemoView.xaml.cs">
       <DependentUpon>DynamicDemoView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,7 +142,7 @@
       <LastGenOutput>Demo.de-DE.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Demo.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Demo.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />

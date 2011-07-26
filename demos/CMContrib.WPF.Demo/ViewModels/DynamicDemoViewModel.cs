@@ -2,9 +2,9 @@
 using System.ComponentModel.Composition;
 using System.Windows.Input;
 using System.Windows.Media;
-using Caliburn.Micro.Contrib.WPF.Demo.Results;
+using Caliburn.Micro.Contrib.Demo.Results;
 
-namespace Caliburn.Micro.Contrib.WPF.Demo.ViewModels
+namespace Caliburn.Micro.Contrib.Demo.ViewModels
 {
     [Export(typeof(IDemo))]
     public class DynamicDemoViewModel : Screen, IDemo

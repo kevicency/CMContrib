@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Caliburn.Micro.Contrib.WPF.Demo.Views.DialogsDemoView"
+﻿<UserControl x:Class="Caliburn.Micro.Contrib.Demo.Views.DialogsDemoView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
@@ -30,7 +30,7 @@
                                     Increment="1"
                                     Maximum="20"
                                     Minimum="0"
-                                    Value="0" />
+                                    Value="3" />
         </DockPanel>
 
         <Button Content="Question" Micro:Message.Attach="ShowQuestion" />

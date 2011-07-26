@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Caliburn.Micro.Contrib.WPF.Demo.Views
+namespace Caliburn.Micro.Contrib.Demo.Views
 {
     /// <summary>
     /// Interaction logic for DynamicDemoView.xaml

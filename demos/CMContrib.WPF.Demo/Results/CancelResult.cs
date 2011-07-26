@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Caliburn.Micro.Contrib.WPF.Demo.Results
+namespace Caliburn.Micro.Contrib.Demo.Results
 {
     internal class CancelResult : IResult
     {

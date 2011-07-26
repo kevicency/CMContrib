@@ -1,17 +1,16 @@
-﻿<Application x:Class="Caliburn.Micro.Contrib.WPF.Demo.App"
+﻿<Application x:Class="Caliburn.Micro.Contrib.Demo.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
-             xmlns:local="clr-namespace:Caliburn.Micro.Contrib.WPF.Demo">
+             xmlns:local="clr-namespace:Caliburn.Micro.Contrib.Demo">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
                     <local:AppBootstrapper x:Key="bootstrapper" />
                 </ResourceDictionary>
-            <ResourceDictionary Source="/WPF.Themes;component/ExpressionDark/Theme.xaml" />
-        </ResourceDictionary.MergedDictionaries>
-            <Geometry x:Key="CloseX">M0,0 L1,1 M0,1 L1,0</Geometry>          
+                <ResourceDictionary Source="/WPF.Themes;component/ExpressionDark/Theme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Geometry x:Key="CloseX">M0,0 L1,1 M0,1 L1,0</Geometry>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
