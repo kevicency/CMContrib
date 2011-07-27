@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="Caliburn.Micro.Contrib.Demo.Views.DynamicDemoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
+    <StackPanel>
+        <Button MinWidth="{StaticResource ButtonMinWidth}"
+                Margin="{StaticResource ButtonMargin}"
+                HorizontalAlignment="{StaticResource ButtonHAlignment}"
+                Micro:Message.Attach="[Action ShowMessage($dataContext,$dataContext.DisplayName,$eventArgs,{Binding Path=Foreground, ElementName=ButtonContent},ButtonContent.Text,'true')]">
+            <Button.Content>
+                <TextBlock x:Name="ButtonContent"
+                           Text="Complex Binding"
+                           TextWrapping="Wrap" />
+            </Button.Content>
+        </Button>
+    </StackPanel>
+</UserControl>

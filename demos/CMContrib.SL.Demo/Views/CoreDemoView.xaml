@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Caliburn.Micro.Contrib.Demo.Views.CoreDemoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+             xmlns:Controls1="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
+    <StackPanel>
+        <Controls:DockPanel HorizontalAlignment="Stretch" LastChildFill="True">
+            <Button MinWidth="{StaticResource ButtonMinWidth}"
+                    Margin="{StaticResource ButtonMargin}"
+                    HorizontalAlignment="{StaticResource ButtonHAlignment}"
+                    Content="Busy"
+                    Micro:Message.Attach="Busy(BusyDuration.Value)" />
+            <TextBlock Margin="3 3 3 1"
+                       VerticalAlignment="Center"
+                       Text="ms:" />
+            <Controls1:NumericUpDown x:Name="BusyDuration"
+                                     Margin="3"
+                                     VerticalAlignment="Center"
+                                     HorizontalAlignment="Stretch"
+                                     DecimalPlaces="0"
+                                     Increment="250"
+                                     Maximum="10000"
+                                     Minimum="2000"
+                                     Value="5000" />
+        </Controls:DockPanel>
+        <Button MinWidth="{StaticResource ButtonMinWidth}"
+                Margin="{StaticResource ButtonMargin}"
+                HorizontalAlignment="{StaticResource ButtonHAlignment}"
+                Content="Catch"
+                Micro:Message.Attach="Catch" />
+        <Button MinWidth="{StaticResource ButtonMinWidth}"
+                HorizontalAlignment="{StaticResource ButtonHAlignment}"
+                Margin="{StaticResource ButtonMargin}"
+                Content="Rescue"
+                Micro:Message.Attach="Rescue" />
+        <Button MinWidth="{StaticResource ButtonMinWidth}"
+                HorizontalAlignment="{StaticResource ButtonHAlignment}"
+                Margin="{StaticResource ButtonMargin}"
+                Content="Cancel"
+                Micro:Message.Attach="Cancel" />
+    </StackPanel>
+</UserControl>
