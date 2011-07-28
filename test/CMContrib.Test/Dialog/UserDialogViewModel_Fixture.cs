@@ -46,13 +46,13 @@ namespace CMContrib.Test.Dialog
         }
 
         [Test]
-        public void SettingDialog_SecondResponseIsCancel()
+        public void SettingDialog_LastResponseIsCancel()
         {
             var sut = new DialogViewModel<string>();
 
             sut.Dialog = _userDialog;
 
-            Assert.IsTrue(sut.Responses[1].IsCancel);
+            Assert.IsTrue(sut.Responses[sut.Responses.Count-1].IsCancel);
         }
 
         [Test]

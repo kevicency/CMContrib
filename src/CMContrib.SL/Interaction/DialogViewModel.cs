@@ -64,7 +64,7 @@ namespace Caliburn.Micro.Contrib.Interaction
                                            .Select(x => new BindableResponse<TResponse> {Response = x}));
 
                     Responses.First().IsDefault = true;
-                    if (count > 1) Responses.Last().IsCancel = false;
+                    if (count > 1) Responses.Last().IsCancel = true;
                 }
             }
         }

@@ -38,7 +38,7 @@ namespace Caliburn.Micro.Contrib.Decorators
         protected override void InnerCompleted(object sender, ResultCompletionEventArgs e)
         {
             base.InnerCompleted(sender, e);
-
+            
             Micro.Execute.OnUIThread(
                 () => OnCompleted(new ResultCompletionEventArgs {WasCancelled = e.WasCancelled, Error = e.Error}));
         }

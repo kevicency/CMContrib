@@ -11,55 +11,36 @@ using NUnit.Framework;
 namespace CMContrib.Test.Decorators.RescueCoroutine
 {
     [TestFixture]
-    public class InnerResultFails
+    public class InnerResultThrows
     {
-        private readonly ArgumentException _error = new ArgumentException();
-        IResult _inner;
+        #region Setup/Teardown
 
         [SetUp]
         public void SetUp()
         {
-            _inner = TestHelper.MockResult(false, _error).Object;
+            _inner = TestHelper.ThrowingResult(_error).Object;
         }
 
+        #endregion
+
+        private readonly ArgumentException _error = new ArgumentException();
+        IResult _inner;
+
+
         [Test]
-        public void ResultIsCancelled()
+        public void RescueSpecific_NotRescuesOtherThrownExceptions()
         {
-            var sut = new RescueResultDecorator(_inner, ex => TestHelper.EmptyCoroutine, true);
+            var sut = new RescueResultDecorator<IOException>(_inner, ex => TestHelper.EmptyCoroutine, true);
 
             var args = sut.BlockingExecute();
 
-            Assert.IsTrue(args.WasCancelled);
+            Assert.AreSame(_error, args.Error);
         }
 
         [Test]
-        public void ResultFailsWhenRescueFails()
+        public void RescueSpecific_RescuesSpecificThrownException()
         {
-            var rescueError = new Exception();
-
-            var sut = new RescueResultDecorator(_inner, ex => TestHelper.MockResult(false, rescueError).Object.AsCoroutine(), true);
-
-            var args = sut.BlockingExecute();
-
-            Assert.AreSame(rescueError, args.Error);
-        }
-
-        [Test]
-        public void ResultFailsWhenRescueThrows()
-        {
-            var thrownException = new Exception();
-
-            var sut = new RescueResultDecorator(_inner, ex => { throw thrownException; }, true);
-
-            var args = sut.BlockingExecute();
-
-            Assert.AreSame(thrownException, args.Error);
-        }
-
-        [Test]
-        public void Rescue_RescuesAllErrors()
-        {
-            var sut = new RescueResultDecorator(_inner, ex => TestHelper.EmptyCoroutine, true);
+            var sut = new RescueResultDecorator<ArgumentException>(_inner, ex => TestHelper.EmptyCoroutine, true);
 
             var args = sut.BlockingExecute();
 
@@ -67,11 +48,39 @@ namespace CMContrib.Test.Decorators.RescueCoroutine
         }
 
         [Test]
+        public void Rescue_RescuesAllThrownExceptions()
+        {
+            var sut = new RescueResultDecorator(_inner, ex => TestHelper.EmptyCoroutine, true);
+
+            var args = sut.BlockingExecute();
+
+            Assert.IsNull(args.Error);
+        }
+    }
+
+    [TestFixture]
+    public class InnerResultFails
+    {
+        #region Setup/Teardown
+
+        [SetUp]
+        public void SetUp()
+        {
+            _inner = TestHelper.MockResult(false, _error).Object;
+        }
+
+        #endregion
+
+        private readonly ArgumentException _error = new ArgumentException();
+        IResult _inner;
+
+        [Test]
         public void RescueCoroutineIsExecuted()
         {
             Exception rescuedError = null;
 
-            Func<Exception, IEnumerable<IResult>> handler = ex => new DelegateResult(() => rescuedError = ex).AsCoroutine();
+            Func<Exception, IEnumerable<IResult>> handler =
+                ex => new DelegateResult(() => rescuedError = ex).AsCoroutine();
 
             var sut = new RescueResultDecorator(_inner, handler, true);
 
@@ -99,6 +108,16 @@ namespace CMContrib.Test.Decorators.RescueCoroutine
         }
 
         [Test]
+        public void RescueSpecific_NotRescuesOtherErrors()
+        {
+            var sut = new RescueResultDecorator<IOException>(_inner, ex => TestHelper.EmptyCoroutine, true);
+
+            var args = sut.BlockingExecute();
+
+            Assert.AreSame(_error, args.Error);
+        }
+
+        [Test]
         public void RescueSpecific_RescuesSpecificErrors()
         {
             var sut = new RescueResultDecorator<ArgumentException>(_inner, ex => TestHelper.EmptyCoroutine, true);
@@ -109,13 +128,49 @@ namespace CMContrib.Test.Decorators.RescueCoroutine
         }
 
         [Test]
-        public void RescueSpecific_NotRescuesOtherErrors()
+        public void Rescue_RescuesAllErrors()
         {
-            var sut = new RescueResultDecorator<IOException>(_inner, ex => TestHelper.EmptyCoroutine, true);
+            var sut = new RescueResultDecorator(_inner, ex => TestHelper.EmptyCoroutine, true);
 
             var args = sut.BlockingExecute();
 
-            Assert.AreSame(_error, args.Error);
+            Assert.IsNull(args.Error);
+        }
+
+        [Test]
+        public void ResultFailsWhenRescueFails()
+        {
+            var rescueError = new Exception();
+
+            var sut = new RescueResultDecorator(_inner,
+                                                ex => TestHelper.MockResult(false, rescueError).Object.AsCoroutine(),
+                                                true);
+
+            var args = sut.BlockingExecute();
+
+            Assert.AreSame(rescueError, args.Error);
+        }
+
+        [Test]
+        public void ResultFailsWhenRescueThrows()
+        {
+            var thrownException = new Exception();
+
+            var sut = new RescueResultDecorator(_inner, ex => { throw thrownException; }, true);
+
+            var args = sut.BlockingExecute();
+
+            Assert.AreSame(thrownException, args.Error);
+        }
+
+        [Test]
+        public void ResultIsCancelled()
+        {
+            var sut = new RescueResultDecorator(_inner, ex => TestHelper.EmptyCoroutine, true);
+
+            var args = sut.BlockingExecute();
+
+            Assert.IsTrue(args.WasCancelled);
         }
     }
 }
