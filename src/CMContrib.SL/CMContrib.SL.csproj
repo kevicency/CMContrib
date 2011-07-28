@@ -99,7 +99,7 @@
     <Compile Include="Helper\RescueHandler.cs" />
     <Compile Include="Results\DelegateResult.cs" />
     <Compile Include="Results\IOpenResult.cs" />
-    <Compile Include="Results\OpenChildResult.cs" />
+    <Compile Include="Results\ConductResult.cs" />
     <Compile Include="Results\OpenResultBase.cs" />
     <Compile Include="SingleResultEnumerator.cs" />
     <Compile Include="Extensions\DialogExtensions.cs" />

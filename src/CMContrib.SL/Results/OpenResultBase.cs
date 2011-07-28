@@ -37,9 +37,14 @@ namespace Caliburn.Micro.Contrib.Results
 
         private event EventHandler<ResultCompletionEventArgs> _completed = delegate { };
 
-        protected virtual void OnCompleted(Exception exception, bool wasCancelled)
+        protected void OnCompleted(Exception exception, bool wasCancelled)
         {
-            _completed(this, new ResultCompletionEventArgs {Error = exception, WasCancelled = wasCancelled});
+            OnCompleted(new ResultCompletionEventArgs {Error = exception, WasCancelled = wasCancelled});
+        }
+
+        protected virtual void OnCompleted(ResultCompletionEventArgs args)
+        {
+            _completed(this, args);
         }
     }
 }

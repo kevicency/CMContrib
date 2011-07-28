@@ -176,14 +176,14 @@
       <Link>Properties\AssemblyInfo.cs</Link>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="..\CMContrib.SL\Results\ConductResult.cs">
+      <Link>Results\ConductResult.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.SL\Results\DelegateResult.cs">
       <Link>Results\DelegateResult.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Results\IOpenResult.cs">
       <Link>Results\IOpenResult.cs</Link>
-    </Compile>
-    <Compile Include="..\CMContrib.SL\Results\OpenChildResult.cs">
-      <Link>Results\OpenChildResult.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Results\OpenResultBase.cs">
       <Link>Results\OpenResultBase.cs</Link>
