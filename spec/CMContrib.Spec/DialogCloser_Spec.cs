@@ -4,27 +4,29 @@ using Caliburn.Micro.Contrib;
 using Machine.Fakes;
 using Machine.Fakes.Adapters.Moq;
 using Machine.Specifications;
+using It = Machine.Specifications.It;
 
 namespace CMContrib.Spec
 {
-    [Subject(typeof(DialogCloser))]
+    [Subject(typeof (DialogCloser))]
     public class DialogCloser_Spec : WithFakes<MoqFakeEngine>
     {
+        Establish that = () => Window = new Window();
+
         protected static Window Window;
 
-        Establish context = () => Window = new Window();
-
-        [Subject(typeof(DialogCloser))]
+        [Subject(typeof (DialogCloser))]
         public class when_set_on_a_dialog_window : DialogCloser_Spec
         {
-            static Exception Exception;
-
             /// <summary>
-            /// Since we cannot moq the window, we have to do it the ugly way
+            ///   Since we cannot moq the window, we have to do it the ugly way
             /// </summary>
-            Because of = () => Exception = Catch.Exception(() => Window.SetValue(DialogCloser.DialogResultProperty, true));
+            Because of =
+                () => Exception = Catch.Exception(() => Window.SetValue(DialogCloser.DialogResultProperty, true));
 
-            It sets_the_dialog_result_of_the_window = () => Exception.ShouldBe(typeof(InvalidOperationException));
+            It sets_the_dialog_result_of_the_window = () => Exception.ShouldBe(typeof (InvalidOperationException));
+
+            static Exception Exception;
         }
     }
 }
