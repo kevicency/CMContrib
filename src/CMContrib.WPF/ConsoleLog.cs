@@ -28,7 +28,7 @@ namespace Caliburn.Micro.Contrib
 
         public void Error(Exception exception)
         {
-            Console.WriteLine("[{1}] Error: {0}", exception, _type.Name);
+            Console.WriteLine("[{1}] ERROR: {0}", exception, _type.Name);
         }
 
         #endregion
