@@ -89,7 +89,6 @@
       <DependentUpon>CMContrib.resx</DependentUpon>
     </Compile>
     <Compile Include="Converter\EnumLocalizer.cs" />
-    <Compile Include="ConsoleLog.cs" />
     <Compile Include="Decorators\ResultDecoratorBase.cs" />
     <Compile Include="Decorators\ContinueResultDecorator.cs" />
     <Compile Include="Decorators\RescueResultDecorator.cs" />

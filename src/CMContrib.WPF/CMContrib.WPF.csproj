@@ -62,9 +62,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\CMContrib.SL\ConsoleLog.cs">
-      <Link>ConsoleLog.cs</Link>
-    </Compile>
     <Compile Include="..\CMContrib.SL\Converter\EnumLocalizer.cs">
       <Link>Converter\EnumLocalizer.cs</Link>
     </Compile>
@@ -195,6 +192,7 @@
     <Compile Include="..\CMContrib.SL\SingleResultEnumerator.cs">
       <Link>SingleResultEnumerator.cs</Link>
     </Compile>
+    <Compile Include="ConsoleLog.cs" />
     <Compile Include="DialogCloser.cs" />
     <Compile Include="Results\BrowseFolderResult.cs" />
     <Compile Include="Helper\FileFilterCollection.cs" />
