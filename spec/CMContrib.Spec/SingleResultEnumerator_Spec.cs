@@ -29,7 +29,7 @@ namespace CMContrib.Spec
         It has_no_current_item = () => Sut.Current.ShouldBeNull();
     }
 
-    [Subject(typeof(SingleResultEnumerator))]
+    [Subject(typeof (SingleResultEnumerator))]
     public class when_moved_next_once : SingleResultEnumerator_Spec
     {
         Because of = () => Sut.MoveNext();
@@ -39,7 +39,7 @@ namespace CMContrib.Spec
     }
 
 
-    [Subject(typeof(SingleResultEnumerator))]
+    [Subject(typeof (SingleResultEnumerator))]
     public class when_resetted_after_moved_next_once : SingleResultEnumerator_Spec
     {
         Because of = () =>

@@ -4,7 +4,6 @@ using Caliburn.Micro.Contrib;
 using Machine.Fakes;
 using Machine.Fakes.Adapters.Moq;
 using Machine.Specifications;
-using It = Machine.Specifications.It;
 
 namespace CMContrib.Spec
 {
