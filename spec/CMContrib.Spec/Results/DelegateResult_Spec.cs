@@ -11,13 +11,13 @@ namespace CMContrib.Spec.Results
     {
         static ResultCompletionEventArgs CompletionArgs;
 
-        static DelegateResult Sut;
-
         protected static void CreateSut(Action action)
         {
             Sut = new DelegateResult(action);
             Sut.Completed += (sender, args) => CompletionArgs = args;
         }
+
+        static DelegateResult Sut;
 
         [Subject(typeof (DelegateResult), "when executed")]
         public class with_fail_action

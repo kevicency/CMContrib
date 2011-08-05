@@ -26,14 +26,9 @@ namespace Caliburn.Micro.Contrib.Results
             remove { _completed -= value; }
         }
 
-        void IResult.Execute(ActionExecutionContext context)
-        {
-            Execute(context);
-        }
-
         #endregion
 
-        protected abstract void Execute(ActionExecutionContext context);
+        public abstract void Execute(ActionExecutionContext context);
 
         private event EventHandler<ResultCompletionEventArgs> _completed = delegate { };
 

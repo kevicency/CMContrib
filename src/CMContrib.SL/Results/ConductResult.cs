@@ -61,7 +61,7 @@ namespace Caliburn.Micro.Contrib.Results
             }
         }
 
-        protected override void Execute(ActionExecutionContext context)
+        public override void Execute(ActionExecutionContext context)
         {
             IConductor conductor = _locateConductor(context);
             TItem item = _locateItem(context);

@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="DialogCloser_Spec.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\ConductResult_Spec.cs" />
     <Compile Include="Results\DelegateResult_Spec.cs" />
     <Compile Include="SingleResultEnumerator_Spec.cs" />
     <Compile Include="WithMoqFakes.cs" />
