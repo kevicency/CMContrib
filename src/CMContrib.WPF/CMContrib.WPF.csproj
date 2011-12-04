@@ -84,9 +84,6 @@
     <Compile Include="..\CMContrib.SL\Extensions\DialogExtensions.cs">
       <Link>Extensions\DialogExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Extensions\FrameworkExtensions.cs">
-      <Link>Extensions\FrameworkExtensions.cs</Link>
-    </Compile>
     <Compile Include="..\CMContrib.SL\Extensions\ResultExtensions.cs">
       <Link>Extensions\ResultExtensions.cs</Link>
     </Compile>
@@ -119,6 +116,9 @@
     </Compile>
     <Compile Include="..\CMContrib.SL\Dialogs\Error.cs">
       <Link>Dialogs\Error.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\FrameworkExtensions.cs">
+      <Link>FrameworkExtensions.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\IBusyIndicator.cs">
       <Link>IBusyIndicator.cs</Link>

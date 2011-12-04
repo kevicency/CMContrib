@@ -94,7 +94,7 @@
     <Compile Include="Decorators\RescueResultDecorator.cs" />
     <Compile Include="DialogCloser.cs" />
     <Compile Include="Dynamic.cs" />
-    <Compile Include="Extensions\FrameworkExtensions.cs" />
+    <Compile Include="FrameworkExtensions.cs" />
     <Compile Include="Helper\CancelledHandler.cs" />
     <Compile Include="Helper\ICancelledHandler.cs" />
     <Compile Include="Helper\IExceptionHandler.cs" />
