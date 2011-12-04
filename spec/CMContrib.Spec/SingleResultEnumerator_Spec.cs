@@ -7,6 +7,7 @@ using It = Machine.Specifications.It;
 namespace CMContrib.Spec
 {
     [Subject(typeof (SingleResultEnumerator))]
+    [SetupForEachSpecification]
     public class SingleResultEnumerator_Spec
     {
         Establish that = () =>
@@ -16,20 +17,19 @@ namespace CMContrib.Spec
                 .Raises(result => result.Completed += null);
 
             Result = mock.Object;
+            Sut = new SingleResultEnumerator(Result);
         };
 
         protected static IResult Result;
         protected static SingleResultEnumerator Sut;
     }
 
-    [Subject(typeof (SingleResultEnumerator))]
     public class when_created : SingleResultEnumerator_Spec
     {
         It can_move_next = () => Sut.MoveNext().ShouldBeTrue();
         It has_no_current_item = () => Sut.Current.ShouldBeNull();
     }
 
-    [Subject(typeof (SingleResultEnumerator))]
     public class when_moved_next_once : SingleResultEnumerator_Spec
     {
         Because of = () => Sut.MoveNext();
@@ -38,8 +38,6 @@ namespace CMContrib.Spec
         It has_result_as_current_item = () => Sut.Current.ShouldEqual(Result);
     }
 
-
-    [Subject(typeof (SingleResultEnumerator))]
     public class when_resetted_after_moved_next_once : SingleResultEnumerator_Spec
     {
         Because of = () =>

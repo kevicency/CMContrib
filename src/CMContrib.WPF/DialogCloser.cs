@@ -16,7 +16,8 @@ namespace Caliburn.Micro.Contrib
             DependencyPropertyChangedEventArgs e)
         {
             var window = d as Window;
-            if (window != null && window.IsActive) window.DialogResult = e.NewValue as bool?;
+            if (window != null && window.IsActive)
+                window.DialogResult = e.NewValue as bool?;
         }
 
         public static void SetDialogResult(Window target, bool? value)

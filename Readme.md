@@ -21,7 +21,7 @@ Easy way to show dialogs to the user. There are four predefined Dialogs
 - Question
 - Error
  
-For more Information see [Blog post](http://codesomnia.de/2011/mvvm-dialogs-with-caliburn-micro/).
+For more Information see [Blog post](http://kmees.github.com/blog/2011/06/16/mvvm-dialogs-with-caliburn-dot-micro/).
 
 
 ### IResult Implementation
@@ -38,7 +38,6 @@ For more Information see [Blog post](http://codesomnia.de/2011/mvvm-dialogs-with
 - SaveFileResult - Result wrapper for a SaveFileDialog with fluent configuration
 - OpenFileResult - Result wrapper for an OpenFileDialog with fluent configuration
 - BrowseFolderResult - Result wrapper for a BroseFolderDialog with fluent configuration
-- ProgressResult - Result wrapper for a ProgressDialog with fluent configuration
 
 ### IResult Extensions
 CMContrib provides several Extension Methods for IResult
