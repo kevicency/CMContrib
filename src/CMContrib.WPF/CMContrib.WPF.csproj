@@ -108,38 +108,38 @@
     <Compile Include="..\CMContrib.SL\Filters\RescueAttribute.cs">
       <Link>Filters\RescueAttribute.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\Answer.cs">
-      <Link>Interaction\Answer.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\Answer.cs">
+      <Link>Dialogs\Answer.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\BindableResponse.cs">
-      <Link>Interaction\BindableResponse.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\BindableResponse.cs">
+      <Link>Dialogs\BindableResponse.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\DialogType.cs">
-      <Link>Interaction\DialogType.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\DialogType.cs">
+      <Link>Dialogs\DialogType.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\Error.cs">
-      <Link>Interaction\Error.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\Error.cs">
+      <Link>Dialogs\Error.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\IBusyIndicator.cs">
-      <Link>Interaction\IBusyIndicator.cs</Link>
+    <Compile Include="..\CMContrib.SL\IBusyIndicator.cs">
+      <Link>IBusyIndicator.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\Information.cs">
-      <Link>Interaction\Information.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\Information.cs">
+      <Link>Dialogs\Information.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\IDialogViewModel.cs">
-      <Link>Interaction\IDialogViewModel.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\IDialogViewModel.cs">
+      <Link>Dialogs\IDialogViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\Question.cs">
-      <Link>Interaction\Question.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\Question.cs">
+      <Link>Dialogs\Question.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\Dialog.cs">
-      <Link>Interaction\Dialog.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\Dialog.cs">
+      <Link>Dialogs\Dialog.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\DialogViewModel.cs">
-      <Link>Interaction\DialogViewModel.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\DialogViewModel.cs">
+      <Link>Dialogs\DialogViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Interaction\Warning.cs">
-      <Link>Interaction\Warning.cs</Link>
+    <Compile Include="..\CMContrib.SL\Dialogs\Warning.cs">
+      <Link>Dialogs\Warning.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Dynamic.cs">
       <Link>Dynamic.cs</Link>
@@ -196,7 +196,7 @@
     <Compile Include="Helper\FileFilterCollection.cs" />
     <Compile Include="Results\OpenFileResult.cs" />
     <Compile Include="Results\SaveFileResult.cs" />
-    <Compile Include="Interaction\DialogView.xaml.cs">
+    <Compile Include="Dialogs\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\DialogTypeToSystemIconConverter.cs" />
@@ -207,7 +207,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Interaction\DialogView.xaml">
+    <Page Include="Dialogs\DialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

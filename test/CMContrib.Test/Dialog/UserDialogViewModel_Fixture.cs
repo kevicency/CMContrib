@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Caliburn.Micro;
-using Caliburn.Micro.Contrib.Interaction;
+using Caliburn.Micro.Contrib.Dialogs;
 using NUnit.Framework;
 
 namespace CMContrib.Test.Dialog

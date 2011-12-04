@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace Caliburn.Micro.Contrib.Interaction
+namespace Caliburn.Micro.Contrib.Dialogs
 {
     public class DialogViewModel : DialogViewModel<Answer>
     {

@@ -1,4 +1,4 @@
-﻿<Controls:ChildWindow x:Class="Caliburn.Micro.Contrib.Interaction.DialogView"
+﻿<Controls:ChildWindow x:Class="Caliburn.Micro.Contrib.Dialogs.DialogView"
 					  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 					  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 					  xmlns:Contrib="clr-namespace:Caliburn.Micro.Contrib"

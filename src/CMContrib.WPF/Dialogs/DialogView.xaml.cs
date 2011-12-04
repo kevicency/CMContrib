@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Caliburn.Micro.Contrib.Interaction
+namespace Caliburn.Micro.Contrib.Dialogs
 {
     /// <summary>
     ///   Interaction logic for DialogView.xaml

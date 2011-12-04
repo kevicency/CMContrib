@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Interop;
 using System.Windows.Media.Imaging;
-using Caliburn.Micro.Contrib.Interaction;
+using Caliburn.Micro.Contrib.Dialogs;
 
 namespace Caliburn.Micro.Contrib.Converter
 {

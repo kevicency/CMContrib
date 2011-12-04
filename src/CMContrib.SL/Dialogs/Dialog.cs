@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Caliburn.Micro.Contrib.Interaction
+namespace Caliburn.Micro.Contrib.Dialogs
 {
     public class Dialog<TResponse>
     {

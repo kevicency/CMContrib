@@ -80,7 +80,7 @@
     <Compile Include="Filters\IFilter.cs" />
     <Compile Include="Decorators\AsyncResultDecorator.cs" />
     <Compile Include="Filters\RescueAttribute.cs" />
-    <Compile Include="Interaction\IBusyIndicator.cs" />
+    <Compile Include="IBusyIndicator.cs" />
     <Compile Include="Localizer.cs" />
     <Compile Include="MessageSyntaxes.cs" />
     <Compile Include="Properties\CMContrib.Designer.cs">
@@ -105,26 +105,26 @@
     <Compile Include="Results\OpenResultBase.cs" />
     <Compile Include="SingleResultEnumerator.cs" />
     <Compile Include="Extensions\DialogExtensions.cs" />
-    <Compile Include="Interaction\Answer.cs" />
-    <Compile Include="Interaction\BindableResponse.cs" />
-    <Compile Include="Interaction\Error.cs" />
-    <Compile Include="Interaction\IDialogViewModel.cs" />
-    <Compile Include="Interaction\Information.cs" />
-    <Compile Include="Interaction\DialogType.cs" />
-    <Compile Include="Interaction\Dialog.cs" />
-    <Compile Include="Interaction\DialogView.xaml.cs">
+    <Compile Include="Dialogs\Answer.cs" />
+    <Compile Include="Dialogs\BindableResponse.cs" />
+    <Compile Include="Dialogs\Error.cs" />
+    <Compile Include="Dialogs\IDialogViewModel.cs" />
+    <Compile Include="Dialogs\Information.cs" />
+    <Compile Include="Dialogs\DialogType.cs" />
+    <Compile Include="Dialogs\Dialog.cs" />
+    <Compile Include="Dialogs\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Interaction\DialogViewModel.cs" />
-    <Compile Include="Interaction\Question.cs" />
-    <Compile Include="Interaction\Warning.cs" />
+    <Compile Include="Dialogs\DialogViewModel.cs" />
+    <Compile Include="Dialogs\Question.cs" />
+    <Compile Include="Dialogs\Warning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\ResultExtensions.cs" />
     <Compile Include="Results\BusyResult.cs" />
     <Compile Include="Results\DialogResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Interaction\DialogView.xaml">
+    <Page Include="Dialogs\DialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

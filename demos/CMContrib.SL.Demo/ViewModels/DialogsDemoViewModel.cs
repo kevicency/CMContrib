@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using Caliburn.Micro.Contrib.Demo.Results;
-using Caliburn.Micro.Contrib.Interaction;
+using Caliburn.Micro.Contrib.Dialogs;
 
 namespace Caliburn.Micro.Contrib.Demo.ViewModels
 {

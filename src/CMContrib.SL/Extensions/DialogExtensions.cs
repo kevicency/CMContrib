@@ -1,4 +1,4 @@
-﻿using Caliburn.Micro.Contrib.Interaction;
+﻿using Caliburn.Micro.Contrib.Dialogs;
 using Caliburn.Micro.Contrib.Results;
 
 namespace Caliburn.Micro.Contrib

@@ -1,11 +1,10 @@
-﻿<Window x:Class="Caliburn.Micro.Contrib.Interaction.DialogView"
+﻿<Window x:Class="Caliburn.Micro.Contrib.Dialogs.DialogView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Contrib="clr-namespace:Caliburn.Micro.Contrib"
         xmlns:Converter="clr-namespace:Caliburn.Micro.Contrib.Converter"
-        xmlns:Interaction="clr-namespace:Caliburn.Micro.Contrib.Interaction"
         xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro"
-        Title="{Binding Dialog.Subject}"        
+        xmlns:Dialogs="clr-namespace:Caliburn.Micro.Contrib.Dialogs" Title="{Binding Dialog.Subject}"        
         Width="450"
         MaxWidth="450"
         MinHeight="250"
@@ -18,7 +17,7 @@
     <Window.Resources>
         <Converter:DialogTypeToSystemIconConverter x:Key="IconConverter" />
         <Converter:EnumLocalizer x:Key="EnumLocalizer" />
-        <DataTemplate DataType="{x:Type Interaction:Answer}">
+        <DataTemplate DataType="{x:Type Dialogs:Answer}">
             <ContentControl Content="{Binding ., Converter={StaticResource EnumLocalizer}}" />
         </DataTemplate>
     </Window.Resources>

@@ -1,4 +1,4 @@
-﻿namespace Caliburn.Micro.Contrib.Interaction
+﻿namespace Caliburn.Micro.Contrib.Dialogs
 {
     /// <summary>
     ///   Model for a Information Dialog

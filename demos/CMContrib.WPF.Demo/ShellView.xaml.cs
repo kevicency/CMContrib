@@ -1,5 +1,5 @@
 using System.Windows;
-using Caliburn.Micro.Contrib.Interaction;
+using Caliburn.Micro.Contrib.Dialogs;
 using WPF.Themes;
 
 namespace Caliburn.Micro.Contrib.Demo

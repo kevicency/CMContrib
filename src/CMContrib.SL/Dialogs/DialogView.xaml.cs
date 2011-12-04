@@ -5,8 +5,9 @@ using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Caliburn.Micro.Contrib.Dialogs;
 
-namespace Caliburn.Micro.Contrib.Interaction
+namespace Caliburn.Micro.Contrib.Dialogs
 {
     public partial class DialogView : ChildWindow
     {

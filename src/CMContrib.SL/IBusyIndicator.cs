@@ -1,5 +1,5 @@
 ﻿
-namespace Caliburn.Micro.Contrib.Interaction
+namespace Caliburn.Micro.Contrib
 {
     public interface IBusyIndicator
     {

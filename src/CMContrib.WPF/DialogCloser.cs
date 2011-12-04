@@ -2,6 +2,9 @@ using System.Windows;
 
 namespace Caliburn.Micro.Contrib
 {
+    /// <summary>
+    /// Provides an Attached Property named 'DialogResult'. Can be used to close a dialog window through the view model with data binding.
+    /// </summary>
     public static class DialogCloser
     {
         public static readonly DependencyProperty DialogResultProperty =

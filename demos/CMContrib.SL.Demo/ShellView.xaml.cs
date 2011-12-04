@@ -1,6 +1,5 @@
 using System.Windows;
 using System.Windows.Controls;
-using Caliburn.Micro.Contrib.Interaction;
 
 namespace Caliburn.Micro.Contrib.Demo
 {

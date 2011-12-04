@@ -1,5 +1,5 @@
 ﻿using System;
-using Caliburn.Micro.Contrib.Interaction;
+using Caliburn.Micro.Contrib.Dialogs;
 
 namespace Caliburn.Micro.Contrib.Results
 {
