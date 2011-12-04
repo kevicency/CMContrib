@@ -11,14 +11,26 @@ namespace CMContrib.Spec
     {
         Establish that = () => { Window = new Window(); };
 
-        Because of = () =>
-        {
-            Window.Activated += (sender, args) => Window.SetValue(DialogCloser.DialogResultProperty, true);
-            Window.ShowDialog();
-        };
-
-        It sets_the_dialog_result_of_the_window = () => Window.DialogResult.ShouldEqual(true);
-
         protected static Window Window;
+
+        [Subject(typeof (DialogCloser))]
+        public class when_set_on_an_active_dialog_window : DialogCloser_Spec
+        {
+            Because of = () =>
+            {
+                Window.Activated += (sender, args) => Window.SetValue(DialogCloser.DialogResultProperty, true);
+                Window.ShowDialog();
+            };
+
+            It sets_the_dialog_result_of_the_window = () => Window.DialogResult.ShouldEqual(true);
+        }
+
+        [Subject(typeof (DialogCloser))]
+        public class when_set_on_an_inactive_dialog_window : DialogCloser_Spec
+        {
+            Because of = () => Window.SetValue(DialogCloser.DialogResultProperty, true);
+
+            It doesnt_set_the_dialog_result = () => Window.DialogResult.ShouldEqual(null);
+        }
     }
 }
