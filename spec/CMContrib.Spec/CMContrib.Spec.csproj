@@ -36,13 +36,13 @@
       <HintPath>..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\Caliburn.Micro.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Fakes">
-      <HintPath>..\..\packages\Machine.Fakes.0.2.5\lib\Machine.Fakes.dll</HintPath>
+      <HintPath>..\..\packages\Machine.Fakes.0.3\lib\Machine.Fakes.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Fakes.Adapters.Moq">
-      <HintPath>..\..\packages\Machine.Fakes.Moq.0.2.5\lib\Machine.Fakes.Adapters.Moq.dll</HintPath>
+      <HintPath>..\..\packages\Machine.Fakes.Moq.0.3\lib\Machine.Fakes.Adapters.Moq.dll</HintPath>
     </Reference>
     <Reference Include="Machine.Specifications">
-      <HintPath>..\..\packages\Machine.Specifications.0.4.21.0\lib\Machine.Specifications.dll</HintPath>
+      <HintPath>..\..\packages\Machine.Specifications.0.5.0.0\lib\Machine.Specifications.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
