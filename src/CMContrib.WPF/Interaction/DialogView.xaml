@@ -53,15 +53,17 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <Image Width="40"
-               Margin="25 10 5 10"
+        <Image Width="32"
+               Margin="10"
                VerticalAlignment="Center"
                DockPanel.Dock="Left"
                Focusable="False"
                Source="{Binding Dialog.DialogType,
                                 Converter={StaticResource IconConverter}}" />
 
-        <TextBlock Margin="5 10 25 10"
+        <Border Width="1" Margin="0 5" Background="Gray" DockPanel.Dock="Left"/>
+        
+        <TextBlock Margin="10"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Focusable="False"
