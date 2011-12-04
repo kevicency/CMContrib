@@ -1,5 +1,5 @@
 ﻿using System;
-using Ookii.Dialogs.Wpf;
+using System.Windows.Forms;
 
 namespace Caliburn.Micro.Contrib.Results
 {
@@ -37,7 +37,7 @@ namespace Caliburn.Micro.Contrib.Results
 
         void IResult.Execute(ActionExecutionContext context)
         {
-            VistaFolderBrowserDialog dialog = CreateDialog();
+            var dialog = CreateDialog();
 
             dialog.ShowDialog();
 
@@ -75,12 +75,11 @@ namespace Caliburn.Micro.Contrib.Results
         ///   Can be overridden to change the default settings
         /// </summary>
         /// <returns></returns>
-        protected virtual VistaFolderBrowserDialog CreateDialog()
+        protected virtual FolderBrowserDialog CreateDialog()
         {
-            var dialog = new VistaFolderBrowserDialog();
+            var dialog = new FolderBrowserDialog();
             dialog.RootFolder = _rootFolder;
             dialog.Description = _title;
-            dialog.UseDescriptionForTitle = !String.IsNullOrWhiteSpace(_title);
             dialog.ShowNewFolderButton = _allowNewFolder;
 
             return dialog;

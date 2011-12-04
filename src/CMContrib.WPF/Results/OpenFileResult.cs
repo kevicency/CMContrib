@@ -2,8 +2,8 @@
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 using Caliburn.Micro.Contrib.Helper;
-using Ookii.Dialogs.Wpf;
 
 namespace Caliburn.Micro.Contrib.Results
 {
@@ -48,7 +48,7 @@ namespace Caliburn.Micro.Contrib.Results
 
         void IResult.Execute(ActionExecutionContext context)
         {
-            VistaOpenFileDialog dialog = CreateDialog();
+            var dialog = CreateDialog();
 
             dialog.FileOk += FileOk;
 
@@ -73,7 +73,7 @@ namespace Caliburn.Micro.Contrib.Results
             _cancelled = false;
 
             var resultArgs = new ResultCompletionEventArgs();
-            var dialog = (sender as VistaOpenFileDialog);
+            var dialog = (sender as OpenFileDialog);
 
             if (args.Cancel)
             {
@@ -99,7 +99,7 @@ namespace Caliburn.Micro.Contrib.Results
             OnCompleted(dialog, resultArgs);
         }
 
-        private void OnCompleted(VistaOpenFileDialog dialog, ResultCompletionEventArgs args)
+        private void OnCompleted(OpenFileDialog dialog, ResultCompletionEventArgs args)
         {
             dialog.FileOk -= FileOk;
 
@@ -111,9 +111,9 @@ namespace Caliburn.Micro.Contrib.Results
         ///   Can be overridden to change the default settings
         /// </summary>
         /// <returns></returns>
-        protected virtual VistaOpenFileDialog CreateDialog()
+        protected virtual OpenFileDialog CreateDialog()
         {
-            var dialog = new VistaOpenFileDialog();
+            var dialog = new OpenFileDialog();
             dialog.Title = _title;
             dialog.Filter = _filters.CreateFilterExpression();
             dialog.InitialDirectory = _initialDirectory;

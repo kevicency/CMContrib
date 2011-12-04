@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.IO;
+using System.Windows.Forms;
 using Caliburn.Micro.Contrib.Helper;
-using Ookii.Dialogs.Wpf;
 
 namespace Caliburn.Micro.Contrib.Results
 {
@@ -40,7 +40,7 @@ namespace Caliburn.Micro.Contrib.Results
 
         void IResult.Execute(ActionExecutionContext context)
         {
-            VistaSaveFileDialog dialog = CreateDialog();
+            var dialog = CreateDialog();
 
             dialog.FileOk += FileOk;
 
@@ -60,7 +60,7 @@ namespace Caliburn.Micro.Contrib.Results
 
         #endregion
 
-        private void OnCompleted(VistaSaveFileDialog dialog, ResultCompletionEventArgs args)
+        private void OnCompleted(SaveFileDialog dialog, ResultCompletionEventArgs args)
         {
             dialog.FileOk -= FileOk;
 
@@ -70,7 +70,7 @@ namespace Caliburn.Micro.Contrib.Results
         private void FileOk(object sender, CancelEventArgs args)
         {
             _cancelled = false;
-            var dialog = (sender as VistaSaveFileDialog);
+            var dialog = (sender as SaveFileDialog);
 
             var resultArgs = new ResultCompletionEventArgs();
 
@@ -96,9 +96,9 @@ namespace Caliburn.Micro.Contrib.Results
         ///   Creates the dialog with the user specified settings. Can be overridden to change the default settings
         /// </summary>
         /// <returns></returns>
-        protected virtual VistaSaveFileDialog CreateDialog()
+        protected virtual SaveFileDialog CreateDialog()
         {
-            var dialog = new VistaSaveFileDialog();
+            var dialog = new SaveFileDialog();
             dialog.DefaultExt = _filters.DefaultExtension;
             dialog.Title = _title;
             dialog.Filter = _filters.CreateFilterExpression();

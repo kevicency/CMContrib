@@ -6,13 +6,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
     <StackPanel>
-        <DockPanel HorizontalAlignment="Stretch">
-            <Button Content="Busy" Micro:Message.Attach="Busy(BusyDuration.Value)" />
-            <TextBlock Margin="3 3 3 1"
+        <Button Content="Busy" Micro:Message.Attach="Busy(BusyDuration.Value)" />
+        <DockPanel Margin="0 -3 0 5" HorizontalAlignment="Left">
+            <TextBlock Margin="3"
                        VerticalAlignment="Center"
                        Text="ms:" />
             <Controls:IntegerUpDown x:Name="BusyDuration"
-                                    Margin="3"
+                                    Margin="3" Width="75"
                                     VerticalAlignment="Center"
                                     DockPanel.Dock="Right"
                                     Increment="250"

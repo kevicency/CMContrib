@@ -88,65 +88,6 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels
                                                      String.Join(Environment.NewLine, folderItems.ToArray())));
         }
 
-        public IEnumerable<IResult> Calculate(int parameter)
-        {
-            var message = string.Empty;
-
-            yield return new ProgressResult<int, int>("Calculating...")
-                .SetText(string.Format("Slowly calculating {0}!", parameter))
-                .UseParameter(parameter)
-                .ShowTimeRemaining()
-                .AllowCancel("Aborting the calculation.")
-                .Start((sender, args) =>
-                           {
-                               var dialog = sender as ProgressDialog;
-                               var arg = (int)args.Argument;
-
-                               if (arg < 1)
-                                   throw new ArgumentException("Argument must be >= 1");
-
-                               int result = 1;
-                               dialog.ReportProgress(0, null, "Calculation done: 0%");
-
-                               Faculty(arg, i =>
-                                                {
-                                                    if (dialog.CancellationPending)
-                                                    {
-                                                        args.Cancel = true;
-                                                        return true;
-                                                    }
-
-                                                    dialog.ReportProgress(i * 100 / arg, null,
-                                                                          string.Format("Calculation done: {0}%", i * 100 / arg));
-
-                                                    return false;
-                                                });
-
-                               args.Result = result;
-                           })
-                .WithResultDo((param, res) => message = string.Format("{0}! = {1}", param, res))
-                .WhenCancelled().Execute(new LogResult("Calculation cancelled").AsCoroutine);
-
-            yield return new LogResult(message);
-        }
-
-        private static int Faculty(int n, Func<int, bool> callback)
-        {
-            int result = 1;
-
-            for (int i = 1; i <= n; i++)
-            {
-                Thread.Sleep(5000 / n);
-
-                result *= i;
-
-                if (callback(i))
-                    return -1;
-            }
-
-            return result;
-        }
-
         public IEnumerable<IResult> ShowQuestion()
         {
             var question = new Question(DialogText,

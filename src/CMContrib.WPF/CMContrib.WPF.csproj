@@ -38,13 +38,11 @@
     <Reference Include="Caliburn.Micro">
       <HintPath>..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\Caliburn.Micro.dll</HintPath>
     </Reference>
-    <Reference Include="Ookii.Dialogs.Wpf">
-      <HintPath>..\..\lib\Ookii.Dialogs.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\System.Windows.Interactivity.dll</HintPath>
@@ -197,7 +195,6 @@
     <Compile Include="Results\BrowseFolderResult.cs" />
     <Compile Include="Helper\FileFilterCollection.cs" />
     <Compile Include="Results\OpenFileResult.cs" />
-    <Compile Include="Results\ProgressResult.cs" />
     <Compile Include="Results\SaveFileResult.cs" />
     <Compile Include="Interaction\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
