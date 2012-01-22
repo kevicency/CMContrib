@@ -19,7 +19,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels
         public IEnumerable<IResult> Busy(int ms)
         {
             yield return new DelegateResult(() => LongRunningTask(ms))
-                .ShowBusyMessage("Foo")
+                .ShowBusyMessage("Processing...")
                 .In<ShellView>();
         }
 

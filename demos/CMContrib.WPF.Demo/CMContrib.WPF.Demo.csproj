@@ -95,6 +95,9 @@
     <Compile Include="Views\CoreDemoView.xaml.cs">
       <DependentUpon>CoreDemoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DialogView.xaml.cs">
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DialogsDemoView.xaml.cs">
       <DependentUpon>DialogsDemoView.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CoreDemoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
