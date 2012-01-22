@@ -59,5 +59,10 @@ Filters are part of the full Caliburn framework. They are quite useful because t
 - *XamlBinding* - Parses Xaml Bindings ({Binding ...}) in ActionMessages, i.e Message.Attach="DoSomething({Binding Text, ElementName=UserInput})"
 - *SpecialValueProperty* - Parses Properties of Special Values in ActionMessages, i.e. Message.Attach="DoSomething($eventargs.Foo)"
 
+### Syntax Extensions
+
+- XamlBinding - Parses Xaml Bindings ({Binding ...}) in ActionMessages, i.e Message.Attach="DoSomething({Binding Text, ElementName=UserInput})"
+- SpecialValueProperty - Parses Properties of Special Values in ActionMessages, i.e. Message.Attach="DoSomething($eventargs.Foo)"
+
 ## Examples
 For every Feature there exists a sample in the Demo projects (SL&WPF)
