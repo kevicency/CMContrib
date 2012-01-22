@@ -1,5 +1,6 @@
 ﻿using System;
 using Caliburn.Micro.Contrib.Dialogs;
+using System.Linq;
 
 namespace Caliburn.Micro.Contrib.Results
 {
@@ -26,6 +27,15 @@ namespace Caliburn.Micro.Contrib.Results
             IDialogViewModel<TResponse> vm = _locateVM();
             vm.Dialog = Dialog;
 
+            if (!_hasCancelResponse)
+            {
+                var bindableResponse = vm.Responses.SingleOrDefault(x => x.IsCancel);
+                if (bindableResponse != null)
+                {
+                    _cancelResponse = bindableResponse.Response;
+                    _hasCancelResponse = true;
+                }
+            }
             // we need the event because show dialog doesn't block in the SL context
             Dialog.ResponseGiven += OnResponseGiven;
 
@@ -44,8 +54,8 @@ namespace Caliburn.Micro.Contrib.Results
 
             var resultArgs = new ResultCompletionEventArgs
                              {
-                                 WasCancelled =
-                                     _hasCancelResponse && Equals(Dialog.GivenResponse, _cancelResponse)
+                                 WasCancelled = _hasCancelResponse
+                                                && Equals(Dialog.GivenResponse, _cancelResponse)
                              };
 
             Completed(this, resultArgs);

@@ -5,6 +5,11 @@
     /// </summary>
     public class Question : Dialog
     {
+        public Question(string message)
+            :base(DialogType.Question, message, Answer.Yes, Answer.No)
+        {
+        }
+
         public Question(string message, params Answer[] possibleResponens)
             : base(DialogType.Question, message, possibleResponens)
         {
