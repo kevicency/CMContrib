@@ -1,4 +1,4 @@
-namespace Caliburn.Micro.Contrib.Demo
+﻿namespace Caliburn.Micro.Contrib.Demo
 {
     public interface IDemo { }
 }
