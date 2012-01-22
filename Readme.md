@@ -13,6 +13,7 @@ To create the CMContrib NuGet Package, just follow these steps
 You can find the .nuspec  file in ~/nuget/package/ if you need to edit the metadata (version).
 
 ## Features
+
 ### MVVM Dialogs
 Easy way to show dialogs to the user. There are four predefined Dialogs
 
@@ -52,6 +53,11 @@ Filters are part of the bigger Caliburn framework. They are quite useful because
 
 - Rescue - Decorates the coroutine with an error handler which es executed when an error occurs during execution
 - OnWorkerThread - Delegates the execution of the coroutine to a background thread and activates the IBusyIndicator if a message is given
+
+### Syntax Extensions
+
+- XamlBinding - Parses Xaml Bindings ({Binding ...}) in ActionMessages, i.e Message.Attach="DoSomething({Binding Text, ElementName=UserInput})"
+- SpecialValueProperty - Parses Properties of Special Values in ActionMessages, i.e. Message.Attach="DoSomething($eventargs.Foo)"
 
 ## Examples
 For every Feature there exists a sample in the Demo projects (SL&WPF)
