@@ -71,6 +71,7 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\AsyncResultDecorator.cs" />
     <Compile Include="Decorators\OverrideCancelResultDecorator.cs" />
     <Compile Include="Extensions\ActionExecutionContextExtensions.cs" />
     <Compile Include="Filters\AsyncCoroutineAttribute.cs" />
@@ -78,8 +79,8 @@
     <Compile Include="Filters\DecorateCoroutineAttribute.cs" />
     <Compile Include="Filters\IDecorateCoroutineFilter.cs" />
     <Compile Include="Filters\IFilter.cs" />
-    <Compile Include="Decorators\AsyncResultDecorator.cs" />
     <Compile Include="Filters\RescueAttribute.cs" />
+    <Compile Include="IBlockingQueue.cs" />
     <Compile Include="IBusyIndicator.cs" />
     <Compile Include="Localizer.cs" />
     <Compile Include="MessageSyntaxes.cs" />
@@ -122,6 +123,10 @@
     <Compile Include="Extensions\ResultExtensions.cs" />
     <Compile Include="Results\BusyResult.cs" />
     <Compile Include="Results\DialogResult.cs" />
+    <Compile Include="Threading\BlockingQueue.cs" />
+    <Compile Include="Threading\ResultExecutionTask.cs" />
+    <Compile Include="Threading\ResultExecutionThread.cs" />
+    <Compile Include="Threading\ResultSynchronizationContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Dialogs\DialogView.xaml">

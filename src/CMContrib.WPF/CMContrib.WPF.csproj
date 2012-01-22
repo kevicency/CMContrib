@@ -120,6 +120,9 @@
     <Compile Include="..\CMContrib.SL\FrameworkExtensions.cs">
       <Link>FrameworkExtensions.cs</Link>
     </Compile>
+    <Compile Include="..\CMContrib.SL\IBlockingQueue.cs">
+      <Link>IBlockingQueue.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.SL\IBusyIndicator.cs">
       <Link>IBusyIndicator.cs</Link>
     </Compile>
@@ -189,6 +192,18 @@
     </Compile>
     <Compile Include="..\CMContrib.SL\SingleResultEnumerator.cs">
       <Link>SingleResultEnumerator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\BlockingQueue.cs">
+      <Link>Threading\BlockingQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\ResultExecutionTask.cs">
+      <Link>Threading\ResultExecutionTask.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\ResultExecutionThread.cs">
+      <Link>Threading\ResultExecutionThread.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\ResultSynchronizationContext.cs">
+      <Link>Threading\ResultSynchronizationContext.cs</Link>
     </Compile>
     <Compile Include="ConsoleLog.cs" />
     <Compile Include="DialogCloser.cs" />

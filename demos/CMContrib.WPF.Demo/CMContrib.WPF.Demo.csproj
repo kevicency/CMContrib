@@ -42,9 +42,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Caliburn.Micro.1.2.0\lib\Net40\Caliburn.Micro.dll</HintPath>
     </Reference>
-    <Reference Include="Ookii.Dialogs.Wpf">
-      <HintPath>..\..\lib\Ookii.Dialogs.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />

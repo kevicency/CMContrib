@@ -7,7 +7,6 @@ using System.Threading;
 using Caliburn.Micro.Contrib.Demo.Results;
 using Caliburn.Micro.Contrib.Dialogs;
 using Caliburn.Micro.Contrib.Results;
-using Ookii.Dialogs.Wpf;
 
 namespace Caliburn.Micro.Contrib.Demo.ViewModels
 {
