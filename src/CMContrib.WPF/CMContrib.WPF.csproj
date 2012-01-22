@@ -66,6 +66,9 @@
     <Compile Include="..\CMContrib.SL\Decorators\AsyncResultDecorator.cs">
       <Link>Decorators\AsyncResultDecorator.cs</Link>
     </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\BusyResultDecorator.cs">
+      <Link>Decorators\BusyResultDecorator.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.SL\Decorators\ContinueResultDecorator.cs">
       <Link>Decorators\ContinueResultDecorator.cs</Link>
     </Compile>
@@ -175,11 +178,17 @@
       <Link>Properties\AssemblyInfo.cs</Link>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="..\CMContrib.SL\Results\BusyResultBase.cs">
+      <Link>Results\BusyResultBase.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.SL\Results\ConductResult.cs">
       <Link>Results\ConductResult.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Results\DelegateResult.cs">
       <Link>Results\DelegateResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\IBusyResult.cs">
+      <Link>Results\IBusyResult.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Results\IOpenResult.cs">
       <Link>Results\IOpenResult.cs</Link>
@@ -226,7 +235,9 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

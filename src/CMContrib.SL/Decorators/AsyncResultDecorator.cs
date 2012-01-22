@@ -12,7 +12,7 @@ using System.Windows.Media;
 namespace Caliburn.Micro.Contrib.Decorators
 {
     /// <summary>
-    ///   A result decorator which delegates the execution of the inner result to the thread pool
+    ///   A result decorator which delegates the execution of the inner result to a dedicated worker thread
     /// </summary>
     public class AsyncResultDecorator : IResult
     {
@@ -51,9 +51,6 @@ namespace Caliburn.Micro.Contrib.Decorators
 
             ResultSyncContext.Post(callback, task);
         }
-
-        protected virtual void Before(ActionExecutionContext context){}
-        protected virtual void After(ActionExecutionContext context){}
 
         public event EventHandler<ResultCompletionEventArgs> Completed = delegate { };
     }

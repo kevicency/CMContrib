@@ -22,7 +22,7 @@ namespace Caliburn.Micro.Contrib.Decorators
 
         public virtual void Execute(ActionExecutionContext context)
         {
-            // Avoid deep nesting
+            // Wrap the inner result in a SequentialResult s.t. it gets injected by the container but avoid deep nesting
             var wrapper = (_inner is SequentialResult || _inner is ResultDecoratorBase)
                               ? _inner
                               : new SequentialResult(new SingleResultEnumerator(_inner));
@@ -32,7 +32,7 @@ namespace Caliburn.Micro.Contrib.Decorators
             wrapper.Execute(context);
         }
 
-        public virtual event EventHandler<ResultCompletionEventArgs> Completed;
+        public virtual event EventHandler<ResultCompletionEventArgs> Completed = delegate { };
 
         #endregion
 

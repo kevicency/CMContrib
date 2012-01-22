@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Caliburn.Micro.Contrib.Decorators;
 using Caliburn.Micro.Contrib.Helper;
 using Caliburn.Micro.Contrib.Results;
 
@@ -56,7 +57,7 @@ namespace Caliburn.Micro.Contrib
         /// <param name = "result"></param>
         /// <param name = "context"></param>
         /// <returns></returns>
-        public static ResultCompletionEventArgs BlockingExecute(this IResult result,
+        internal static ResultCompletionEventArgs BlockingExecute(this IResult result,
                                                                 ActionExecutionContext context = null)
         {
             var wait = new AutoResetEvent(false);
@@ -73,6 +74,27 @@ namespace Caliburn.Micro.Contrib
             wait.WaitOne();
 
             return args;
+        }
+
+        /// <summary>
+        /// Executes the <paramref name="result"/> on a seperate worker thread
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        public static IResult ExecuteOnWorkerThread(this IResult result)
+        {
+            return new AsyncResultDecorator(result);
+        }
+
+        /// <summary>
+        /// Executes the <paramref name="result"/> on a seperate worker thread and shows a busy message during the execution
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public static IBusyResult ShowBusyMessage(this IResult result, string message)
+        {
+            return new BusyResultDecorator(result, message);
         }
 
         #region IOpenResult<TChild>

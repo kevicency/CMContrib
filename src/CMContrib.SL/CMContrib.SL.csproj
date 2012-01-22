@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Decorators\AsyncResultDecorator.cs" />
+    <Compile Include="Decorators\BusyResultDecorator.cs" />
     <Compile Include="Decorators\OverrideCancelResultDecorator.cs" />
     <Compile Include="Extensions\ActionExecutionContextExtensions.cs" />
     <Compile Include="Filters\AsyncCoroutineAttribute.cs" />
@@ -100,7 +101,9 @@
     <Compile Include="Helper\ICancelledHandler.cs" />
     <Compile Include="Helper\IExceptionHandler.cs" />
     <Compile Include="Helper\RescueHandler.cs" />
+    <Compile Include="Results\BusyResultBase.cs" />
     <Compile Include="Results\DelegateResult.cs" />
+    <Compile Include="Results\IBusyResult.cs" />
     <Compile Include="Results\IOpenResult.cs" />
     <Compile Include="Results\ConductResult.cs" />
     <Compile Include="Results\OpenResultBase.cs" />
@@ -139,6 +142,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CMContrib.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
