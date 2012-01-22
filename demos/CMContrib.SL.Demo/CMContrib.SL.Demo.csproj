@@ -94,6 +94,9 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CMContrib.WPF.Demo\IDemo.cs">
+      <Link>IDemo.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.WPF.Demo\Results\CancelResult.cs">
       <Link>Results\CancelResult.cs</Link>
     </Compile>
