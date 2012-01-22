@@ -7,7 +7,8 @@ namespace Caliburn.Micro.Contrib
         readonly IBlockingQueue<ResultExecutionTask> _queue;
         readonly ResultExecutionThread _worker;
 
-        static ResultSynchronizationContext _syncContext;
+        static ResultSynchronizationContext _instance;
+        static readonly object _lock = new object();
 
         internal ResultExecutionThread Worker
         {
@@ -23,12 +24,18 @@ namespace Caliburn.Micro.Contrib
         {
             get
             {
-                return _syncContext
-                       ?? (_syncContext = new ResultSynchronizationContext());
-            }    
+                lock (_lock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new ResultSynchronizationContext();
+                    }
+                    return _instance;
+                }
+            }
         }
-        
-        public ResultSynchronizationContext()
+
+        ResultSynchronizationContext()
         {
             _queue = new BlockingQueue<ResultExecutionTask>();
             _worker = new ResultExecutionThread(_queue);
