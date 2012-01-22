@@ -16,10 +16,11 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels
             DisplayName = "Core Demo";
         }
 
-        [BusyCoroutine(Message = "Custom Busy Message...")]
         public IEnumerable<IResult> Busy(int ms)
         {
-            yield return new DelegateResult(() => LongRunningTask(ms));
+            yield return new DelegateResult(() => LongRunningTask(ms))
+                .ShowBusyMessage("Foo")
+                .In<ShellView>();
         }
 
         [Rescue(MethodName = "GeneralRescue")]

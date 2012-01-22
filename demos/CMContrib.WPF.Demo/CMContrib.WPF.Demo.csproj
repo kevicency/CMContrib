@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IDemo.cs" />
     <Compile Include="Properties\Demo.de-DE.Designer.cs">
       <DependentUpon>Demo.de-DE.resx</DependentUpon>
       <AutoGen>True</AutoGen>

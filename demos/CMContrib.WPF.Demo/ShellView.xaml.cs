@@ -1,9 +1,11 @@
+using System.ComponentModel.Composition;
 using System.Windows;
 using Caliburn.Micro.Contrib.Dialogs;
 using WPF.Themes;
 
 namespace Caliburn.Micro.Contrib.Demo
 {
+    [Export]
     public partial class ShellView : Window, IBusyIndicator
     {
         public ShellView()
