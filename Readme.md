@@ -45,14 +45,13 @@ CMContrib provides several chainable Extension Methods for IResult
 - Rescue&lt;TException&gt;() - Decorates the result with an error handler which is executed when an error occurs.
 - WhenChancelled() - Decorates the result with an handler which is executed when the result was cancelled.
 - AsCoroutine() - Returns an IEnumerable&lt;IResult&gt; which yields the IResult.
-- OnWorkerThread - Executes the Result on a dedicated worker thread and activates the given IBusyIndactor when a message is given.
+- OnWorkerThread - Executes the Result on a dedicated worker thread and activates the given IBusyIndactor if a message is given.
 
 ### Filter
 Filters are part of the bigger Caliburn framework. They are quite useful because they enable AOP for coroutine. Some of them are re-implemented
 
 - Rescue - Decorates the coroutine with an error handler which es executed when an error occurs during execution
-- Async - Delegates the execution of the coroutine to a background thread
-- Busy - Extends the Async Filter activating the IBusyIndicator before the coroutine gets executed and deactivating it after the execution
+- OnWorkerThread - Delegates the execution of the coroutine to a background thread and activates the IBusyIndicator if a message is given
 
 ## Examples
-For every Feature there exists an example implementation in the Demo projects (SL&WPF)
+For every Feature there exists a sample in the Demo projects (SL&WPF)
