@@ -81,7 +81,7 @@ namespace Caliburn.Micro.Contrib
         /// </summary>
         /// <param name="result"></param>
         /// <returns></returns>
-        public static IResult ExecuteOnWorkerThread(this IResult result)
+        public static IResult OnWorkerThread(this IResult result)
         {
             return new AsyncResultDecorator(result);
         }
@@ -92,7 +92,7 @@ namespace Caliburn.Micro.Contrib
         /// <param name="result"></param>
         /// <param name="message"></param>
         /// <returns></returns>
-        public static IBusyResult ShowBusyMessage(this IResult result, string message)
+        public static IBusyResult OnWorkerThread(this IResult result, string message)
         {
             return new BusyResultDecorator(result, message);
         }

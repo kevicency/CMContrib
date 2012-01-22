@@ -28,10 +28,10 @@ For more Information see [Blog post](http://kmees.github.com/blog/2011/06/16/mvv
 
 ####SL & WPF:
 
-- BusyResult - Searches the VisualTree for an IBusyIndicator and activates/deactivates it
-- DialogResult - Creates a DialogWindow for a Dialog and shows it to the user
-- OpenChildResult - Activate a ViewModel in a Conductor
-- DelegateResult - Invokes an action when executed
+- BusyResult - Locates an implementation of IBusyIndicator by searching the Visual Tree or by injecting it and activates/deactivates it.
+- DialogResult - Creates a modal DialogWindow for a Dialog, shows it to the user and stroes the response in a Property. Also enables you to automatically cancel the result for a specific answer.
+- OpenChildResult - Activate a ViewModel in a specific Conductor
+- DelegateResult - Wraps an arnitrary Action in a Result.
 
 ####WPF only:
 
@@ -40,11 +40,12 @@ For more Information see [Blog post](http://kmees.github.com/blog/2011/06/16/mvv
 - BrowseFolderResult - Result wrapper for a BroseFolderDialog with fluent configuration
 
 ### IResult Extensions
-CMContrib provides several Extension Methods for IResult
+CMContrib provides several chainable Extension Methods for IResult
 
-- Rescue&lt;TException&gt;() - Decorates the result with an error handler which is executed when an error occurs. Chainable.
-- WhenChancelled() - Decorates the result with an handler which is executed when the result was cancelled. Chainable
-- AsCoroutine() - Returns an IEnumerable&lt;IResult&gt; which yields the IResult
+- Rescue&lt;TException&gt;() - Decorates the result with an error handler which is executed when an error occurs.
+- WhenChancelled() - Decorates the result with an handler which is executed when the result was cancelled.
+- AsCoroutine() - Returns an IEnumerable&lt;IResult&gt; which yields the IResult.
+- OnWorkerThread - Executes the Result on a dedicated worker thread and activates the given IBusyIndactor when a message is given.
 
 ### Filter
 Filters are part of the bigger Caliburn framework. They are quite useful because they enable AOP for coroutine. Some of them are re-implemented

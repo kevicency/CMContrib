@@ -90,12 +90,6 @@
     <Compile Include="..\CMContrib.SL\Extensions\ResultExtensions.cs">
       <Link>Extensions\ResultExtensions.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Filters\AsyncCoroutineAttribute.cs">
-      <Link>Filters\AsyncCoroutineAttribute.cs</Link>
-    </Compile>
-    <Compile Include="..\CMContrib.SL\Filters\BusyCoroutineAttribute.cs">
-      <Link>Filters\BusyCoroutineAttribute.cs</Link>
-    </Compile>
     <Compile Include="..\CMContrib.SL\Filters\DecorateCoroutineAttribute.cs">
       <Link>Filters\DecorateCoroutineAttribute.cs</Link>
     </Compile>
@@ -104,6 +98,9 @@
     </Compile>
     <Compile Include="..\CMContrib.SL\Filters\IFilter.cs">
       <Link>Filters\IFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Filters\OnWorkerThreadAttribute.cs">
+      <Link>Filters\OnWorkerThreadAttribute.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Filters\RescueAttribute.cs">
       <Link>Filters\RescueAttribute.cs</Link>

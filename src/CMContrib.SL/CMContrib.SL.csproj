@@ -75,8 +75,7 @@
     <Compile Include="Decorators\BusyResultDecorator.cs" />
     <Compile Include="Decorators\OverrideCancelResultDecorator.cs" />
     <Compile Include="Extensions\ActionExecutionContextExtensions.cs" />
-    <Compile Include="Filters\AsyncCoroutineAttribute.cs" />
-    <Compile Include="Filters\BusyCoroutineAttribute.cs" />
+    <Compile Include="Filters\OnWorkerThreadAttribute.cs" />
     <Compile Include="Filters\DecorateCoroutineAttribute.cs" />
     <Compile Include="Filters\IDecorateCoroutineFilter.cs" />
     <Compile Include="Filters\IFilter.cs" />

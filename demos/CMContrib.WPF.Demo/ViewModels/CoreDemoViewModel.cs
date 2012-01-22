@@ -19,11 +19,11 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels
         public IEnumerable<IResult> Busy(int ms)
         {
             yield return new DelegateResult(() => LongRunningTask(ms))
-                .ShowBusyMessage("Processing...")
+                .OnWorkerThread("Processing...")
                 .In<ShellView>();
         }
 
-        [BusyCoroutine(Message = "Processing...", BusyIndicatorImplementation = typeof(ShellView))]
+        [OnWorkerThread(Message = "Processing...", BusyIndicatorImplementation = typeof(ShellView))]
         public IEnumerable<IResult> BusyWithAttribute(int ms)
         {
             yield return new DelegateResult(() => LongRunningTask(ms));
