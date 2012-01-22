@@ -22,9 +22,7 @@ namespace Caliburn.Micro.Contrib.Decorators
             UpdateIndicator(context, _message);
 
             // Wrap the inner result in a SequentialResult s.t. it gets injected by the container but avoid deep nesting
-            var wrapper = (_inner is SequentialResult || _inner is ResultDecoratorBase)
-                              ? _inner
-                              : new SequentialResult(new SingleResultEnumerator(_inner));
+            var wrapper = new AsyncResultDecorator(_inner);
 
             wrapper.Completed += OnInnerCompleted;
 

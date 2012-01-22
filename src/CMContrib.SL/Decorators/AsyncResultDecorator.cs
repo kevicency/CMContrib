@@ -35,7 +35,12 @@ namespace Caliburn.Micro.Contrib.Decorators
         {
             var callContext = SynchronizationContext.Current;
 
-            var task = new ResultExecutionTask(_inner, context);
+            // Wrap the inner result in a SequentialResult s.t. it gets injected by the container but avoid deep nesting
+            var wrapper = (_inner is SequentialResult || _inner is ResultDecoratorBase)
+                              ? _inner
+                              : new SequentialResult(new SingleResultEnumerator(_inner));
+
+            var task = new ResultExecutionTask(wrapper, context);
             SendOrPostCallback callback = x =>
             {
                 var args = (x as ResultExecutionTask).CompletionEventArgs;
