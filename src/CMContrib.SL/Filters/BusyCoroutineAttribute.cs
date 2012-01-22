@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Caliburn.Micro.Contrib.Decorators;
 using Caliburn.Micro.Contrib.Results;
 
 namespace Caliburn.Micro.Contrib.Filters
@@ -13,6 +14,7 @@ namespace Caliburn.Micro.Contrib.Filters
     public class BusyCoroutineAttribute : AsyncCoroutineAttribute
     {
         public string Message { get; set; }
+        public Type BusyIndicatorImplementation { get; set; }
 
         public BusyCoroutineAttribute()
         {
@@ -21,13 +23,15 @@ namespace Caliburn.Micro.Contrib.Filters
 
         public override IEnumerable<IResult> Decorate(IEnumerable<IResult> coroutine, ActionExecutionContext context)
         {
-            yield return BusyResult.Show(Message);
+            var inner = new SequentialResult(coroutine.GetEnumerator());
+           
+            var busyDecorator = new BusyResultDecorator(inner, Message);
+            if (BusyIndicatorImplementation != null)
+            {
+                busyDecorator.In(BusyIndicatorImplementation);
+            }
 
-            var async = base.Decorate(coroutine, context).Single();
-            async.Completed += (sender, args) =>
-                Coroutine.BeginExecute(new SingleResultEnumerator(BusyResult.Hide()), context);
-
-            yield return async;
+            yield return busyDecorator;
         }
     }
 }

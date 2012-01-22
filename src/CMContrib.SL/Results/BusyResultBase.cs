@@ -42,6 +42,13 @@ namespace Caliburn.Micro.Contrib.Results
             return this;
         }
 
+        public IBusyResult In(Type type)
+        {
+            _locateBusyIndicator = x => IoC.GetInstance(type, null) as IBusyIndicator;
+
+            return this;
+        }
+
         protected void UpdateIndicator(ActionExecutionContext context, string message)
         {
             var indicator = _locateBusyIndicator(context);

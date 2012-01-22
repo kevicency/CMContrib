@@ -7,12 +7,14 @@
              xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
     <StackPanel>
         <Button Content="Busy" Micro:Message.Attach="Busy(BusyDuration.Value)" />
+        <Button Content="Busy w/ Attribute" Micro:Message.Attach="BusyWithAttribute(BusyDuration.Value)" />
         <DockPanel Margin="0 -3 0 5" HorizontalAlignment="Left">
             <TextBlock Margin="3"
                        VerticalAlignment="Center"
                        Text="ms:" />
             <Controls:IntegerUpDown x:Name="BusyDuration"
-                                    Margin="3" Width="75"
+                                    Width="75"
+                                    Margin="3"
                                     VerticalAlignment="Center"
                                     DockPanel.Dock="Right"
                                     Increment="250"

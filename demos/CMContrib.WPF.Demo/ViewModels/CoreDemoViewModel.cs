@@ -23,6 +23,12 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels
                 .In<ShellView>();
         }
 
+        [BusyCoroutine(Message = "Processing...", BusyIndicatorImplementation = typeof(ShellView))]
+        public IEnumerable<IResult> BusyWithAttribute(int ms)
+        {
+            yield return new DelegateResult(() => LongRunningTask(ms));
+        }
+
         [Rescue(MethodName = "GeneralRescue")]
         public IEnumerable<IResult> Catch()
         {

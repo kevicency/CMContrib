@@ -1,3 +1,5 @@
+using System;
+
 namespace Caliburn.Micro.Contrib.Results
 {
     public interface IBusyResult:IResult
@@ -6,5 +8,6 @@ namespace Caliburn.Micro.Contrib.Results
             where T : IBusyIndicator;
 
         IBusyResult In(IBusyIndicator busyIndicator);
+        IBusyResult In(Type type);
     }
 }
