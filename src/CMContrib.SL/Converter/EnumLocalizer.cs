@@ -5,6 +5,9 @@ using System.Windows.Data;
 
 namespace Caliburn.Micro.Contrib.Converter
 {
+    /// <summary>
+    /// Convention based localization of Enums
+    /// </summary>
     public class EnumLocalizer : IValueConverter
     {
         #region IValueConverter Members

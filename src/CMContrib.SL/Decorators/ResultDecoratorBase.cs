@@ -4,7 +4,7 @@ namespace Caliburn.Micro.Contrib.Decorators
 {
     public class ResultDecoratorBase : IResult
     {
-        private readonly IResult _inner;
+        readonly IResult _inner;
 
         internal ResultDecoratorBase(IResult inner)
         {

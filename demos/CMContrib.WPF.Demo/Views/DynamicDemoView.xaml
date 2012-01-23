@@ -5,14 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:Micro="clr-namespace:Caliburn.Micro;assembly=Caliburn.Micro">
     <StackPanel>
-        <Button Micro:Message.Attach="[Event PreviewMouseLeftButtonDown] = [Action ShowMessage(
-                $dataContext,                 
-                $dataContext.DisplayName,
-                $eventArgs,
-                $eventArgs.ButtonState,
-                {Binding Path=Foreground, ElementName=ButtonContent},
-                ButtonContent.Text,
-                'true')]">
+        <Button Micro:Message.Attach="[Event PreviewMouseLeftButtonDown] = [Action ShowMessage(                 $dataContext,                                  $dataContext.DisplayName,                 $eventArgs,                 $eventArgs.ButtonState,                 {Binding Path=Foreground, ElementName=ButtonContent},                 ButtonContent.Text,                 'true')]">
             <Button.Content>
                 <TextBlock x:Name="ButtonContent"
                            Text="Complex Binding"

@@ -8,10 +8,10 @@ namespace Caliburn.Micro.Contrib.Decorators
     /// </summary>
     internal class ContinueResultDecorator : ResultDecoratorBase
     {
-        private static readonly ILog _log = LogManager.GetLog(typeof(ContinueResultDecorator));
+        static readonly ILog _log = LogManager.GetLog(typeof (ContinueResultDecorator));
 
-        private readonly Func<IEnumerable<IResult>> _coroutine;
-        private ActionExecutionContext _context;
+        readonly Func<IEnumerable<IResult>> _coroutine;
+        ActionExecutionContext _context;
 
         public ContinueResultDecorator(IResult inner, Func<IEnumerable<IResult>> coroutine)
             : base(inner)
@@ -21,7 +21,7 @@ namespace Caliburn.Micro.Contrib.Decorators
             _coroutine = coroutine;
         }
 
-        private static ILog Log
+        static ILog Log
         {
             get { return _log; }
         }
@@ -38,7 +38,7 @@ namespace Caliburn.Micro.Contrib.Decorators
 
             if (args.Error != null || !args.WasCancelled)
             {
-                OnCompleted(new ResultCompletionEventArgs { Error = args.Error });
+                OnCompleted(new ResultCompletionEventArgs {Error = args.Error});
             }
             else
             {
@@ -51,11 +51,11 @@ namespace Caliburn.Micro.Contrib.Decorators
             }
         }
 
-        private void HandleCancelCompleted(object sender, ResultCompletionEventArgs args)
+        void HandleCancelCompleted(object sender, ResultCompletionEventArgs args)
         {
             (sender as IResult).Completed -= HandleCancelCompleted;
 
-            OnCompleted(new ResultCompletionEventArgs { Error = args.Error, WasCancelled = true });
+            OnCompleted(new ResultCompletionEventArgs {Error = args.Error, WasCancelled = true});
         }
     }
 }

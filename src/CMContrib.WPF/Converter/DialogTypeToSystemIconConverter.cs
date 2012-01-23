@@ -10,6 +10,9 @@ using Caliburn.Micro.Contrib.Dialogs;
 
 namespace Caliburn.Micro.Contrib.Converter
 {
+    /// <summary>
+    /// Converts a DialogType to the corresponding system icon.
+    /// </summary>
     [ValueConversion(typeof (string), typeof (BitmapSource))]
     public class DialogTypeToSystemIconConverter : IValueConverter
     {

@@ -2,10 +2,13 @@ using System.Threading;
 
 namespace Caliburn.Micro.Contrib
 {
+    /// <summary>
+    ///  Wraps a background thread that is used by the <see cref="ResultSynchronizationContext"/> to execute Results
+    /// </summary>
     internal class ResultExecutionThread
     {
-        readonly Thread _worker;
         readonly IBlockingQueue<ResultExecutionTask> _taskQueue;
+        readonly Thread _worker;
 
         public ResultExecutionThread(IBlockingQueue<ResultExecutionTask> taskQueue)
         {

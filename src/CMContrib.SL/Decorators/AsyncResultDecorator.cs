@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Media;
 
 namespace Caliburn.Micro.Contrib.Decorators
 {
     /// <summary>
-    ///   A result decorator which delegates the execution of the inner result to a dedicated worker thread
+    ///  A result decorator which delegates the execution of the inner result to a dedicated worker thread. 
+    ///  After the inner result completed, the decorator completes on the calling thread context s.t. 
+    ///  the following results aren't executed on the worker thread.
     /// </summary>
     public class AsyncResultDecorator : IResult
     {
@@ -31,6 +25,8 @@ namespace Caliburn.Micro.Contrib.Decorators
             get { return ResultSynchronizationContext.Instance; }
         }
 
+        #region IResult Members
+
         public void Execute(ActionExecutionContext context)
         {
             var callContext = SynchronizationContext.Current;
@@ -46,6 +42,7 @@ namespace Caliburn.Micro.Contrib.Decorators
                 var args = (x as ResultExecutionTask).CompletionEventArgs;
                 if (callContext != null)
                 {
+                    _log.Info("Invoking complete on calling context {0}", callContext);
                     callContext.Send(y => Completed(this, y as ResultCompletionEventArgs), args);
                 }
                 else
@@ -54,9 +51,13 @@ namespace Caliburn.Micro.Contrib.Decorators
                 }
             };
 
+            _log.Info("Delegating execution of {0} to worker thread", _inner);
+
             ResultSyncContext.Post(callback, task);
         }
 
         public event EventHandler<ResultCompletionEventArgs> Completed = delegate { };
+
+        #endregion
     }
 }

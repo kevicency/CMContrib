@@ -2,13 +2,25 @@ using System.Threading;
 
 namespace Caliburn.Micro.Contrib
 {
+    /// <summary>
+    /// Implementation of the <see cref="SynchronizationContext"/> to execute Results in a background worker thread.
+    /// Uses a <see cref="IBlockingQueue{T}"/> to store pending result executions and a <see cref="ResultExecutionThread"/>
+    /// to execute the Results. Since there should only be one worker thread, the <see cref="ResultSynchronizationContext"/>
+    /// implements the Singleton Pattern.
+    /// </summary>
     public class ResultSynchronizationContext : SynchronizationContext
     {
+        static ResultSynchronizationContext _instance;
+        static readonly object _lock = new object();
         readonly IBlockingQueue<ResultExecutionTask> _queue;
         readonly ResultExecutionThread _worker;
 
-        static ResultSynchronizationContext _instance;
-        static readonly object _lock = new object();
+        ResultSynchronizationContext()
+        {
+            _queue = new BlockingQueue<ResultExecutionTask>();
+            _worker = new ResultExecutionThread(_queue);
+            _worker.Start();
+        }
 
         internal ResultExecutionThread Worker
         {
@@ -35,16 +47,9 @@ namespace Caliburn.Micro.Contrib
             }
         }
 
-        ResultSynchronizationContext()
-        {
-            _queue = new BlockingQueue<ResultExecutionTask>();
-            _worker = new ResultExecutionThread(_queue);
-            _worker.Start();
-        }
-
         public override void Send(SendOrPostCallback d, object state)
         {
-            ResultExecutionTask task = state as ResultExecutionTask;
+            var task = state as ResultExecutionTask;
             _queue.Enqueue(task);
 
             task.ExecutionCompleteWaitHandle.WaitOne();
@@ -54,11 +59,8 @@ namespace Caliburn.Micro.Contrib
 
         public override void Post(SendOrPostCallback d, object state)
         {
-            ResultExecutionTask task = state as ResultExecutionTask;
-            task.Result.Completed += (sender, args) =>
-            {
-                d(state);
-            };
+            var task = state as ResultExecutionTask;
+            task.Result.Completed += (sender, args) => { d(state); };
             _queue.Enqueue(task);
         }
 

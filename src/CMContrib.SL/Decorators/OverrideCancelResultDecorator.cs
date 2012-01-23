@@ -5,13 +5,14 @@ namespace Caliburn.Micro.Contrib.Decorators
     /// </summary>
     internal class OverrideCancelResultDecorator : ResultDecoratorBase
     {
-        private static readonly ILog _log = LogManager.GetLog(typeof(OverrideCancelResultDecorator));
+        static readonly ILog _log = LogManager.GetLog(typeof (OverrideCancelResultDecorator));
 
         public OverrideCancelResultDecorator(IResult inner)
-                : base(inner)
-        { }
+            : base(inner)
+        {
+        }
 
-        private static ILog Log
+        static ILog Log
         {
             get { return _log; }
         }
@@ -23,7 +24,7 @@ namespace Caliburn.Micro.Contrib.Decorators
 
             if (args.WasCancelled) _log.Info(string.Format("Overriding WasCancelled from {0}", Inner.GetType().Name));
 
-            OnCompleted(new ResultCompletionEventArgs { Error = args.Error });
+            OnCompleted(new ResultCompletionEventArgs {Error = args.Error});
         }
     }
 }

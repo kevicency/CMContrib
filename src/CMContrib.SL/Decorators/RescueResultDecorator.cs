@@ -22,10 +22,10 @@ namespace Caliburn.Micro.Contrib.Decorators
     internal class RescueResultDecorator<TException> : ResultDecoratorBase
         where TException : Exception
     {
-        private static readonly ILog _log = LogManager.GetLog(typeof (RescueResultDecorator<>));
-        private readonly bool _cancelResult;
-        private readonly Func<TException, IEnumerable<IResult>> _rescue;
-        private ActionExecutionContext _context;
+        static readonly ILog _log = LogManager.GetLog(typeof (RescueResultDecorator<>));
+        readonly bool _cancelResult;
+        readonly Func<TException, IEnumerable<IResult>> _rescue;
+        ActionExecutionContext _context;
 
         public RescueResultDecorator(IResult inner, Func<TException, IEnumerable<IResult>> rescue, bool cancelResult)
             : base(inner)
@@ -41,12 +41,12 @@ namespace Caliburn.Micro.Contrib.Decorators
             get { return _cancelResult; }
         }
 
-        private static ILog Log
+        static ILog Log
         {
             get { return _log; }
         }
 
-        private static void LogRescuedError(TException error)
+        static void LogRescuedError(TException error)
         {
             var sb = new StringBuilder();
             sb.AppendFormat("Rescued {0}", error.GetType().FullName).AppendLine();
@@ -68,8 +68,8 @@ namespace Caliburn.Micro.Contrib.Decorators
                 Handle(e);
             }
         }
-        
-        private void Handle(TException error)
+
+        void Handle(TException error)
         {
             LogRescuedError(error);
 
@@ -98,7 +98,7 @@ namespace Caliburn.Micro.Contrib.Decorators
             }
         }
 
-        private void Rescue(TException exception)
+        void Rescue(TException exception)
         {
             var rescueResult = new SequentialResult(_rescue(exception).GetEnumerator());
             rescueResult.Completed += RescueCompleted;
@@ -106,7 +106,7 @@ namespace Caliburn.Micro.Contrib.Decorators
             rescueResult.Execute(_context);
         }
 
-        private void RescueCompleted(object sender, ResultCompletionEventArgs args)
+        void RescueCompleted(object sender, ResultCompletionEventArgs args)
         {
             (sender as IResult).Completed -= RescueCompleted;
 

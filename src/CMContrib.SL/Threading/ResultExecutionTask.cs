@@ -1,16 +1,13 @@
-using System;
 using System.Threading;
 
 namespace Caliburn.Micro.Contrib
 {
+    /// <summary>
+    ///  A task that is used by the <see cref="ResultSynchronizationContext"/> to store pending result executions in a queue.
+    ///  The <see cref="ExecutionCompleteWaitHandle"/> is set when the result completed
+    /// </summary>
     internal class ResultExecutionTask
     {
-        public IResult Result { get; private set; }
-        public ActionExecutionContext Context { get; private set; }
-        public ResultCompletionEventArgs CompletionEventArgs { get; set; }
-
-        public ManualResetEvent ExecutionCompleteWaitHandle { get; private set; }
-
         public ResultExecutionTask(IResult result, ActionExecutionContext context)
         {
             Result = result;
@@ -19,6 +16,14 @@ namespace Caliburn.Micro.Contrib
             ExecutionCompleteWaitHandle = new ManualResetEvent(false);
         }
 
+        public IResult Result { get; private set; }
+        public ActionExecutionContext Context { get; private set; }
+        public ResultCompletionEventArgs CompletionEventArgs { get; set; }
+        public ManualResetEvent ExecutionCompleteWaitHandle { get; private set; }
+
+        /// <summary>
+        ///  Execute the Result
+        /// </summary>
         public void Execute()
         {
             Result.Completed += OnResultCompleted;
