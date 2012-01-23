@@ -35,6 +35,8 @@ _ReSharper*/
 *.resharper
 [Tt]est[Rr]esult*
 packages/
+nuget/package/*.nupkg
+nuget/package/lib
 
 #Project files
 [Bb]uild/
