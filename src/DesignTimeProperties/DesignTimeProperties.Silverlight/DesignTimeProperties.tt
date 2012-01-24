@@ -1,0 +1,55 @@
+<#+
+private static bool TryGetEventArgsType(EventInfo info, out Type eventArgs)
+{
+    eventArgs = null;
+
+    if ((info.GetAddMethod() == null) || (info.GetRemoveMethod() == null))
+        return false;
+
+    var method = info.EventHandlerType.GetMethod("Invoke");
+    var infoArray2 = method.GetParameters();
+    if ((infoArray2.Length != 2) || 
+        !infoArray2[0].ParameterType.Equals(typeof (object)) ||
+        (infoArray2[1].ParameterType != typeof(EventArgs) && !infoArray2[1].ParameterType.IsSubclassOf(typeof (EventArgs)) ) ||
+        (method.ReturnType != typeof (void)))
+        return false;
+
+    eventArgs = infoArray2[1].ParameterType;
+    return true;
+}
+private void Generate(IEnumerable<Type> types)
+{
+	var q = 
+		from t in types
+		from p in t.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+		group p by p.Name into gr
+		let pp = gr.ToList() 			
+		where !pp.Select( ppp => ppp.PropertyType).Distinct().Skip(1).Any()
+		select pp.First();
+
+	foreach(var p in q)
+	{
+		var name = p.Name;
+		var type = TypeToString(p.PropertyType);
+#>
+		
+		public static DependencyProperty <#= name #>Property = DependencyProperty.RegisterAttached( "<#= name #>", typeof(<#= type #>), typeof(d), new PropertyMetadata(new PropertyChangedCallback(<#= name #>Changed)));
+        public static <#= type #> Get<#= name #>(DependencyObject dependencyObject)
+        {
+            return (<#= type #>)dependencyObject.GetValue(<#= name #>Property);
+        }
+        public static void Set<#= name #>(DependencyObject dependencyObject, <#= type #> value)
+        {
+            dependencyObject.SetValue(<#= name #>Property, value);
+        }
+		private static void <#= name #>Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("<#= name #>").SetValue(d, e.NewValue, null);
+        }
+<#+
+	}
+}
+#>

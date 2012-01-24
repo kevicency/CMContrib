@@ -1,0 +1,52 @@
+<#@ template language="C#v3.5" debug="True" hostspecific="True"#>
+<#@ output extension="cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="PresentationFramework" #>
+<#@ assembly name="PresentationCore" #>
+<#@ assembly name="System.Xaml" #>
+
+<#@ import namespace="System" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Reflection" #>
+
+<#
+var assembly1 = typeof(System.Windows.UIElement).Assembly;
+var assembly2 = typeof(System.Windows.Controls.Button).Assembly;
+var uiElementType = assembly1.GetType("System.Windows.UIElement");
+Func<Type, bool> filter = t => t.IsPublic && t.IsClass && ((t == uiElementType) || t.IsSubclassOf(uiElementType) );
+var types = assembly1.GetTypes().Concat(assembly2.GetTypes()).Where(filter);
+#>
+using System.ComponentModel;
+using System.Windows;
+
+namespace DesignTimeProperties
+{
+	public static class d
+	{
+		static bool? inDesignMode;
+
+        /// <summary>
+        /// Indicates whether or not the framework is in design-time mode. (Caliburn.Micro implementation)
+        /// </summary>
+        private static bool InDesignMode {
+            get {
+                if(inDesignMode == null) {
+                    var prop = DesignerProperties.IsInDesignModeProperty;
+                    inDesignMode = (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+
+                    if(!inDesignMode.GetValueOrDefault(false) && System.Diagnostics.Process.GetCurrentProcess().ProcessName.StartsWith("devenv", System.StringComparison.Ordinal))
+                        inDesignMode = true;
+                }
+
+                return inDesignMode.GetValueOrDefault(false);
+            }
+        }
+
+
+<#
+	Generate(types);
+#>
+	}
+}
+<#@ include file="../DesignTimeProperties.Silverlight/DesignTimeProperties.tt" #>

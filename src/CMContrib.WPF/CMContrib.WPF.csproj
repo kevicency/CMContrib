@@ -211,6 +211,8 @@
       <Link>Threading\ResultSynchronizationContext.cs</Link>
     </Compile>
     <Compile Include="ConsoleLog.cs" />
+    <Compile Include="DesignTime\DesignTime.cs" />
+    <Compile Include="DesignTime\Helper.cs" />
     <Compile Include="DialogCloser.cs" />
     <Compile Include="Results\BrowseFolderResult.cs" />
     <Compile Include="Helper\FileFilterCollection.cs" />
@@ -233,6 +235,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DesignTimeProperties\DesignTimeProperties.WPF\DesignTimeProperties.WPF.csproj">
+      <Project>{982FB578-ABA6-4796-ACF2-FB3E87C3E049}</Project>
+      <Name>DesignTimeProperties.WPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
