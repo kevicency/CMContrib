@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
 		<id>Caliburn.Micro-Contrib</id>
-		<version>0.9.0</version>
+		<version>1.0.0</version>
 		<authors>Kevin Mees</authors>
 		<description>Extensions for the Caliburn.Micro Framework</description>
 		<language>en-US</language>
@@ -14,8 +14,8 @@
 		</dependencies> 
 		<frameworkAssemblies>
 			<frameworkAssembly assemblyName="System.Drawing" targetFramework="net40" />
-			<frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework="net40, sl40" />
-			<frameworkAssembly assemblyName="System.ComponentModel.Composition.Initialization" targetFramework="sl40" />
+			<frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework="net40, sl40, sl50" />
+			<frameworkAssembly assemblyName="System.ComponentModel.Composition.Initialization" targetFramework="sl40, sl50" />
 		</frameworkAssemblies>
 	</metadata>
 </package>

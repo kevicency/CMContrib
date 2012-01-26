@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Caliburn.Micro-Contribution")]
 [assembly: AssemblyDescription("Extended functionality for Caliburn.Micro")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("codesomnia.de")]
+[assembly: AssemblyCompany("Kevin Mees")]
 [assembly: AssemblyProduct("Caliburn.Micro-Contribution")]
-[assembly: AssemblyCopyright("Copyright © codesomnia.de 2011")]
+[assembly: AssemblyCopyright("Copyright © Kevin Mees 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,7 +35,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("0.5.0")]
-[assembly: AssemblyFileVersion("0.0.0")]
+[assembly: AssemblyVersion("1.0.0")]
+[assembly: AssemblyFileVersion("1.0.0")]
 [assembly: InternalsVisibleTo("CMContrib.Test")]
 [assembly: InternalsVisibleTo("CMContrib.Spec")]
