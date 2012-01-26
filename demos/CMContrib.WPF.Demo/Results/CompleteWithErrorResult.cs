@@ -2,11 +2,11 @@
 
 namespace Caliburn.Micro.Contrib.Demo.Results
 {
-    internal class ErrorResult : IResult
+    internal class CompleteWithErrorResult : IResult
     {
         private readonly Exception _error;
 
-        public ErrorResult(Exception error)
+        public CompleteWithErrorResult(Exception error)
         {
             _error = error;
         }

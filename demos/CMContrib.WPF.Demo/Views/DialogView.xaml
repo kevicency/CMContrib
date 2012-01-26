@@ -29,23 +29,24 @@
             </Binding.Converter>
         </Binding>
     </Window.Icon>
-    <DockPanel Focusable="False" LastChildFill="True">
-        <TextBlock HorizontalAlignment="Center"
+    <Grid Background="#FFA0A0A0">
+        <DockPanel Focusable="False" LastChildFill="True">
+            <TextBlock HorizontalAlignment="Center"
                    DockPanel.Dock="Top"
                    FontWeight="Bold"
                    Text="I am a custom view !" />
-        <ItemsControl x:Name="Responses"
+            <ItemsControl x:Name="Responses"
                       Margin="5"
                       HorizontalAlignment="Center"
                       DockPanel.Dock="Bottom">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Button Height="25"
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Height="25"
                             MinWidth="75"
                             Margin="5 0"
                             cal:Message.Attach="Respond($dataContext)"
@@ -53,11 +54,11 @@
                             Focusable="True"
                             IsCancel="{Binding IsCancel}"
                             IsDefault="{Binding IsDefault}" />
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
 
-        <Image Width="32"
+            <Image Width="32"
                Margin="10"
                VerticalAlignment="Center"
                DockPanel.Dock="Left"
@@ -65,16 +66,17 @@
                Source="{Binding Dialog.DialogType,
                                 Converter={StaticResource IconConverter}}" />
 
-        <Border Width="1"
+            <Border Width="1"
                 Margin="0 5"
                 Background="Gray"
                 DockPanel.Dock="Left" />
 
-        <TextBlock Margin="10"
+            <TextBlock Margin="10"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Focusable="False"
                    Text="{Binding Dialog.Message}"
                    TextWrapping="Wrap" />
-    </DockPanel>
+        </DockPanel>
+    </Grid>
 </Window>

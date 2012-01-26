@@ -5,6 +5,8 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition.Primitives;
 using System.Linq;
+using Caliburn.Micro.Contrib.Demo.Views;
+using Caliburn.Micro.Contrib.Demo.Views.Samples;
 
 namespace Caliburn.Micro.Contrib.Demo
 {
@@ -20,6 +22,22 @@ namespace Caliburn.Micro.Contrib.Demo
             FrameworkExtensions.Message.Attach.AllowExtraSyntax(MessageSyntaxes.SpecialValueProperty | MessageSyntaxes.XamlBinding);
             FrameworkExtensions.ActionMessage.EnableFilters();
             Localizer.CustomResourceManager = Properties.Demo.ResourceManager;
+
+            // Return a generic sample view if the sample doesn't provide a custom view
+            var baseLocate = ViewLocator.LocateTypeForModelType;
+            ViewLocator.LocateTypeForModelType = (type, dependencyObject, context) =>
+            {
+                var baseView = baseLocate(type, dependencyObject, context);
+                if (baseView == null && type.GetInterfaces().Contains(typeof(ISample)))
+                {
+                    return typeof(GenericSampleView);
+                }
+                return baseView;
+            };
+            // Namespace mapping for custom dialog view
+            ViewLocator.AddSubNamespaceMapping("Dialogs", "Demo.Views");
+            // or alternatively
+            // ViewLocator.AddNamespaceMapping("Caliburn.Micro.Contrib.Dialogs", "Caliburn.Micro.Contrib.Demo.Views");
 
             var catalog = new AggregateCatalog(
                 AssemblySource.Instance.Select(x => new AssemblyCatalog(x)).OfType<ComposablePartCatalog>()

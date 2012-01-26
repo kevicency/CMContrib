@@ -1,0 +1,11 @@
+﻿public class AppBootstrapper : Bootstrapper<IShell>
+{
+	protected override void Configure()
+	{
+		FrameworkExtensions.Message.Attach.AllowExtraSyntax(MessageSyntaxes.SpecialValueProperty | MessageSyntaxes.XamlBinding);
+		FrameworkExtensions.ActionMessage.EnableFilters();
+		Localizer.CustomResourceManager = Properties.Demo.ResourceManager;
+
+		// ...
+	}
+}

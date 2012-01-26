@@ -15,13 +15,13 @@ namespace Caliburn.Micro.Contrib.Demo
 
         public void Busy(string message)
         {
-            Indicator.BusyContent = message;
-            Indicator.IsBusy = true;
+            BusyIndicator.BusyContent = message;
+            BusyIndicator.IsBusy = true;
         }
 
         public void Idle()
         {
-            Indicator.IsBusy = false;
+            BusyIndicator.IsBusy = false;
         }
     }
 }

@@ -139,6 +139,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DesignTimeProperties\DesignTimeProperties.Silverlight\DesignTimeProperties.Silverlight.csproj">
+      <Project>{55AF99C8-DE96-4AB3-ACA6-040CE6513E99}</Project>
+      <Name>DesignTimeProperties.Silverlight</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

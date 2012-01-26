@@ -64,6 +64,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Caliburn.Micro.1.3.0\lib\sl4\Caliburn.Micro.dll</HintPath>
     </Reference>
+    <Reference Include="ColorCode.SL">
+      <HintPath>..\..\lib\ColorCode.SL.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ComponentModel.Composition.Initialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -94,43 +97,107 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\CMContrib.WPF.Demo\IDemo.cs">
-      <Link>IDemo.cs</Link>
+    <Compile Include="..\CMContrib.WPF.Demo\ISample.cs">
+      <Link>ISample.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\IShell.cs">
+      <Link>IShell.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.WPF.Demo\Results\CancelResult.cs">
       <Link>Results\CancelResult.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.WPF.Demo\Results\ErrorResult.cs">
-      <Link>Results\ErrorResult.cs</Link>
+    <Compile Include="..\CMContrib.WPF.Demo\Results\CompleteWithErrorResult.cs">
+      <Link>Results\CompleteWithErrorResult.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.WPF.Demo\Results\LogResult.cs">
       <Link>Results\LogResult.cs</Link>
     </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\SampleCategory.cs">
+      <Link>SampleCategory.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.WPF.Demo\ShellViewModel.cs">
       <Link>ShellViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\CoreDemoViewModel.cs">
-      <Link>ViewModels\CoreDemoViewModel.cs</Link>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\SampleScreen.cs">
+      <Link>ViewModels\SampleScreen.cs</Link>
     </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ComplexBindingViewModel.cs">
+      <Link>ViewModels\Samples\ComplexBindingViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ComplexBindingViewModel.cs">
+      <Link>Resources\Source\ComplexBindingViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DialogSampleScreen.cs">
+      <Link>ViewModels\Samples\DialogSampleScreen.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DialogSampleScreen.cs">
+      <Link>Resources\Source\DialogSampleScreen.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ErrorDialogViewModel.cs">
+      <Link>ViewModels\Samples\ErrorDialogViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ErrorDialogViewModel.cs">
+      <Link>Resources\Source\ErrorDialogViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\InformationDialogViewModel.cs">
+      <Link>ViewModels\Samples\InformationDialogViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\InformationDialogViewModel.cs">
+      <Link>Resources\Source\InformationDialogViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\QuestionDialogViewModel.cs">
+      <Link>ViewModels\Samples\QuestionDialogViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\QuestionDialogViewModel.cs">
+      <Link>Resources\Source\QuestionDialogViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\RescueAttributeViewModel.cs">
+      <Link>ViewModels\Samples\RescueAttributeViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\RescueAttributeViewModel.cs">
+      <Link>Resources\Source\RescueAttributeViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\RescueExtensionViewModel.cs">
+      <Link>ViewModels\Samples\RescueExtensionViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\RescueExtensionViewModel.cs">
+      <Link>Resources\Source\RescueExtensionViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WarningDialogViewModel.cs">
+      <Link>ViewModels\Samples\WarningDialogViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WarningDialogViewModel.cs">
+      <Link>Resources\Source\WarningDialogViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WhenCancelledExtension.cs">
+      <Link>ViewModels\Samples\WhenCancelledExtension.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WhenCancelledExtension.cs">
+      <Link>Resources\Source\WhenCancelledExtension.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WorkerThreadAttributeViewModel.cs">
+      <Link>ViewModels\Samples\WorkerThreadAttributeViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WorkerThreadAttributeViewModel.cs">
+      <Link>Resources\Source\WorkerThreadAttributeViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WorkerThreadExtensionViewModel.cs">
+      <Link>ViewModels\Samples\WorkerThreadExtensionViewModel.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\WorkerThreadExtensionViewModel.cs">
+      <Link>Resources\Source\WorkerThreadExtensionViewModel.cs</Link>
+    </Resource>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
-    <Compile Include="IShell.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\DialogsDemoViewModel.cs" />
-    <Compile Include="ViewModels\DynamicDemoViewModel.cs" />
-    <Compile Include="Views\CoreDemoView.xaml.cs">
-      <DependentUpon>CoreDemoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DialogsDemoView.xaml.cs">
-      <DependentUpon>DialogsDemoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\DynamicDemoView.xaml.cs">
-      <DependentUpon>DynamicDemoView.xaml</DependentUpon>
+    <Compile Include="TypeLoader.cs" />
+    <Compile Include="Views\Samples\GenericSampleView.xaml.cs">
+      <DependentUpon>GenericSampleView.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="..\CMContrib.WPF.Demo\Properties\Demo.resx">
       <Link>Properties\Demo.resx</Link>
@@ -158,17 +225,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CoreDemoView.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\Samples\GenericSampleView.xaml">
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\DialogsDemoView.xaml">
       <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\DynamicDemoView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -184,7 +243,9 @@
       <Name>CMContrib.SL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\Source\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
