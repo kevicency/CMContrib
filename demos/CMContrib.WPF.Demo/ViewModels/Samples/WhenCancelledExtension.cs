@@ -9,7 +9,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
     {
         public WhenCancelledExtension()
         {
-            Category = SampleCategory.Core;
+            Category = SampleCategory.Coroutine;
             Description = "The WhenCancelled Extension Method can be used to decorate IResults. " +
                           "The decorator either takes a coroutine or action that is invoked when the result is cancelled. " +
                           "It is also possible to override the cancel of an IResult";

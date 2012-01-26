@@ -15,7 +15,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
 
         public WorkerThreadExtensionViewModel()
         {
-            Category = SampleCategory.Core;
+            Category = SampleCategory.Coroutine;
             Description = "The OnWorkerThread Extension Method can be used to decorate IResults. " +
                           "The decorator delegates the execution of the result to a dedicated worker thread. " +
                           "If a message is given, an IBusyIndicator is located and activated while the result is executed. " +

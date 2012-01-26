@@ -24,7 +24,6 @@ Easy way to show dialogs to the user. There are four predefined Dialogs
  
 For more Information see [Blog post](http://kmees.github.com/blog/2011/06/16/mvvm-dialogs-with-caliburn-dot-micro/).
 
-
 ### IResult Implementation
 
 ####SL & WPF:
@@ -59,10 +58,9 @@ Filters are part of the full Caliburn framework. They are quite useful because t
 - *XamlBinding* - Parses Xaml Bindings ({Binding ...}) in ActionMessages, i.e Message.Attach="DoSomething({Binding Text, ElementName=UserInput})"
 - *SpecialValueProperty* - Parses Properties of Special Values in ActionMessages, i.e. Message.Attach="DoSomething($eventargs.Foo)"
 
-### Syntax Extensions
+### Design Time Support
+CMContrib allows you to enable Caliburn's auto binding feature during design time with an Attached Property
 
-- XamlBinding - Parses Xaml Bindings ({Binding ...}) in ActionMessages, i.e Message.Attach="DoSomething({Binding Text, ElementName=UserInput})"
-- SpecialValueProperty - Parses Properties of Special Values in ActionMessages, i.e. Message.Attach="DoSomething($eventargs.Foo)"
 
 ## Examples
 For every Feature there exists a sample in the Demo projects (SL&WPF)

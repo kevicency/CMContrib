@@ -11,7 +11,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
     {
         public RescueExtensionViewModel()
         {
-            Category = SampleCategory.Core;
+            Category = SampleCategory.Coroutine;
             Description = "The Rescue Extension Method can be used to decorate IResults. " +
                "The decorator that catches all thrown exceptions as well as errors in the ResultCompletitionEventArgs of the result. " +
                "The rescue decorator either takes a coroutine or a method that is executed/invoked if an exception is catched";

@@ -104,6 +104,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ViewModels\Samples\ConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\Samples\DesignTimeViewModel.cs" />
     <Compile Include="ViewModels\Samples\DialogSampleScreen.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -202,7 +203,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\config_sample.txt">
+    <Content Include="ViewModels\Samples\config_sample.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

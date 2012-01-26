@@ -13,7 +13,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
 
         public WorkerThreadAttributeViewModel()
         {
-            Category = SampleCategory.Core;
+            Category = SampleCategory.Coroutine;
             Description =
                 "The OnWorkerThread Attribute Method can be used to decorate methods that return a coroutine. " +
                 "The decorator delegates the execution of the coroutine to a dedicated worker thread. " +

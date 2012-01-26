@@ -127,6 +127,12 @@
     <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ComplexBindingViewModel.cs">
       <Link>Resources\Source\ComplexBindingViewModel.cs</Link>
     </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ConfigurationViewModel.cs">
+      <Link>ViewModels\Samples\ConfigurationViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DesignTimeViewModel.cs">
+      <Link>ViewModels\Samples\DesignTimeViewModel.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DialogSampleScreen.cs">
       <Link>ViewModels\Samples\DialogSampleScreen.cs</Link>
     </Compile>
@@ -244,7 +250,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Source\" />
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\config_sample.txt">
+      <Link>Resources\Source\config_sample.txt</Link>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

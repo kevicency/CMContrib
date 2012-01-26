@@ -13,7 +13,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
     {
         public RescueAttributeViewModel()
         {
-            Category = SampleCategory.Core;
+            Category = SampleCategory.Coroutine;
             Description = "The RescueAttribute can be used to decorate methods that return a coroutine or classes. " +
                           "The Attribute decorates the coroutine with a RescueDecorator that catches all thrown exceptions " +
                           "as well as errors in the ResultCompletitionEventArgs of the coroutine. " +

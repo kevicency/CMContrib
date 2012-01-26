@@ -7,7 +7,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Design
         public ShellDesign()
         {
             SamplesByCategory = new BindableCollection<CategorySamples>();
-            SamplesByCategory.Add(new CategorySamples(SampleCategory.Core, new List<ISample>
+            SamplesByCategory.Add(new CategorySamples(SampleCategory.Coroutine, new List<ISample>
                                             {
                                                 new GenericSampleDesign(),
                                                 new GenericSampleDesign()
