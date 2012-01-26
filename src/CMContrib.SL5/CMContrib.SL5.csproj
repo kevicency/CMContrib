@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B34177B9-94D0-4DFD-88D3-A5A85884F623}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Caliburn.Micro.Contrib</RootNamespace>
+    <AssemblyName>Caliburn.Micro.Contrib</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\SL5\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\..\packages\Caliburn.Micro.1.3.0\lib\sl5\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Caliburn.Micro.1.3.0\lib\sl5\System.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\..\packages\Caliburn.Micro.1.3.0\lib\sl5\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CMContrib.SL\ButtonEx.cs">
+      <Link>ButtonEx.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Converter\EnumLocalizer.cs">
+      <Link>Converter\EnumLocalizer.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\AsyncResultDecorator.cs">
+      <Link>Decorators\AsyncResultDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\BusyResultDecorator.cs">
+      <Link>Decorators\BusyResultDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\ContinueResultDecorator.cs">
+      <Link>Decorators\ContinueResultDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\OverrideCancelResultDecorator.cs">
+      <Link>Decorators\OverrideCancelResultDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\RescueResultDecorator.cs">
+      <Link>Decorators\RescueResultDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\ResultDecoratorBase.cs">
+      <Link>Decorators\ResultDecoratorBase.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\DialogCloser.cs">
+      <Link>DialogCloser.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\Answer.cs">
+      <Link>Dialogs\Answer.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\BindableResponse.cs">
+      <Link>Dialogs\BindableResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\Dialog.cs">
+      <Link>Dialogs\Dialog.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\DialogType.cs">
+      <Link>Dialogs\DialogType.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\DialogView.xaml.cs">
+      <Link>Dialogs\DialogView.xaml.cs</Link>
+      <DependentUpon>DialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\DialogViewModel.cs">
+      <Link>Dialogs\DialogViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\Error.cs">
+      <Link>Dialogs\Error.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\IDialogViewModel.cs">
+      <Link>Dialogs\IDialogViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\Information.cs">
+      <Link>Dialogs\Information.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\Question.cs">
+      <Link>Dialogs\Question.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dialogs\Warning.cs">
+      <Link>Dialogs\Warning.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Dynamic.cs">
+      <Link>Dynamic.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Extensions\ActionExecutionContextExtensions.cs">
+      <Link>Extensions\ActionExecutionContextExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Extensions\DialogExtensions.cs">
+      <Link>Extensions\DialogExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Extensions\ResultExtensions.cs">
+      <Link>Extensions\ResultExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Filters\DecorateCoroutineAttribute.cs">
+      <Link>Filters\DecorateCoroutineAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Filters\IDecorateCoroutineFilter.cs">
+      <Link>Filters\IDecorateCoroutineFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Filters\IFilter.cs">
+      <Link>Filters\IFilter.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Filters\OnWorkerThreadAttribute.cs">
+      <Link>Filters\OnWorkerThreadAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Filters\RescueAttribute.cs">
+      <Link>Filters\RescueAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\FrameworkExtensions.cs">
+      <Link>FrameworkExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Helper\CancelledHandler.cs">
+      <Link>Helper\CancelledHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Helper\ICancelledHandler.cs">
+      <Link>Helper\ICancelledHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Helper\IExceptionHandler.cs">
+      <Link>Helper\IExceptionHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Helper\RescueHandler.cs">
+      <Link>Helper\RescueHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\IBlockingQueue.cs">
+      <Link>IBlockingQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\IBusyIndicator.cs">
+      <Link>IBusyIndicator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Localizer.cs">
+      <Link>Localizer.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\MessageSyntaxes.cs">
+      <Link>MessageSyntaxes.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\BusyResult.cs">
+      <Link>Results\BusyResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\BusyResultBase.cs">
+      <Link>Results\BusyResultBase.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\ConductResult.cs">
+      <Link>Results\ConductResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\DelegateResult.cs">
+      <Link>Results\DelegateResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\DialogResult.cs">
+      <Link>Results\DialogResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\IBusyResult.cs">
+      <Link>Results\IBusyResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\IOpenResult.cs">
+      <Link>Results\IOpenResult.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Results\OpenResultBase.cs">
+      <Link>Results\OpenResultBase.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\SingleResultEnumerator.cs">
+      <Link>SingleResultEnumerator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\BlockingQueue.cs">
+      <Link>Threading\BlockingQueue.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\ResultExecutionTask.cs">
+      <Link>Threading\ResultExecutionTask.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\ResultExecutionThread.cs">
+      <Link>Threading\ResultExecutionThread.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Threading\ResultSynchronizationContext.cs">
+      <Link>Threading\ResultSynchronizationContext.cs</Link>
+    </Compile>
+    <EmbeddedResource Include="..\CMContrib.SL\Properties\CMContrib.resx">
+      <Link>Properties\CMContrib.resx</Link>
+    </EmbeddedResource>
+    <Compile Include="..\CMContrib.SL\Properties\CMContrib.Designer.cs">
+      <Link>Properties\CMContrib.Designer.cs</Link>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\CMContrib.SL\Dialogs\DialogView.xaml">
+      <Link>Dialogs\DialogView.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

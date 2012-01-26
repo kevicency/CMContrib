@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignTimeProperties.WPF", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignTimeProperties.Silverlight", "src\DesignTimeProperties\DesignTimeProperties.Silverlight\DesignTimeProperties.Silverlight.csproj", "{55AF99C8-DE96-4AB3-ACA6-040CE6513E99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.SL5", "src\CMContrib.SL5\CMContrib.SL5.csproj", "{B34177B9-94D0-4DFD-88D3-A5A85884F623}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,16 @@ Global
 		{55AF99C8-DE96-4AB3-ACA6-040CE6513E99}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{55AF99C8-DE96-4AB3-ACA6-040CE6513E99}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{55AF99C8-DE96-4AB3-ACA6-040CE6513E99}.Release|x86.ActiveCfg = Release|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{B34177B9-94D0-4DFD-88D3-A5A85884F623}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
