@@ -8,12 +8,12 @@ namespace Caliburn.Micro.Contrib.Decorators
     ///  After the inner result completed, the decorator completes on the calling thread context s.t. 
     ///  the following results aren't executed on the worker thread.
     /// </summary>
-    public class AsyncResultDecorator : IResult
+    public class WorkerThreadResultDecorator : IResult
     {
-        static readonly ILog _log = LogManager.GetLog(typeof (AsyncResultDecorator));
+        static readonly ILog _log = LogManager.GetLog(typeof (WorkerThreadResultDecorator));
         readonly IResult _inner;
 
-        public AsyncResultDecorator(IResult inner)
+        public WorkerThreadResultDecorator(IResult inner)
         {
             if (inner == null) throw new ArgumentNullException("inner");
 

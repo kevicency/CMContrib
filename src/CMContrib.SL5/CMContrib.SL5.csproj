@@ -72,14 +72,14 @@
     <Compile Include="..\CMContrib.SL\Converter\EnumLocalizer.cs">
       <Link>Converter\EnumLocalizer.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Decorators\AsyncResultDecorator.cs">
-      <Link>Decorators\AsyncResultDecorator.cs</Link>
-    </Compile>
     <Compile Include="..\CMContrib.SL\Decorators\BusyResultDecorator.cs">
       <Link>Decorators\BusyResultDecorator.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Decorators\ContinueResultDecorator.cs">
       <Link>Decorators\ContinueResultDecorator.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\WorkerThreadResultDecorator.cs">
+      <Link>Decorators\WorkerThreadResultDecorator.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>

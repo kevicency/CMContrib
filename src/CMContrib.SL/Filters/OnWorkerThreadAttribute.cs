@@ -34,7 +34,7 @@ namespace Caliburn.Micro.Contrib.Filters
             }
             else
             {
-                yield return new AsyncResultDecorator(inner);
+                yield return new WorkerThreadResultDecorator(inner);
             }
         }
     }

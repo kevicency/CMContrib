@@ -62,9 +62,6 @@
     <Compile Include="..\CMContrib.SL\Converter\EnumLocalizer.cs">
       <Link>Converter\EnumLocalizer.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.SL\Decorators\AsyncResultDecorator.cs">
-      <Link>Decorators\AsyncResultDecorator.cs</Link>
-    </Compile>
     <Compile Include="..\CMContrib.SL\Decorators\BusyResultDecorator.cs">
       <Link>Decorators\BusyResultDecorator.cs</Link>
     </Compile>
@@ -79,6 +76,9 @@
     </Compile>
     <Compile Include="..\CMContrib.SL\Decorators\ResultDecoratorBase.cs">
       <Link>Decorators\ResultDecoratorBase.cs</Link>
+    </Compile>
+    <Compile Include="..\CMContrib.SL\Decorators\WorkerThreadResultDecorator.cs">
+      <Link>Decorators\WorkerThreadResultDecorator.cs</Link>
     </Compile>
     <Compile Include="..\CMContrib.SL\Extensions\ActionExecutionContextExtensions.cs">
       <Link>Extensions\ActionExecutionContextExtensions.cs</Link>

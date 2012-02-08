@@ -65,7 +65,7 @@
     <Reference Include="System.Windows.Browser" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Decorators\AsyncResultDecorator.cs" />
+    <Compile Include="Decorators\WorkerThreadResultDecorator.cs" />
     <Compile Include="Decorators\BusyResultDecorator.cs" />
     <Compile Include="Decorators\OverrideCancelResultDecorator.cs" />
     <Compile Include="Extensions\ActionExecutionContextExtensions.cs" />

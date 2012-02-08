@@ -83,7 +83,7 @@ namespace Caliburn.Micro.Contrib
         /// <returns></returns>
         public static IResult OnWorkerThread(this IResult result)
         {
-            return new AsyncResultDecorator(result);
+            return new WorkerThreadResultDecorator(result);
         }
 
         /// <summary>
