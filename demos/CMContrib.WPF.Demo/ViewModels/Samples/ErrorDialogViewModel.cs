@@ -14,7 +14,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
 
         public override IEnumerable<IResult> Execute()
         {
-            var error = new Error("Custom Error Title", Properties.Demo.LoremIpsum);
+            var error = new Error("Custom Error Title", Properties.Demo.LoremIpsum, Answer.Ok);
 
             yield return error.AsResult();
 
