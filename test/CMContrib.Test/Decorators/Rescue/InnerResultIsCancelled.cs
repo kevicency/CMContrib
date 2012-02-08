@@ -4,38 +4,38 @@ using Caliburn.Micro;
 using Caliburn.Micro.Contrib.Decorators;
 using NUnit.Framework;
 
-namespace CMContrib.Test.Decorators.RescueCoroutine
+namespace CMContrib.Test.Decorators.Rescue
 {
     [TestFixture]
-    public class InnerResultCompletes
+    public class InnerResultIsCancelled
     {
         IResult _inner;
 
         [SetUp]
         public void SetUp()
         {
-            _inner = TestHelper.MockResult(false, null).Object;
+            _inner = TestHelper.MockResult(true, null).Object;
         }
 
         [Test]
-        public void ResultStillCompletes()
+        public void ResultIsStillCancelled()
         {
             var sut = new RescueResultDecorator(_inner, ex => TestHelper.EmptyCoroutine, true);
 
             var args = sut.BlockingExecute();
 
-            Assert.IsFalse(args.WasCancelled);
+            Assert.IsTrue(args.WasCancelled);
             Assert.IsNull(args.Error);
         }
 
         [Test]
         public void RescueIsNotExecuted()
         {
-            bool rescueExecuted = false;
+            bool rescueInvoked = false;
 
             Func<Exception, IEnumerable<IResult>> rescue = ex =>
                                                                {
-                                                                   rescueExecuted = true;
+                                                                   rescueInvoked = true;
                                                                    return TestHelper.EmptyCoroutine;
                                                                };
 
@@ -43,7 +43,7 @@ namespace CMContrib.Test.Decorators.RescueCoroutine
 
             sut.BlockingExecute();
 
-            Assert.IsFalse(rescueExecuted);
+            Assert.IsFalse(rescueInvoked);
         }
     }
 }

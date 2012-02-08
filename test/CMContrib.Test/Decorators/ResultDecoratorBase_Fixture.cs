@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using System;
+using Caliburn.Micro;
 using Caliburn.Micro.Contrib.Decorators;
 using NUnit.Framework;
 

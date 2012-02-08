@@ -60,7 +60,7 @@ namespace Caliburn.Micro.Contrib
         public override void Post(SendOrPostCallback d, object state)
         {
             var task = state as ResultExecutionTask;
-            task.Result.Completed += (sender, args) => { d(state); };
+            task.Completed += (sender, args) => d(state);
             _queue.Enqueue(task);
         }
 

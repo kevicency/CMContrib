@@ -4,7 +4,7 @@ using Caliburn.Micro.Contrib.Decorators;
 using Moq;
 using NUnit.Framework;
 
-namespace CMContrib.Test.Decorators.ContinueCoroutine
+namespace CMContrib.Test.Decorators.Continue
 {
     [TestFixture]
     public class InnerResultCompletes

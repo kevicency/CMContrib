@@ -70,13 +70,24 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\Busy\BusyResultDecorator_BaseFixture.cs" />
+    <Compile Include="Decorators\Busy\InnerResultCompletes.cs" />
+    <Compile Include="Decorators\Busy\InnerResultFails.cs" />
+    <Compile Include="Decorators\Busy\InnerResultIsCancelled.cs" />
+    <Compile Include="Decorators\Busy\InnerResultThrows.cs" />
+    <Compile Include="Decorators\Rescue\InnerResultThrows.cs" />
+    <Compile Include="Decorators\WorkerThread\InnerResultCompletes.cs" />
     <Compile Include="Decorators\ResultDecoratorBase_Fixture.cs" />
-    <Compile Include="Decorators\RescueCoroutine\InnerResultCompletes.cs" />
-    <Compile Include="Decorators\RescueCoroutine\InnerResultFails.cs" />
-    <Compile Include="Decorators\ContinueCoroutine\InnerResultFails.cs" />
-    <Compile Include="Decorators\ContinueCoroutine\InnerResultIsCancelled.cs" />
-    <Compile Include="Decorators\ContinueCoroutine\InnerResultCompletes.cs" />
-    <Compile Include="Decorators\RescueCoroutine\InnerResultIsCancelled.cs" />
+    <Compile Include="Decorators\Rescue\InnerResultCompletes.cs" />
+    <Compile Include="Decorators\Rescue\InnerResultFails.cs" />
+    <Compile Include="Decorators\Continue\InnerResultFails.cs" />
+    <Compile Include="Decorators\Continue\InnerResultIsCancelled.cs" />
+    <Compile Include="Decorators\Continue\InnerResultCompletes.cs" />
+    <Compile Include="Decorators\Rescue\InnerResultIsCancelled.cs" />
+    <Compile Include="Decorators\WorkerThread\InnerResultFails.cs" />
+    <Compile Include="Decorators\WorkerThread\InnerResultIsCancelled.cs" />
+    <Compile Include="Decorators\WorkerThread\InnerResultThrows.cs" />
+    <Compile Include="Decorators\WorkerThread\WorkerThreadResultDecorator_BaseFixture.cs" />
     <Compile Include="Dialog\UserDialogViewModel_Fixture.cs" />
     <Compile Include="FrameworkExtensions_Fixture.cs" />
     <Compile Include="TestHelper.cs" />
@@ -113,6 +124,7 @@
       <Name>CMContrib.WPF</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
