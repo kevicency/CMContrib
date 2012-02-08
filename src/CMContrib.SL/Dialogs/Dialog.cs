@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Caliburn.Micro.Contrib.Dialogs
 {
@@ -19,6 +20,9 @@ namespace Caliburn.Micro.Contrib.Dialogs
 
         public Dialog(DialogType dialogType, string subject, string message, params TResponse[] possibleResponens)
         {
+            if (!possibleResponens.Any())
+                throw new ArgumentException("No possible responses are given", "possibleResponens");
+
             DialogType = dialogType;
             Subject = subject;
             Message = message;
