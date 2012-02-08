@@ -1,5 +1,5 @@
 # CMContrib
- Components that extend [Caliburn.Micro](http://caliburnmicro.codeplex.com/)
+Extensions for the [Caliburn.Micro](http://caliburnmicro.codeplex.com/) MVVM Framework.
 
 ## Setup
 After cloning the repository, run the *update_packages.ps1* PowerShell-Script in the root folder to get all required NuGet packages.
