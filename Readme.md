@@ -5,12 +5,7 @@
 After cloning the repository, run the *update_packages.ps1* PowerShell-Script in the root folder to get all required NuGet packages.
 
 ## Nuget Package
-To create the CMContrib NuGet Package, just follow these steps 
-
-1. Build the Solution with **Release** Configuration
-2. Run the *create-packages.ps1* PowerShell-Script in the ~/nuget/ folder. 
-
-You can find the .nuspec  file in ~/nuget/package/ if you need to edit the metadata (version).
+The CMContrib NuGet package is available at the NuGet gallery under the name [Caliburn.Micro-Contrib](http://nuget.org/packages/Caliburn.Micro-Contrib)
 
 ## Features
 
@@ -63,4 +58,5 @@ CMContrib allows you to enable Caliburn's auto binding feature during design tim
 
 
 ## Examples
-For every Feature there exists a sample in the Demo projects (SL&WPF)
+For every Feature there exists a sample in the Demo projects (SL & WPF).
+The Silverlight Demo is also available online [here](http://kmees.github.com/projects/cmcontrib.html)
