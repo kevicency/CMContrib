@@ -10,6 +10,7 @@ namespace Caliburn.Micro.Contrib.Dialogs
     public class DialogViewModel<TResponse> : Screen, IDialogViewModel<TResponse>
     {
         private Dialog<TResponse> _dialog;
+        BindableResponse<TResponse> _givenResponse;
 
         public DialogViewModel()
             : this(null)
@@ -43,7 +44,7 @@ namespace Caliburn.Micro.Contrib.Dialogs
         {
             if (bindableResponse == null) throw new ArgumentNullException("bindableResponse");
 
-            Dialog.GivenResponse = bindableResponse.Response;
+            _givenResponse = bindableResponse;
             IsClosed = true;
         }
 
@@ -78,13 +79,12 @@ namespace Caliburn.Micro.Contrib.Dialogs
         {
             if (Dialog.IsResponseGiven) return;
 
-            BindableResponse<TResponse> response;
+            _givenResponse = _givenResponse
+                             ?? Responses.FirstOrDefault(x => x.IsDefault)
+                             ?? Responses.FirstOrDefault(x => x.IsCancel)
+                             ?? Responses.First();
 
-            if (Responses.Any(x => x.IsCancel)) response = Responses.First(x => x.IsCancel);
-            else if (Responses.Any(x => x.IsDefault)) response = Responses.First(x => x.IsDefault);
-            else response = Responses.FirstOrDefault();
-
-            Respond(response);
+            Dialog.GivenResponse = _givenResponse.Response;
         }
     }
 }
