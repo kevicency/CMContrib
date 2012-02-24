@@ -10,13 +10,12 @@ namespace Caliburn.Micro.Contrib.Results
         private bool _hasCancelResponse;
 
         private Func<IDialogViewModel<TResponse>> _locateVM = () => new DialogViewModel<TResponse>();
+        string _contextPrefix;
 
         public DialogResult(Dialog<TResponse> dialog)
         {
             Dialog = dialog;
         }
-
-        //public IWindowManager WindowManager { get; set; }
 
         public Dialog<TResponse> Dialog { get; private set; }
 
@@ -39,7 +38,10 @@ namespace Caliburn.Micro.Contrib.Results
             // we need the event because show dialog doesn't block in the SL context
             Dialog.ResponseGiven += OnResponseGiven;
 
-            Micro.Execute.OnUIThread(() => IoC.Get<IWindowManager>().ShowDialog(vm));
+            var dialogType = Dialog.DialogType;
+            var viewContext = _contextPrefix + (dialogType != DialogType.None ? dialogType.ToString() : "");
+
+            Micro.Execute.OnUIThread(() => IoC.Get<IWindowManager>().ShowDialog(vm, viewContext));
         }
 
         public event EventHandler<ResultCompletionEventArgs> Completed;
@@ -81,6 +83,13 @@ namespace Caliburn.Micro.Contrib.Results
         {
             _locateVM = () => IoC.Get<TDialogViewModel>();
 
+            return this;
+        }
+
+        public DialogResult<TResponse> PrefixViewContextWith(string prefix)
+        {
+            _contextPrefix = prefix;
+            
             return this;
         }
     }

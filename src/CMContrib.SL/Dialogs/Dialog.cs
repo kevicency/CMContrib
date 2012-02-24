@@ -9,7 +9,7 @@ namespace Caliburn.Micro.Contrib.Dialogs
         private TResponse _givenResponse;
 
         public Dialog(string subject, string message, params TResponse[] possibleResponens)
-            : this(DialogType.Custom, subject, message, possibleResponens)
+            : this(DialogType.None, subject, message, possibleResponens)
         {
         }
 

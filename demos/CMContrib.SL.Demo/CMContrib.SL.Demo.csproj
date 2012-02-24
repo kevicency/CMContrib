@@ -105,6 +105,9 @@
     <Compile Include="..\CMContrib.WPF.Demo\IShell.cs">
       <Link>IShell.cs</Link>
     </Compile>
+    <Compile Include="..\CMContrib.WPF.Demo\MemeAnswer.cs">
+      <Link>MemeAnswer.cs</Link>
+    </Compile>
     <Compile Include="..\CMContrib.WPF.Demo\Results\CancelResult.cs">
       <Link>Results\CancelResult.cs</Link>
     </Compile>
@@ -132,9 +135,21 @@
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ConfigurationViewModel.cs">
       <Link>ViewModels\Samples\ConfigurationViewModel.cs</Link>
     </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ConfigurationViewModel.cs">
+      <Link>Resources\Source\ConfigurationViewModel.cs</Link>
+    </Resource>
+    <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\CustomizedQuestion.cs">
+      <Link>ViewModels\Samples\CustomizedQuestion.cs</Link>
+    </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\CustomizedQuestion.cs">
+      <Link>Resources\Source\CustomizedQuestion.cs</Link>
+    </Resource>
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DesignTimeViewModel.cs">
       <Link>ViewModels\Samples\DesignTimeViewModel.cs</Link>
     </Compile>
+    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DesignTimeViewModel.cs">
+      <Link>Resources\Source\DesignTimeViewModel.cs</Link>
+    </Resource>
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DialogSampleScreen.cs">
       <Link>ViewModels\Samples\DialogSampleScreen.cs</Link>
     </Compile>
@@ -199,11 +214,15 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Converters\MemeIconConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="TypeLoader.cs" />
+    <Compile Include="Views\Dialog\MemeQuestion.xaml.cs">
+      <DependentUpon>MemeQuestion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Samples\GenericSampleView.xaml.cs">
       <DependentUpon>GenericSampleView.xaml</DependentUpon>
     </Compile>
@@ -233,6 +252,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Dialog\MemeQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Samples\GenericSampleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -254,6 +277,20 @@
   <ItemGroup>
     <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\config_sample.txt">
       <Link>Resources\Source\config_sample.txt</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\CMContrib.WPF.Demo\Resources\Images\apopleptic.png">
+      <Link>Resources\Images\apopleptic.png</Link>
+    </Resource>
+    <Resource Include="..\CMContrib.WPF.Demo\Resources\Images\damned.png">
+      <Link>Resources\Images\damned.png</Link>
+    </Resource>
+    <Resource Include="..\CMContrib.WPF.Demo\Resources\Images\forever_alone.png">
+      <Link>Resources\Images\forever_alone.png</Link>
+    </Resource>
+    <Resource Include="..\CMContrib.WPF.Demo\Resources\Images\trollface.png">
+      <Link>Resources\Images\trollface.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />

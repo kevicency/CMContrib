@@ -48,6 +48,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Caliburn.Micro.1.3.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -73,7 +75,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converters\CodeToDocumentConverter.cs" />
+    <Compile Include="Converters\MemeIconConverter.cs" />
+    <Compile Include="Converters\SyntaxHighlighter.cs" />
     <Compile Include="ISample.cs" />
     <Compile Include="Properties\Demo.de-DE.Designer.cs">
       <DependentUpon>Demo.de-DE.resx</DependentUpon>
@@ -104,6 +107,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="ViewModels\Samples\ConfigurationViewModel.cs" />
+    <Compile Include="ViewModels\Samples\CustomizedQuestion.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="ViewModels\Samples\DesignTimeViewModel.cs" />
     <Compile Include="ViewModels\Samples\DialogSampleScreen.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -114,6 +120,7 @@
     <Compile Include="ViewModels\Samples\InformationDialogViewModel.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="MemeAnswer.cs" />
     <Compile Include="ViewModels\Samples\OpenFileViewModel.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
@@ -144,6 +151,9 @@
     <Compile Include="Views\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Dialog\MemeQuestion.xaml.cs">
+      <DependentUpon>MemeQuestion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Samples\GenericSampleView.xaml.cs">
       <DependentUpon>GenericSampleView.xaml</DependentUpon>
     </Compile>
@@ -156,6 +166,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\MemeQuestion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,10 +217,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\forever_alone.png" />
+    <Resource Include="Resources\Images\apopleptic.png" />
+    <Resource Include="Resources\Images\damned.png" />
+    <Resource Include="Resources\Images\trollface.png" />
     <Content Include="ViewModels\Samples\config_sample.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Windows.Data;
-using System.Windows.Documents;
 using ColorCode;
 
 namespace Caliburn.Micro.Contrib.Demo.Converters

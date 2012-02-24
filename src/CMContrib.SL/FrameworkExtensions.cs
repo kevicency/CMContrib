@@ -19,6 +19,27 @@ namespace Caliburn.Micro.Contrib
     /// </summary>
     public static class FrameworkExtensions
     {
+        public static class ViewLocator
+        {
+            static readonly Func<string,object, IEnumerable<string>> _baseTransformName = Micro.ViewLocator.TransformName;
+
+            public static void EnableContextFallback()
+            {
+                Micro.ViewLocator.TransformName = FallbackNameTransform;
+            }    
+
+            static IEnumerable<string> FallbackNameTransform(string typeName, object context)
+            {
+                var names = _baseTransformName(typeName, context);
+                if (context != null)
+                {
+                    names = names.Union(_baseTransformName(typeName, null));
+                }
+
+                return names;
+            }
+        }
+
         /// <summary>
         ///   Static class used to store extensions related to the <see cref = "Caliburn.Micro.ActionMessage" />.
         /// </summary>

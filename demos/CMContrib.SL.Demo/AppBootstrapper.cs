@@ -21,6 +21,7 @@ namespace Caliburn.Micro.Contrib.Demo
         {
             FrameworkExtensions.Message.Attach.AllowExtraSyntax(MessageSyntaxes.SpecialValueProperty | MessageSyntaxes.XamlBinding);
             FrameworkExtensions.ActionMessage.EnableFilters();
+            FrameworkExtensions.ViewLocator.EnableContextFallback();
             Localizer.CustomResourceManager = Properties.Demo.ResourceManager;
 
             // Return a generic sample view if the sample doesn't provide a custom view

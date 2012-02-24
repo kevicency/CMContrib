@@ -2,7 +2,7 @@
 {
     public enum DialogType
     {
-        Custom,
+        None,
         Question,
         Warning,
         Information,

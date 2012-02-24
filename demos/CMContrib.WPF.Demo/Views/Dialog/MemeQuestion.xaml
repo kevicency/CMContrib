@@ -1,0 +1,84 @@
+﻿<Window x:Class="Caliburn.Micro.Contrib.Demo.Views.Dialog.MemeQuestion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:Contrib="clr-namespace:Caliburn.Micro.Contrib;assembly=Caliburn.Micro.Contrib"
+        xmlns:Converter="clr-namespace:Caliburn.Micro.Contrib.Converter;assembly=Caliburn.Micro.Contrib"
+        xmlns:Converters="clr-namespace:Caliburn.Micro.Contrib.Demo.Converters"
+        xmlns:Demo="clr-namespace:Caliburn.Micro.Contrib.Demo"
+        xmlns:Dialogs="clr-namespace:Caliburn.Micro.Contrib.Dialogs;assembly=Caliburn.Micro.Contrib"
+        Title="{Binding Dialog.Subject}"
+        Width="450"
+        MinHeight="250"
+        MaxWidth="450"
+        MaxHeight="500"
+        Contrib:DialogCloser.DialogResult="{Binding IsClosed}"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="ToolWindow">
+    <Window.Resources>
+        <Converters:MemeIconConverter x:Key="MemeIconConverter" />
+    </Window.Resources>
+    <Grid Background="#FFA0A0A0">
+        <DockPanel Focusable="False" LastChildFill="True">
+            <TextBlock Margin="10"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       DockPanel.Dock="Top"
+                       Focusable="False"
+                       FontSize="24"
+                       Text="{Binding Dialog.Message}"
+                       TextWrapping="Wrap" />
+            <ItemsControl x:Name="Responses"
+                          Margin="5"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Margin="5"
+                                HorizontalAlignment="Stretch"
+                                HorizontalContentAlignment="Left"
+                                cal:Message.Attach="Respond($dataContext)"
+                                Focusable="True"
+                                Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.RowSpan="2"
+                                       Margin="5"
+                                       Source="{Binding Response.Meme,
+                                                        Converter={StaticResource MemeIconConverter}}" />
+                                <TextBlock Grid.Column="1"
+                                           VerticalAlignment="Bottom"
+                                           FontSize="28"
+                                           FontWeight="Bold"
+                                           Padding="5"
+                                           Text="{Binding Response.Meme}" />
+                                <TextBlock Grid.Row="1"
+                                           Grid.Column="1"
+                                           VerticalAlignment="Top"
+                                           FontSize="16"
+                                           FontStyle="Italic"
+                                           Foreground="LightGray"
+                                           Padding="5"
+                                           Text="{Binding Response.Description}" />
+                            </Grid>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -26,7 +26,7 @@ namespace Caliburn.Micro.Contrib.Converter
 
             Icon icon;
 
-            if (messageType == DialogType.Custom) icon = SystemIcons.Application;
+            if (messageType == DialogType.None) icon = SystemIcons.Application;
             else
             {
                 icon = (Icon) typeof (SystemIcons)
