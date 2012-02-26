@@ -120,9 +120,6 @@
     <Compile Include="..\CMContrib.WPF.Demo\SampleCategory.cs">
       <Link>SampleCategory.cs</Link>
     </Compile>
-    <Compile Include="..\CMContrib.WPF.Demo\ShellViewModel.cs">
-      <Link>ShellViewModel.cs</Link>
-    </Compile>
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\SampleScreen.cs">
       <Link>ViewModels\SampleScreen.cs</Link>
     </Compile>
@@ -213,6 +210,7 @@
     <Compile Include="ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShellViewModel.cs" />
     <Compile Include="TypeLoader.cs" />
     <Compile Include="Views\Dialog\MemeQuestion.xaml.cs">
       <DependentUpon>MemeQuestion.xaml</DependentUpon>

@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="Caliburn.Micro.Contrib.Demo.Views.CategoryShellView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Design="clr-namespace:Caliburn.Micro.Contrib.Demo.ViewModels.Design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DataContext="{d:DesignInstance Design:CategoryDesign}"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <DockPanel LastChildFill="True">
+        <DockPanel.Resources>
+            <Style BasedOn="{StaticResource ChromelessButtonStyle}" TargetType="Button">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="Margin" Value="0,0,20,0" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+        </DockPanel.Resources>
+        <Button x:Name="PreviousSample"
+                Width="28"
+                Margin="0 0 2 0"
+                DockPanel.Dock="Left">
+            <Path Height="100"
+                  Margin="1"
+                  Data="{StaticResource LeftArrow}"
+                  Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                  Stretch="Fill" />
+        </Button>
+        <Button x:Name="NextSample"
+                Width="28"
+                Margin="2 0 0 0"
+                DockPanel.Dock="Right">
+            <Path Height="100"
+                  Margin="1"
+                  Data="{StaticResource RightArrow}"
+                  Fill="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                  Stretch="Fill" />
+        </Button>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Margin="1 10 0 0"
+                       VerticalAlignment="Top"
+                       FontSize="13"
+                       FontWeight="Bold"
+                       TextWrapping="Wrap"
+                       d:LayoutOverrides="Width">
+                <Run Text="{Binding Category}" />
+            </TextBlock>
+            <StackPanel Grid.Row="1"
+                        Margin="1 15 0 0"
+                        Orientation="Horizontal">
+                <TextBlock FontSize="17"
+                           FontWeight="Bold"
+                           TextWrapping="Wrap">
+                    <Run Text="{Binding ActiveItem.DisplayName}" />
+                </TextBlock>
+                <ItemsControl ItemsSource="{Binding NextSamples}">
+                    <ItemsControl.Resources>
+                        <Style BasedOn="{StaticResource ChromelessButtonStyle}" TargetType="Button">
+                            <Setter Property="FontSize" Value="13" />
+                            <Setter Property="Margin" Value="0,0,20,0" />
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Style>
+                    </ItemsControl.Resources>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Margin="10 0 0 0" cal:Message.Attach="ActivateSample($dataContext)">
+                                <TextBlock>
+                                    <Run FontSize="17" Text="{Binding DisplayName, Mode=OneWay}" />
+                                </TextBlock>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <ContentControl x:Name="ActiveItem"
+                            Grid.Row="2"
+                            Margin="1 5" />
+        </Grid>
+    </DockPanel>
+</UserControl>

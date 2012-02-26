@@ -7,15 +7,22 @@ namespace Caliburn.Micro.Contrib.Results
     {
         private readonly Func<ActionExecutionContext, TItem> _locateItem = c => IoC.Get<TItem>();
         private Func<ActionExecutionContext, IConductor> _locateConductor = c => (IConductor) c.Target;
+        Action<TItem> _initialize;
 
         public ConductResult()
         {
+        }
+
+        public ConductResult(Action<TItem> initialize)
+        {
+            _initialize = initialize;
         }
 
         public ConductResult(TItem item)
         {
             _locateItem = c => item;
         }
+
 
         private IEnumerable<IResult> ActivateItem(IConductor parent, TItem item)
         {
@@ -65,6 +72,10 @@ namespace Caliburn.Micro.Contrib.Results
         {
             IConductor conductor = _locateConductor(context);
             TItem item = _locateItem(context);
+            if (_initialize != null)
+            {
+                _initialize(item);
+            }
 
             AddCloseHandlers(item, context);
 

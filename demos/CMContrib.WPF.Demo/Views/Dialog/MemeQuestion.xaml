@@ -3,10 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:cal="http://www.caliburnproject.org"
         xmlns:Contrib="clr-namespace:Caliburn.Micro.Contrib;assembly=Caliburn.Micro.Contrib"
-        xmlns:Converter="clr-namespace:Caliburn.Micro.Contrib.Converter;assembly=Caliburn.Micro.Contrib"
         xmlns:Converters="clr-namespace:Caliburn.Micro.Contrib.Demo.Converters"
-        xmlns:Demo="clr-namespace:Caliburn.Micro.Contrib.Demo"
-        xmlns:Dialogs="clr-namespace:Caliburn.Micro.Contrib.Dialogs;assembly=Caliburn.Micro.Contrib"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         Title="{Binding Dialog.Subject}"
         Width="450"
         MinHeight="250"
@@ -14,15 +13,26 @@
         MaxHeight="500"
         Contrib:DialogCloser.DialogResult="{Binding IsClosed}"
         ResizeMode="NoResize"
-        SizeToContent="WidthAndHeight"
-        WindowStartupLocation="CenterOwner"
-        WindowStyle="ToolWindow">
+        WindowStartupLocation="CenterOwner">
     <Window.Resources>
-        <Converters:MemeIconConverter x:Key="MemeIconConverter" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Caliburn.Micro.Contrib.WPF.Demo;component/Resources/Accents.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Converters:MemeIconConverter x:Key="MemeIconConverter" />
+        </ResourceDictionary>
     </Window.Resources>
-    <Grid Background="#FFA0A0A0">
+    <i:Interaction.Behaviors>
+        <Behaviours:BorderlessWindowBehavior />
+    </i:Interaction.Behaviors>
+    <Grid>
         <DockPanel Focusable="False" LastChildFill="True">
-            <TextBlock Margin="10"
+            <TextBlock Margin="13"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        DockPanel.Dock="Top"
@@ -71,7 +81,6 @@
                                            VerticalAlignment="Top"
                                            FontSize="16"
                                            FontStyle="Italic"
-                                           Foreground="LightGray"
                                            Padding="5"
                                            Text="{Binding Response.Description}" />
                             </Grid>

@@ -45,13 +45,16 @@
     <Reference Include="ColorCode, Version=1.0.1.62759, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ColorCode.1.0.1\lib\ColorCode.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\packages\MahApps.Metro.0.6.0.1\lib\net40\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Caliburn.Micro.1.3.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\..\packages\MahApps.Metro.0.6.0.1\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -75,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\DialogColorConverter.cs" />
     <Compile Include="Converters\MemeIconConverter.cs" />
     <Compile Include="Converters\SyntaxHighlighter.cs" />
     <Compile Include="ISample.cs" />
@@ -87,6 +91,7 @@
     <Compile Include="Results\CompleteWithErrorResult.cs" />
     <Compile Include="Results\LogResult.cs" />
     <Compile Include="SampleCategory.cs" />
+    <Compile Include="ViewModels\CategoryShellViewModel.cs" />
     <Compile Include="ViewModels\Design\GenericSampleDesign.cs" />
     <Compile Include="ViewModels\Design\ShellDesign.cs" />
     <Compile Include="ViewModels\SampleScreen.cs" />
@@ -148,6 +153,9 @@
     <Compile Include="ViewModels\Samples\WorkerThreadExtensionViewModel.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Views\CategoryShellView.xaml.cs">
+      <DependentUpon>CategoryShellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
     </Compile>
@@ -157,6 +165,10 @@
     <Compile Include="Views\Samples\GenericSampleView.xaml.cs">
       <DependentUpon>GenericSampleView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Resources\Accents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +176,10 @@
     <Page Include="ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CategoryShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\DialogView.xaml">
       <SubType>Designer</SubType>
