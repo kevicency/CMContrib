@@ -135,9 +135,6 @@
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ConfigurationViewModel.cs">
       <Link>ViewModels\Samples\ConfigurationViewModel.cs</Link>
     </Compile>
-    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\ConfigurationViewModel.cs">
-      <Link>Resources\Source\ConfigurationViewModel.cs</Link>
-    </Resource>
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\CustomizedQuestion.cs">
       <Link>ViewModels\Samples\CustomizedQuestion.cs</Link>
     </Compile>
@@ -147,9 +144,6 @@
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DesignTimeViewModel.cs">
       <Link>ViewModels\Samples\DesignTimeViewModel.cs</Link>
     </Compile>
-    <Resource Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DesignTimeViewModel.cs">
-      <Link>Resources\Source\DesignTimeViewModel.cs</Link>
-    </Resource>
     <Compile Include="..\CMContrib.WPF.Demo\ViewModels\Samples\DialogSampleScreen.cs">
       <Link>ViewModels\Samples\DialogSampleScreen.cs</Link>
     </Compile>
@@ -253,8 +247,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Dialog\MemeQuestion.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Samples\GenericSampleView.xaml">
       <SubType>Designer</SubType>

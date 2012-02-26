@@ -20,7 +20,7 @@ namespace Caliburn.Micro.Contrib.Demo.Converters
             var name = value.ToString();
             name = name.ToLowerInvariant().Replace(" ", "_");
 
-            return string.Format("../../Resources/Images/{0}.png", name);
+            return string.Format("/Caliburn.Micro.Contrib.SL.Demo;component/Resources/Images/{0}.png", name);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
