@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CMContrib.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -55,6 +61,7 @@
     <None Include="..\DesignTimeProperties.Silverlight\DesignTimeProperties.tt">
       <Link>DesignTimeProperties.tt</Link>
     </None>
+    <None Include="CMContrib.snk" />
     <None Include="DesignTimeProperties.WPF.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DesignTimeProperties.WPF.cs</LastGenOutput>
