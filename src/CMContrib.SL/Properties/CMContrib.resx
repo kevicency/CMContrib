@@ -133,7 +133,7 @@
     <value>Retry</value>
   </data>
   <data name="Answer_Yes" xml:space="preserve">
-    <value>Foo</value>
+    <value>Yes</value>
   </data>
   <data name="DefaultBusyMessage" xml:space="preserve">
     <value>Please Wait...</value>
