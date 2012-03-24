@@ -1,4 +1,4 @@
-namespace Caliburn.Micro.Contrib
+﻿namespace Caliburn.Micro.Contrib
 {
     public interface IBlockingQueue<T>
     {

@@ -1,4 +1,4 @@
-<#+
+﻿<#+
 private static bool TryGetEventArgsType(EventInfo info, out Type eventArgs)
 {
     eventArgs = null;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Caliburn.Micro.Contrib.Results;
 
 namespace Caliburn.Micro.Contrib.Decorators

@@ -1,4 +1,4 @@
-namespace Caliburn.Micro.Contrib.Decorators
+﻿namespace Caliburn.Micro.Contrib.Decorators
 {
     /// <summary>
     ///   A result decorator which overrides the <see cref = "ResultCompletionEventArgs.WasCancelled" /> flag of the inner result
