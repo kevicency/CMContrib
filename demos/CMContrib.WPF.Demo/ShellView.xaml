@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
         xmlns:ComponentModel="clr-namespace:System.ComponentModel;assembly=PresentationFramework"
-        xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+        xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:Demo="clr-namespace:Caliburn.Micro.Contrib.Demo"
         xmlns:Design="clr-namespace:Caliburn.Micro.Contrib.Demo.ViewModels.Design"
@@ -46,7 +46,7 @@
             <GradientStop Offset="1" Color="White" />
         </LinearGradientBrush>
     </Window.Background>
-    <Controls:BusyIndicator x:Name="BusyIndicator">
+    <extToolkit:BusyIndicator x:Name="BusyIndicator">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -157,6 +157,6 @@
                 </ScrollViewer>
             </Expander>
         </Grid>
-    </Controls:BusyIndicator>
+    </extToolkit:BusyIndicator>
 </Window>
 
