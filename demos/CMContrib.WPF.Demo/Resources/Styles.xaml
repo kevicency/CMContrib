@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended">
+					xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit">
     <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type Button}">
         <Setter Property="Margin" Value="3 5" />
         <Setter Property="MinWidth" Value="100" />
@@ -15,7 +15,7 @@
     <Style TargetType="DockPanel">
         <Setter Property="LastChildFill" Value="true" />
     </Style>
-    <Style BasedOn="{StaticResource {x:Type Controls:IntegerUpDown}}" TargetType="Controls:IntegerUpDown">
+    <Style BasedOn="{StaticResource {x:Type extToolkit:IntegerUpDown}}" TargetType="extToolkit:IntegerUpDown">
         <Setter Property="Margin" Value="3" />
     </Style>
     <Style BasedOn="{StaticResource {x:Type ComboBox}}" TargetType="ComboBox">
