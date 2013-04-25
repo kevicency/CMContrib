@@ -10,11 +10,11 @@ namespace Caliburn.Micro.Contrib
     public static class ResultExtensions
     {
         /// <summary>
-        ///   Returns an <see cref = "IEnumerable{IResult}" /> with one item, the result
+        ///   Returns an <see cref = "IEnumerator{IResult}" /> with one item, the result
         /// </summary>
         /// <param name = "result"></param>
         /// <returns></returns>
-        public static IEnumerable<IResult> AsCoroutine(this IResult result)
+        public static IEnumerator<IResult> AsCoroutine(this IResult result)
         {
             yield return result;
         }
