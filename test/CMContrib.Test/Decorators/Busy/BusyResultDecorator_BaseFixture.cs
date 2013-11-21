@@ -30,7 +30,7 @@ namespace CMContrib.Test.Decorators.Busy
         [TestFixtureTearDown]
         public void FixtureTearDown()
         {
-            ResultSynchronizationContext.Instance.Dispose();
+            //ResultSynchronizationContext.Instance.Dispose();
         }
     }
 }

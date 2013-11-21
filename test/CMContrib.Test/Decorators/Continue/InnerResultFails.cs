@@ -28,7 +28,7 @@ namespace CMContrib.Test.Decorators.Continue
             coroutineMock.Setup(x => x.Execute(It.IsAny<ActionExecutionContext>()))
                 .Callback(() => coroutineExecuted = true);
 
-            var sut = new ContinueResultDecorator(_inner, () => coroutineMock.Object.AsCoroutine());
+            var sut = new ContinueResultDecorator(_inner, () => coroutineMock.Object.AsEnumerable());
 
             sut.BlockingExecute();
 

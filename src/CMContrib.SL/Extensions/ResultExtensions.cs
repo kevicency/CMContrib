@@ -10,7 +10,17 @@ namespace Caliburn.Micro.Contrib
     public static class ResultExtensions
     {
         /// <summary>
-        ///   Returns an <see cref = "IEnumerator{IResult}" /> with one item, the result
+        ///   Returns an <see cref = "IEnumerable{IResult}" /> with one item, the result.
+        /// </summary>
+        /// <param name = "result"></param>
+        /// <returns></returns>
+        public static IEnumerable<IResult> AsEnumerable(this IResult result)
+        {
+            yield return result;
+        }
+
+        /// <summary>
+        ///   Returns an <see cref = "IEnumerator{IResult}" /> with one item, the result.
         /// </summary>
         /// <param name = "result"></param>
         /// <returns></returns>
@@ -130,26 +140,26 @@ namespace Caliburn.Micro.Contrib
         public static IOpenResult<TChild> BeforeActivationDo<TChild>(this IOpenResult<TChild> result,
                                                                      Action<TChild> action)
         {
-            result.BeforeActivation = child => new DelegateResult(() => action(child)).AsCoroutine();
+            result.BeforeActivation = child => new DelegateResult(() => action(child)).AsEnumerable();
             return result;
         }
 
         public static IOpenResult<TChild> AfterActivationDo<TChild>(this IOpenResult<TChild> result,
                                                                     Action<TChild> action)
         {
-            result.AfterActivation = child => new DelegateResult(() => action(child)).AsCoroutine();
+            result.AfterActivation = child => new DelegateResult(() => action(child)).AsEnumerable();
             return result;
         }
 
         public static IOpenResult<TChild> BeforeClosingDo<TChild>(this IOpenResult<TChild> result, Action<TChild> action)
         {
-            result.BeforeClosing = child => new DelegateResult(() => action(child)).AsCoroutine();
+            result.BeforeClosing = child => new DelegateResult(() => action(child)).AsEnumerable();
             return result;
         }
 
         public static IOpenResult<TChild> AfterClosingDo<TChild>(this IOpenResult<TChild> result, Action<TChild> action)
         {
-            result.AfterClosing = child => new DelegateResult(() => action(child)).AsCoroutine();
+            result.AfterClosing = child => new DelegateResult(() => action(child)).AsEnumerable();
             return result;
         }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading;
 using Caliburn.Micro;
 using Caliburn.Micro.Contrib.Decorators;
@@ -24,7 +25,6 @@ namespace CMContrib.Test.Decorators.WorkerThread
                 waitHandle.Set();
             };
         
-
             sut.Execute(null);
             waitHandle.WaitOne(3000);
         }

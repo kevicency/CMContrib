@@ -31,7 +31,7 @@ namespace CMContrib.Test.Decorators.Continue
                                                           return new ResultCompletionEventArgs();
                                                       });
 
-            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsCoroutine);
+            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsEnumerable);
 
             sut.BlockingExecute();
 
@@ -47,7 +47,7 @@ namespace CMContrib.Test.Decorators.Continue
                 .Raises(x => x.Completed += null, new ResultCompletionEventArgs())
                 .Verifiable("wrong context");
 
-            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsCoroutine);
+            var sut = new ContinueResultDecorator(_inner, resultMock.Object.AsEnumerable);
 
             sut.BlockingExecute(context);
 
@@ -70,7 +70,7 @@ namespace CMContrib.Test.Decorators.Continue
             var error = new Exception();
             var failingResult = TestHelper.MockResult(false, error).Object;
 
-            var sut = new ContinueResultDecorator(_inner, failingResult.AsCoroutine);
+            var sut = new ContinueResultDecorator(_inner, failingResult.AsEnumerable);
 
             var args = sut.BlockingExecute();
 

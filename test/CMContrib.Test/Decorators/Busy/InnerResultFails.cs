@@ -1,8 +1,8 @@
 using System;
 using System.Threading;
 using Caliburn.Micro;
-using Caliburn.Micro.Contrib;
 using Caliburn.Micro.Contrib.Decorators;
+using Caliburn.Micro.Contrib.Results;
 using NUnit.Framework;
 
 namespace CMContrib.Test.Decorators.Busy
@@ -16,8 +16,8 @@ namespace CMContrib.Test.Decorators.Busy
             BusyIndicatorMock.Setup(x => x.Idle())
                 .Verifiable();
 
-            var inner = TestHelper.MockResult(false, new Exception()).Object;
-            var sut = new BusyResultDecorator(inner, "foo")
+            IResult inner = TestHelper.MockResult(false, new Exception()).Object;
+            IBusyResult sut = new BusyResultDecorator(inner, "foo")
                 .In(BusyIndicator);
             var waitHandle = new ManualResetEvent(false);
             sut.Completed += (sender, args) => waitHandle.Set();

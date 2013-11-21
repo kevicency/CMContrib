@@ -39,7 +39,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
                         fileContents.Add(content);
                     }
                 })
-                .WhenCancelled().Execute(new LogResult("OpenFile cancelled").AsCoroutine);
+                .WhenCancelled().Execute(new LogResult("OpenFile cancelled").AsEnumerable);
 
 
             foreach (var fileContent in fileContents)

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Caliburn.Micro;
 using Caliburn.Micro.Contrib.Dialogs;
+using Moq;
 using NUnit.Framework;
 
 namespace CMContrib.Test.Dialog
@@ -117,7 +118,9 @@ namespace CMContrib.Test.Dialog
             var sut = new DialogViewModel<string>();
             sut.Dialog = _userDialog;
 
+            ((IScreen)sut).Activate();
             sut.Respond(sut.Responses[0]);
+            ((IScreen)sut).Deactivate(true);
 
             Assert.AreEqual(_responses[0], sut.Dialog.GivenResponse);
         }

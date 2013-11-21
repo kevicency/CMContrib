@@ -42,6 +42,9 @@ private void Generate(IEnumerable<Type> types)
 	foreach(var p in q)
 	{
 		var name = p.Name;
+
+		if (name == "ItemContainerTemplateSelector") continue;
+
 		var type = TypeToString(p.PropertyType);
 #>
 		

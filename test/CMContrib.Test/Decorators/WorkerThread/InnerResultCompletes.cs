@@ -1,3 +1,5 @@
+using System;
+using System.Diagnostics;
 using System.Threading;
 using Caliburn.Micro;
 using Caliburn.Micro.Contrib;
@@ -14,25 +16,34 @@ namespace CMContrib.Test.Decorators.WorkerThread
         [Test]
         public void DecoratorDoesntCompleteOnWorkerThreadWhenContextIsGiven()
         {
-            var waitHandle = new ManualResetEvent(false);
-            var sendInvoked = false;
-            var contextMock = new Mock<SynchronizationContext>();
-            contextMock.Setup(x => x.Send(It.IsAny<SendOrPostCallback>(), It.IsAny<object>()))
-                .Callback<SendOrPostCallback, object>((cb, args) =>
-                {
-                    Assert.IsInstanceOf<ResultCompletionEventArgs>(args);
-                    sendInvoked = true;
-                    waitHandle.Set();
-                });
-            SynchronizationContext.SetSynchronizationContext(contextMock.Object);
+            var previousContext = SynchronizationContext.Current;
 
-            var inner = new DelegateResult(() => { });
-            var sut = new WorkerThreadResultDecorator(inner);
+            try
+            {
+                var waitHandle = new ManualResetEvent(false);
+                var sendInvoked = false;
+                var contextMock = new Mock<SynchronizationContext>();
+                contextMock.Setup(x => x.Send(It.IsAny<SendOrPostCallback>(), It.IsAny<object>()))
+                    .Callback<SendOrPostCallback, object>((cb, args) =>
+                    {
+                        Assert.IsInstanceOf<ResultCompletionEventArgs>(args);
+                        sendInvoked = true;
+                        waitHandle.Set();
+                    });
+                SynchronizationContext.SetSynchronizationContext(contextMock.Object);
 
-            sut.Execute(null);
-            waitHandle.WaitOne(3000);
+                var inner = new DelegateResult(() => { });
+                var sut = new WorkerThreadResultDecorator(inner);
 
-            Assert.IsTrue(sendInvoked);
+                sut.Execute(null);
+                waitHandle.WaitOne(3000);
+
+                Assert.IsTrue(sendInvoked);
+            }
+            finally
+            {
+                SynchronizationContext.SetSynchronizationContext(previousContext);
+            }
         }
 
         [Test]

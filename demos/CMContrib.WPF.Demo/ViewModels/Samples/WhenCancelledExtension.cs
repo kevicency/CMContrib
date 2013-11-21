@@ -18,7 +18,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
         public override IEnumerable<IResult> Execute()
         {
             yield return new CancelResult()
-                .WhenCancelled().Execute(new LogResult("Continued with a coroutine").AsCoroutine)
+                .WhenCancelled().Execute(new LogResult("Continued with a coroutine").AsEnumerable)
                 .WhenCancelled().Override();
 
             yield return new CancelResult()

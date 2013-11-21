@@ -21,7 +21,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
 
             yield return question.AsResult()
                 // .CancelOnResponse(Answer.No) When two or more responses are given, the last response is per default the cancel response
-                .WhenCancelled().Execute(new LogResult("Question result cancelled").AsCoroutine)
+                .WhenCancelled().Execute(new LogResult("Question result cancelled").AsEnumerable)
                 .WhenCancelled().Override();
 
             yield return LogResponse(question);
