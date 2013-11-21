@@ -18,7 +18,7 @@ namespace Caliburn.Micro.Contrib.Helper
 
         public IResult Invoke(System.Action action)
         {
-            return Execute(() => new DelegateResult(action).AsCoroutine());
+            return Execute(() => new DelegateResult(action).AsEnumerable());
         }
 
         public IResult Execute(Func<IEnumerable<IResult>> coroutine)

@@ -29,7 +29,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
                                       .AddAllFilesFilter(isDefault: true))
                 .In(@"C:\")
                 .WithFileDo(file => { File.WriteAllText(file, "test"); })
-                .WhenCancelled().Execute(new LogResult("SaveFile cancelled").AsCoroutine);
+                .WhenCancelled().Execute(new LogResult("SaveFile cancelled").AsEnumerable);
 
             yield return new LogResult("Saving successfull");
         }

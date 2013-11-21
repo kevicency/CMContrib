@@ -1,4 +1,12 @@
-﻿using System.ComponentModel;
+﻿
+
+
+
+
+
+
+
+using System.ComponentModel;
 using System.Windows;
 
 namespace DesignTimeProperties
@@ -617,6 +625,312 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("DataContext").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty FontSizeProperty = DependencyProperty.RegisterAttached( "FontSize", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontSizeChanged)));
+        public static System.Double GetFontSize(DependencyObject dependencyObject)
+        {
+            return (System.Double)dependencyObject.GetValue(FontSizeProperty);
+        }
+        public static void SetFontSize(DependencyObject dependencyObject, System.Double value)
+        {
+            dependencyObject.SetValue(FontSizeProperty, value);
+        }
+		private static void FontSizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("FontSize").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty FontFamilyProperty = DependencyProperty.RegisterAttached( "FontFamily", typeof(System.Windows.Media.FontFamily), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontFamilyChanged)));
+        public static System.Windows.Media.FontFamily GetFontFamily(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Media.FontFamily)dependencyObject.GetValue(FontFamilyProperty);
+        }
+        public static void SetFontFamily(DependencyObject dependencyObject, System.Windows.Media.FontFamily value)
+        {
+            dependencyObject.SetValue(FontFamilyProperty, value);
+        }
+		private static void FontFamilyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("FontFamily").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty FontWeightProperty = DependencyProperty.RegisterAttached( "FontWeight", typeof(System.Windows.FontWeight), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontWeightChanged)));
+        public static System.Windows.FontWeight GetFontWeight(DependencyObject dependencyObject)
+        {
+            return (System.Windows.FontWeight)dependencyObject.GetValue(FontWeightProperty);
+        }
+        public static void SetFontWeight(DependencyObject dependencyObject, System.Windows.FontWeight value)
+        {
+            dependencyObject.SetValue(FontWeightProperty, value);
+        }
+		private static void FontWeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("FontWeight").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty FontStyleProperty = DependencyProperty.RegisterAttached( "FontStyle", typeof(System.Windows.FontStyle), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontStyleChanged)));
+        public static System.Windows.FontStyle GetFontStyle(DependencyObject dependencyObject)
+        {
+            return (System.Windows.FontStyle)dependencyObject.GetValue(FontStyleProperty);
+        }
+        public static void SetFontStyle(DependencyObject dependencyObject, System.Windows.FontStyle value)
+        {
+            dependencyObject.SetValue(FontStyleProperty, value);
+        }
+		private static void FontStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("FontStyle").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty FontStretchProperty = DependencyProperty.RegisterAttached( "FontStretch", typeof(System.Windows.FontStretch), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontStretchChanged)));
+        public static System.Windows.FontStretch GetFontStretch(DependencyObject dependencyObject)
+        {
+            return (System.Windows.FontStretch)dependencyObject.GetValue(FontStretchProperty);
+        }
+        public static void SetFontStretch(DependencyObject dependencyObject, System.Windows.FontStretch value)
+        {
+            dependencyObject.SetValue(FontStretchProperty, value);
+        }
+		private static void FontStretchChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("FontStretch").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty CharacterSpacingProperty = DependencyProperty.RegisterAttached( "CharacterSpacing", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(CharacterSpacingChanged)));
+        public static System.Int32 GetCharacterSpacing(DependencyObject dependencyObject)
+        {
+            return (System.Int32)dependencyObject.GetValue(CharacterSpacingProperty);
+        }
+        public static void SetCharacterSpacing(DependencyObject dependencyObject, System.Int32 value)
+        {
+            dependencyObject.SetValue(CharacterSpacingProperty, value);
+        }
+		private static void CharacterSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("CharacterSpacing").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ForegroundProperty = DependencyProperty.RegisterAttached( "Foreground", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ForegroundChanged)));
+        public static System.Windows.Media.Brush GetForeground(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Media.Brush)dependencyObject.GetValue(ForegroundProperty);
+        }
+        public static void SetForeground(DependencyObject dependencyObject, System.Windows.Media.Brush value)
+        {
+            dependencyObject.SetValue(ForegroundProperty, value);
+        }
+		private static void ForegroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("Foreground").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty IsTabStopProperty = DependencyProperty.RegisterAttached( "IsTabStop", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsTabStopChanged)));
+        public static System.Boolean GetIsTabStop(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsTabStopProperty);
+        }
+        public static void SetIsTabStop(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsTabStopProperty, value);
+        }
+		private static void IsTabStopChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsTabStop").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty IsEnabledProperty = DependencyProperty.RegisterAttached( "IsEnabled", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsEnabledChanged)));
+        public static System.Boolean GetIsEnabled(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsEnabledProperty);
+        }
+        public static void SetIsEnabled(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsEnabledProperty, value);
+        }
+		private static void IsEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsEnabled").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty TabIndexProperty = DependencyProperty.RegisterAttached( "TabIndex", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(TabIndexChanged)));
+        public static System.Int32 GetTabIndex(DependencyObject dependencyObject)
+        {
+            return (System.Int32)dependencyObject.GetValue(TabIndexProperty);
+        }
+        public static void SetTabIndex(DependencyObject dependencyObject, System.Int32 value)
+        {
+            dependencyObject.SetValue(TabIndexProperty, value);
+        }
+		private static void TabIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("TabIndex").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty TabNavigationProperty = DependencyProperty.RegisterAttached( "TabNavigation", typeof(System.Windows.Input.KeyboardNavigationMode), typeof(d), new PropertyMetadata(new PropertyChangedCallback(TabNavigationChanged)));
+        public static System.Windows.Input.KeyboardNavigationMode GetTabNavigation(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Input.KeyboardNavigationMode)dependencyObject.GetValue(TabNavigationProperty);
+        }
+        public static void SetTabNavigation(DependencyObject dependencyObject, System.Windows.Input.KeyboardNavigationMode value)
+        {
+            dependencyObject.SetValue(TabNavigationProperty, value);
+        }
+		private static void TabNavigationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("TabNavigation").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty TemplateProperty = DependencyProperty.RegisterAttached( "Template", typeof(System.Windows.Controls.ControlTemplate), typeof(d), new PropertyMetadata(new PropertyChangedCallback(TemplateChanged)));
+        public static System.Windows.Controls.ControlTemplate GetTemplate(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Controls.ControlTemplate)dependencyObject.GetValue(TemplateProperty);
+        }
+        public static void SetTemplate(DependencyObject dependencyObject, System.Windows.Controls.ControlTemplate value)
+        {
+            dependencyObject.SetValue(TemplateProperty, value);
+        }
+		private static void TemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("Template").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty PaddingProperty = DependencyProperty.RegisterAttached( "Padding", typeof(System.Windows.Thickness), typeof(d), new PropertyMetadata(new PropertyChangedCallback(PaddingChanged)));
+        public static System.Windows.Thickness GetPadding(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Thickness)dependencyObject.GetValue(PaddingProperty);
+        }
+        public static void SetPadding(DependencyObject dependencyObject, System.Windows.Thickness value)
+        {
+            dependencyObject.SetValue(PaddingProperty, value);
+        }
+		private static void PaddingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("Padding").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty HorizontalContentAlignmentProperty = DependencyProperty.RegisterAttached( "HorizontalContentAlignment", typeof(System.Windows.HorizontalAlignment), typeof(d), new PropertyMetadata(new PropertyChangedCallback(HorizontalContentAlignmentChanged)));
+        public static System.Windows.HorizontalAlignment GetHorizontalContentAlignment(DependencyObject dependencyObject)
+        {
+            return (System.Windows.HorizontalAlignment)dependencyObject.GetValue(HorizontalContentAlignmentProperty);
+        }
+        public static void SetHorizontalContentAlignment(DependencyObject dependencyObject, System.Windows.HorizontalAlignment value)
+        {
+            dependencyObject.SetValue(HorizontalContentAlignmentProperty, value);
+        }
+		private static void HorizontalContentAlignmentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("HorizontalContentAlignment").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty VerticalContentAlignmentProperty = DependencyProperty.RegisterAttached( "VerticalContentAlignment", typeof(System.Windows.VerticalAlignment), typeof(d), new PropertyMetadata(new PropertyChangedCallback(VerticalContentAlignmentChanged)));
+        public static System.Windows.VerticalAlignment GetVerticalContentAlignment(DependencyObject dependencyObject)
+        {
+            return (System.Windows.VerticalAlignment)dependencyObject.GetValue(VerticalContentAlignmentProperty);
+        }
+        public static void SetVerticalContentAlignment(DependencyObject dependencyObject, System.Windows.VerticalAlignment value)
+        {
+            dependencyObject.SetValue(VerticalContentAlignmentProperty, value);
+        }
+		private static void VerticalContentAlignmentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("VerticalContentAlignment").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty BackgroundProperty = DependencyProperty.RegisterAttached( "Background", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BackgroundChanged)));
+        public static System.Windows.Media.Brush GetBackground(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Media.Brush)dependencyObject.GetValue(BackgroundProperty);
+        }
+        public static void SetBackground(DependencyObject dependencyObject, System.Windows.Media.Brush value)
+        {
+            dependencyObject.SetValue(BackgroundProperty, value);
+        }
+		private static void BackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("Background").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty BorderThicknessProperty = DependencyProperty.RegisterAttached( "BorderThickness", typeof(System.Windows.Thickness), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BorderThicknessChanged)));
+        public static System.Windows.Thickness GetBorderThickness(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Thickness)dependencyObject.GetValue(BorderThicknessProperty);
+        }
+        public static void SetBorderThickness(DependencyObject dependencyObject, System.Windows.Thickness value)
+        {
+            dependencyObject.SetValue(BorderThicknessProperty, value);
+        }
+		private static void BorderThicknessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("BorderThickness").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty BorderBrushProperty = DependencyProperty.RegisterAttached( "BorderBrush", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BorderBrushChanged)));
+        public static System.Windows.Media.Brush GetBorderBrush(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Media.Brush)dependencyObject.GetValue(BorderBrushProperty);
+        }
+        public static void SetBorderBrush(DependencyObject dependencyObject, System.Windows.Media.Brush value)
+        {
+            dependencyObject.SetValue(BorderBrushProperty, value);
+        }
+		private static void BorderBrushChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("BorderBrush").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty FillProperty = DependencyProperty.RegisterAttached( "Fill", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FillChanged)));
         public static System.Windows.Media.Brush GetFill(DependencyObject dependencyObject)
         {
@@ -1127,23 +1441,6 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("Children").SetValue(d, e.NewValue, null);
         }
 		
-		public static DependencyProperty BackgroundProperty = DependencyProperty.RegisterAttached( "Background", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BackgroundChanged)));
-        public static System.Windows.Media.Brush GetBackground(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Media.Brush)dependencyObject.GetValue(BackgroundProperty);
-        }
-        public static void SetBackground(DependencyObject dependencyObject, System.Windows.Media.Brush value)
-        {
-            dependencyObject.SetValue(BackgroundProperty, value);
-        }
-		private static void BackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("Background").SetValue(d, e.NewValue, null);
-        }
-		
 		public static DependencyProperty IsItemsHostProperty = DependencyProperty.RegisterAttached( "IsItemsHost", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsItemsHostChanged)));
         public static System.Boolean GetIsItemsHost(DependencyObject dependencyObject)
         {
@@ -1159,108 +1456,6 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("IsItemsHost").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty FontSizeProperty = DependencyProperty.RegisterAttached( "FontSize", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontSizeChanged)));
-        public static System.Double GetFontSize(DependencyObject dependencyObject)
-        {
-            return (System.Double)dependencyObject.GetValue(FontSizeProperty);
-        }
-        public static void SetFontSize(DependencyObject dependencyObject, System.Double value)
-        {
-            dependencyObject.SetValue(FontSizeProperty, value);
-        }
-		private static void FontSizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("FontSize").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty FontFamilyProperty = DependencyProperty.RegisterAttached( "FontFamily", typeof(System.Windows.Media.FontFamily), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontFamilyChanged)));
-        public static System.Windows.Media.FontFamily GetFontFamily(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Media.FontFamily)dependencyObject.GetValue(FontFamilyProperty);
-        }
-        public static void SetFontFamily(DependencyObject dependencyObject, System.Windows.Media.FontFamily value)
-        {
-            dependencyObject.SetValue(FontFamilyProperty, value);
-        }
-		private static void FontFamilyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("FontFamily").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty FontWeightProperty = DependencyProperty.RegisterAttached( "FontWeight", typeof(System.Windows.FontWeight), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontWeightChanged)));
-        public static System.Windows.FontWeight GetFontWeight(DependencyObject dependencyObject)
-        {
-            return (System.Windows.FontWeight)dependencyObject.GetValue(FontWeightProperty);
-        }
-        public static void SetFontWeight(DependencyObject dependencyObject, System.Windows.FontWeight value)
-        {
-            dependencyObject.SetValue(FontWeightProperty, value);
-        }
-		private static void FontWeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("FontWeight").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty FontStyleProperty = DependencyProperty.RegisterAttached( "FontStyle", typeof(System.Windows.FontStyle), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontStyleChanged)));
-        public static System.Windows.FontStyle GetFontStyle(DependencyObject dependencyObject)
-        {
-            return (System.Windows.FontStyle)dependencyObject.GetValue(FontStyleProperty);
-        }
-        public static void SetFontStyle(DependencyObject dependencyObject, System.Windows.FontStyle value)
-        {
-            dependencyObject.SetValue(FontStyleProperty, value);
-        }
-		private static void FontStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("FontStyle").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty FontStretchProperty = DependencyProperty.RegisterAttached( "FontStretch", typeof(System.Windows.FontStretch), typeof(d), new PropertyMetadata(new PropertyChangedCallback(FontStretchChanged)));
-        public static System.Windows.FontStretch GetFontStretch(DependencyObject dependencyObject)
-        {
-            return (System.Windows.FontStretch)dependencyObject.GetValue(FontStretchProperty);
-        }
-        public static void SetFontStretch(DependencyObject dependencyObject, System.Windows.FontStretch value)
-        {
-            dependencyObject.SetValue(FontStretchProperty, value);
-        }
-		private static void FontStretchChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("FontStretch").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ForegroundProperty = DependencyProperty.RegisterAttached( "Foreground", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ForegroundChanged)));
-        public static System.Windows.Media.Brush GetForeground(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Media.Brush)dependencyObject.GetValue(ForegroundProperty);
-        }
-        public static void SetForeground(DependencyObject dependencyObject, System.Windows.Media.Brush value)
-        {
-            dependencyObject.SetValue(ForegroundProperty, value);
-        }
-		private static void ForegroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("Foreground").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty TextWrappingProperty = DependencyProperty.RegisterAttached( "TextWrapping", typeof(System.Windows.TextWrapping), typeof(d), new PropertyMetadata(new PropertyChangedCallback(TextWrappingChanged)));
@@ -1329,23 +1524,6 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("Text").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty PaddingProperty = DependencyProperty.RegisterAttached( "Padding", typeof(System.Windows.Thickness), typeof(d), new PropertyMetadata(new PropertyChangedCallback(PaddingChanged)));
-        public static System.Windows.Thickness GetPadding(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Thickness)dependencyObject.GetValue(PaddingProperty);
-        }
-        public static void SetPadding(DependencyObject dependencyObject, System.Windows.Thickness value)
-        {
-            dependencyObject.SetValue(PaddingProperty, value);
-        }
-		private static void PaddingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("Padding").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty LineHeightProperty = DependencyProperty.RegisterAttached( "LineHeight", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(LineHeightChanged)));
@@ -1431,6 +1609,159 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("BaselineOffset").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty OverflowContentTargetProperty = DependencyProperty.RegisterAttached( "OverflowContentTarget", typeof(System.Windows.Controls.RichTextBlockOverflow), typeof(d), new PropertyMetadata(new PropertyChangedCallback(OverflowContentTargetChanged)));
+        public static System.Windows.Controls.RichTextBlockOverflow GetOverflowContentTarget(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Controls.RichTextBlockOverflow)dependencyObject.GetValue(OverflowContentTargetProperty);
+        }
+        public static void SetOverflowContentTarget(DependencyObject dependencyObject, System.Windows.Controls.RichTextBlockOverflow value)
+        {
+            dependencyObject.SetValue(OverflowContentTargetProperty, value);
+        }
+		private static void OverflowContentTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("OverflowContentTarget").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty HasOverflowContentProperty = DependencyProperty.RegisterAttached( "HasOverflowContent", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(HasOverflowContentChanged)));
+        public static System.Boolean GetHasOverflowContent(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(HasOverflowContentProperty);
+        }
+        public static void SetHasOverflowContent(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(HasOverflowContentProperty, value);
+        }
+		private static void HasOverflowContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("HasOverflowContent").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ContentStartProperty = DependencyProperty.RegisterAttached( "ContentStart", typeof(System.Windows.Documents.TextPointer), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ContentStartChanged)));
+        public static System.Windows.Documents.TextPointer GetContentStart(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Documents.TextPointer)dependencyObject.GetValue(ContentStartProperty);
+        }
+        public static void SetContentStart(DependencyObject dependencyObject, System.Windows.Documents.TextPointer value)
+        {
+            dependencyObject.SetValue(ContentStartProperty, value);
+        }
+		private static void ContentStartChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ContentStart").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ContentEndProperty = DependencyProperty.RegisterAttached( "ContentEnd", typeof(System.Windows.Documents.TextPointer), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ContentEndChanged)));
+        public static System.Windows.Documents.TextPointer GetContentEnd(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Documents.TextPointer)dependencyObject.GetValue(ContentEndProperty);
+        }
+        public static void SetContentEnd(DependencyObject dependencyObject, System.Windows.Documents.TextPointer value)
+        {
+            dependencyObject.SetValue(ContentEndProperty, value);
+        }
+		private static void ContentEndChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ContentEnd").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ContentSourceProperty = DependencyProperty.RegisterAttached( "ContentSource", typeof(System.Windows.Controls.RichTextBlock), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ContentSourceChanged)));
+        public static System.Windows.Controls.RichTextBlock GetContentSource(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Controls.RichTextBlock)dependencyObject.GetValue(ContentSourceProperty);
+        }
+        public static void SetContentSource(DependencyObject dependencyObject, System.Windows.Controls.RichTextBlock value)
+        {
+            dependencyObject.SetValue(ContentSourceProperty, value);
+        }
+		private static void ContentSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ContentSource").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty IsTextSelectionEnabledProperty = DependencyProperty.RegisterAttached( "IsTextSelectionEnabled", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsTextSelectionEnabledChanged)));
+        public static System.Boolean GetIsTextSelectionEnabled(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsTextSelectionEnabledProperty);
+        }
+        public static void SetIsTextSelectionEnabled(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsTextSelectionEnabledProperty, value);
+        }
+		private static void IsTextSelectionEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsTextSelectionEnabled").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty SelectedTextProperty = DependencyProperty.RegisterAttached( "SelectedText", typeof(System.String), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SelectedTextChanged)));
+        public static System.String GetSelectedText(DependencyObject dependencyObject)
+        {
+            return (System.String)dependencyObject.GetValue(SelectedTextProperty);
+        }
+        public static void SetSelectedText(DependencyObject dependencyObject, System.String value)
+        {
+            dependencyObject.SetValue(SelectedTextProperty, value);
+        }
+		private static void SelectedTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("SelectedText").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty BlocksProperty = DependencyProperty.RegisterAttached( "Blocks", typeof(System.Windows.Documents.BlockCollection), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BlocksChanged)));
+        public static System.Windows.Documents.BlockCollection GetBlocks(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Documents.BlockCollection)dependencyObject.GetValue(BlocksProperty);
+        }
+        public static void SetBlocks(DependencyObject dependencyObject, System.Windows.Documents.BlockCollection value)
+        {
+            dependencyObject.SetValue(BlocksProperty, value);
+        }
+		private static void BlocksChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("Blocks").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty SelectionEndProperty = DependencyProperty.RegisterAttached( "SelectionEnd", typeof(System.Windows.Documents.TextPointer), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SelectionEndChanged)));
+        public static System.Windows.Documents.TextPointer GetSelectionEnd(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Documents.TextPointer)dependencyObject.GetValue(SelectionEndProperty);
+        }
+        public static void SetSelectionEnd(DependencyObject dependencyObject, System.Windows.Documents.TextPointer value)
+        {
+            dependencyObject.SetValue(SelectionEndProperty, value);
+        }
+		private static void SelectionEndChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("SelectionEnd").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty IsMutedProperty = DependencyProperty.RegisterAttached( "IsMuted", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsMutedChanged)));
@@ -1671,6 +2002,23 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("Markers").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty IsDecodingOnGPUProperty = DependencyProperty.RegisterAttached( "IsDecodingOnGPU", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsDecodingOnGPUChanged)));
+        public static System.Boolean GetIsDecodingOnGPU(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsDecodingOnGPUProperty);
+        }
+        public static void SetIsDecodingOnGPU(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsDecodingOnGPUProperty, value);
+        }
+		private static void IsDecodingOnGPUChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsDecodingOnGPU").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty CanSeekProperty = DependencyProperty.RegisterAttached( "CanSeek", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(CanSeekChanged)));
         public static System.Boolean GetCanSeek(DependencyObject dependencyObject)
         {
@@ -1773,12 +2121,29 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("DroppedFramesPerSecond").SetValue(d, e.NewValue, null);
         }
 		
-		public static DependencyProperty AttributesProperty = DependencyProperty.RegisterAttached( "Attributes", typeof(System.Collections.Generic.Dictionary<System.String,System.String>), typeof(d), new PropertyMetadata(new PropertyChangedCallback(AttributesChanged)));
-        public static System.Collections.Generic.Dictionary<System.String,System.String> GetAttributes(DependencyObject dependencyObject)
+		public static DependencyProperty PlaybackRateProperty = DependencyProperty.RegisterAttached( "PlaybackRate", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(PlaybackRateChanged)));
+        public static System.Double GetPlaybackRate(DependencyObject dependencyObject)
         {
-            return (System.Collections.Generic.Dictionary<System.String,System.String>)dependencyObject.GetValue(AttributesProperty);
+            return (System.Double)dependencyObject.GetValue(PlaybackRateProperty);
         }
-        public static void SetAttributes(DependencyObject dependencyObject, System.Collections.Generic.Dictionary<System.String,System.String> value)
+        public static void SetPlaybackRate(DependencyObject dependencyObject, System.Double value)
+        {
+            dependencyObject.SetValue(PlaybackRateProperty, value);
+        }
+		private static void PlaybackRateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("PlaybackRate").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty AttributesProperty = DependencyProperty.RegisterAttached( "Attributes", typeof(System.Collections.Generic.Dictionary<System.String, System.String>), typeof(d), new PropertyMetadata(new PropertyChangedCallback(AttributesChanged)));
+        public static System.Collections.Generic.Dictionary<System.String, System.String> GetAttributes(DependencyObject dependencyObject)
+        {
+            return (System.Collections.Generic.Dictionary<System.String, System.String>)dependencyObject.GetValue(AttributesProperty);
+        }
+        public static void SetAttributes(DependencyObject dependencyObject, System.Collections.Generic.Dictionary<System.String, System.String> value)
         {
             dependencyObject.SetValue(AttributesProperty, value);
         }
@@ -1856,23 +2221,6 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("ViewportWidth").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty SkipLevelsProperty = DependencyProperty.RegisterAttached( "SkipLevels", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SkipLevelsChanged)));
-        public static System.Int32 GetSkipLevels(DependencyObject dependencyObject)
-        {
-            return (System.Int32)dependencyObject.GetValue(SkipLevelsProperty);
-        }
-        public static void SetSkipLevels(DependencyObject dependencyObject, System.Int32 value)
-        {
-            dependencyObject.SetValue(SkipLevelsProperty, value);
-        }
-		private static void SkipLevelsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("SkipLevels").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty AspectRatioProperty = DependencyProperty.RegisterAttached( "AspectRatio", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(AspectRatioChanged)));
@@ -1977,6 +2325,57 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("IsIdle").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty SkipLevelsProperty = DependencyProperty.RegisterAttached( "SkipLevels", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SkipLevelsChanged)));
+        public static System.Int32 GetSkipLevels(DependencyObject dependencyObject)
+        {
+            return (System.Int32)dependencyObject.GetValue(SkipLevelsProperty);
+        }
+        public static void SetSkipLevels(DependencyObject dependencyObject, System.Int32 value)
+        {
+            dependencyObject.SetValue(SkipLevelsProperty, value);
+        }
+		private static void SkipLevelsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("SkipLevels").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty OriginalPixelWidthProperty = DependencyProperty.RegisterAttached( "OriginalPixelWidth", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(OriginalPixelWidthChanged)));
+        public static System.Int32 GetOriginalPixelWidth(DependencyObject dependencyObject)
+        {
+            return (System.Int32)dependencyObject.GetValue(OriginalPixelWidthProperty);
+        }
+        public static void SetOriginalPixelWidth(DependencyObject dependencyObject, System.Int32 value)
+        {
+            dependencyObject.SetValue(OriginalPixelWidthProperty, value);
+        }
+		private static void OriginalPixelWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("OriginalPixelWidth").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty OriginalPixelHeightProperty = DependencyProperty.RegisterAttached( "OriginalPixelHeight", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(OriginalPixelHeightChanged)));
+        public static System.Int32 GetOriginalPixelHeight(DependencyObject dependencyObject)
+        {
+            return (System.Int32)dependencyObject.GetValue(OriginalPixelHeightProperty);
+        }
+        public static void SetOriginalPixelHeight(DependencyObject dependencyObject, System.Int32 value)
+        {
+            dependencyObject.SetValue(OriginalPixelHeightProperty, value);
+        }
+		private static void OriginalPixelHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("OriginalPixelHeight").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty SubImagesProperty = DependencyProperty.RegisterAttached( "SubImages", typeof(System.Collections.ObjectModel.ReadOnlyCollection<System.Windows.Controls.MultiScaleSubImage>), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SubImagesChanged)));
         public static System.Collections.ObjectModel.ReadOnlyCollection<System.Windows.Controls.MultiScaleSubImage> GetSubImages(DependencyObject dependencyObject)
         {
@@ -2009,159 +2408,6 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("Orientation").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty IsTabStopProperty = DependencyProperty.RegisterAttached( "IsTabStop", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsTabStopChanged)));
-        public static System.Boolean GetIsTabStop(DependencyObject dependencyObject)
-        {
-            return (System.Boolean)dependencyObject.GetValue(IsTabStopProperty);
-        }
-        public static void SetIsTabStop(DependencyObject dependencyObject, System.Boolean value)
-        {
-            dependencyObject.SetValue(IsTabStopProperty, value);
-        }
-		private static void IsTabStopChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("IsTabStop").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty IsEnabledProperty = DependencyProperty.RegisterAttached( "IsEnabled", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsEnabledChanged)));
-        public static System.Boolean GetIsEnabled(DependencyObject dependencyObject)
-        {
-            return (System.Boolean)dependencyObject.GetValue(IsEnabledProperty);
-        }
-        public static void SetIsEnabled(DependencyObject dependencyObject, System.Boolean value)
-        {
-            dependencyObject.SetValue(IsEnabledProperty, value);
-        }
-		private static void IsEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("IsEnabled").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty TabIndexProperty = DependencyProperty.RegisterAttached( "TabIndex", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(TabIndexChanged)));
-        public static System.Int32 GetTabIndex(DependencyObject dependencyObject)
-        {
-            return (System.Int32)dependencyObject.GetValue(TabIndexProperty);
-        }
-        public static void SetTabIndex(DependencyObject dependencyObject, System.Int32 value)
-        {
-            dependencyObject.SetValue(TabIndexProperty, value);
-        }
-		private static void TabIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("TabIndex").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty TabNavigationProperty = DependencyProperty.RegisterAttached( "TabNavigation", typeof(System.Windows.Input.KeyboardNavigationMode), typeof(d), new PropertyMetadata(new PropertyChangedCallback(TabNavigationChanged)));
-        public static System.Windows.Input.KeyboardNavigationMode GetTabNavigation(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Input.KeyboardNavigationMode)dependencyObject.GetValue(TabNavigationProperty);
-        }
-        public static void SetTabNavigation(DependencyObject dependencyObject, System.Windows.Input.KeyboardNavigationMode value)
-        {
-            dependencyObject.SetValue(TabNavigationProperty, value);
-        }
-		private static void TabNavigationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("TabNavigation").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty TemplateProperty = DependencyProperty.RegisterAttached( "Template", typeof(System.Windows.Controls.ControlTemplate), typeof(d), new PropertyMetadata(new PropertyChangedCallback(TemplateChanged)));
-        public static System.Windows.Controls.ControlTemplate GetTemplate(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Controls.ControlTemplate)dependencyObject.GetValue(TemplateProperty);
-        }
-        public static void SetTemplate(DependencyObject dependencyObject, System.Windows.Controls.ControlTemplate value)
-        {
-            dependencyObject.SetValue(TemplateProperty, value);
-        }
-		private static void TemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("Template").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty BorderThicknessProperty = DependencyProperty.RegisterAttached( "BorderThickness", typeof(System.Windows.Thickness), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BorderThicknessChanged)));
-        public static System.Windows.Thickness GetBorderThickness(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Thickness)dependencyObject.GetValue(BorderThicknessProperty);
-        }
-        public static void SetBorderThickness(DependencyObject dependencyObject, System.Windows.Thickness value)
-        {
-            dependencyObject.SetValue(BorderThicknessProperty, value);
-        }
-		private static void BorderThicknessChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("BorderThickness").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty HorizontalContentAlignmentProperty = DependencyProperty.RegisterAttached( "HorizontalContentAlignment", typeof(System.Windows.HorizontalAlignment), typeof(d), new PropertyMetadata(new PropertyChangedCallback(HorizontalContentAlignmentChanged)));
-        public static System.Windows.HorizontalAlignment GetHorizontalContentAlignment(DependencyObject dependencyObject)
-        {
-            return (System.Windows.HorizontalAlignment)dependencyObject.GetValue(HorizontalContentAlignmentProperty);
-        }
-        public static void SetHorizontalContentAlignment(DependencyObject dependencyObject, System.Windows.HorizontalAlignment value)
-        {
-            dependencyObject.SetValue(HorizontalContentAlignmentProperty, value);
-        }
-		private static void HorizontalContentAlignmentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("HorizontalContentAlignment").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty VerticalContentAlignmentProperty = DependencyProperty.RegisterAttached( "VerticalContentAlignment", typeof(System.Windows.VerticalAlignment), typeof(d), new PropertyMetadata(new PropertyChangedCallback(VerticalContentAlignmentChanged)));
-        public static System.Windows.VerticalAlignment GetVerticalContentAlignment(DependencyObject dependencyObject)
-        {
-            return (System.Windows.VerticalAlignment)dependencyObject.GetValue(VerticalContentAlignmentProperty);
-        }
-        public static void SetVerticalContentAlignment(DependencyObject dependencyObject, System.Windows.VerticalAlignment value)
-        {
-            dependencyObject.SetValue(VerticalContentAlignmentProperty, value);
-        }
-		private static void VerticalContentAlignmentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("VerticalContentAlignment").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty BorderBrushProperty = DependencyProperty.RegisterAttached( "BorderBrush", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BorderBrushChanged)));
-        public static System.Windows.Media.Brush GetBorderBrush(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Media.Brush)dependencyObject.GetValue(BorderBrushProperty);
-        }
-        public static void SetBorderBrush(DependencyObject dependencyObject, System.Windows.Media.Brush value)
-        {
-            dependencyObject.SetValue(BorderBrushProperty, value);
-        }
-		private static void BorderBrushChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("BorderBrush").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty IsReadOnlyProperty = DependencyProperty.RegisterAttached( "IsReadOnly", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsReadOnlyChanged)));
@@ -2283,23 +2529,6 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("Watermark").SetValue(d, e.NewValue, null);
         }
 		
-		public static DependencyProperty SelectedTextProperty = DependencyProperty.RegisterAttached( "SelectedText", typeof(System.String), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SelectedTextChanged)));
-        public static System.String GetSelectedText(DependencyObject dependencyObject)
-        {
-            return (System.String)dependencyObject.GetValue(SelectedTextProperty);
-        }
-        public static void SetSelectedText(DependencyObject dependencyObject, System.String value)
-        {
-            dependencyObject.SetValue(SelectedTextProperty, value);
-        }
-		private static void SelectedTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("SelectedText").SetValue(d, e.NewValue, null);
-        }
-		
 		public static DependencyProperty SelectionLengthProperty = DependencyProperty.RegisterAttached( "SelectionLength", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SelectionLengthChanged)));
         public static System.Int32 GetSelectionLength(DependencyObject dependencyObject)
         {
@@ -2315,23 +2544,6 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("SelectionLength").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty SelectionStartProperty = DependencyProperty.RegisterAttached( "SelectionStart", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SelectionStartChanged)));
-        public static System.Int32 GetSelectionStart(DependencyObject dependencyObject)
-        {
-            return (System.Int32)dependencyObject.GetValue(SelectionStartProperty);
-        }
-        public static void SetSelectionStart(DependencyObject dependencyObject, System.Int32 value)
-        {
-            dependencyObject.SetValue(SelectionStartProperty, value);
-        }
-		private static void SelectionStartChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("SelectionStart").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty MaxLengthProperty = DependencyProperty.RegisterAttached( "MaxLength", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(MaxLengthChanged)));
@@ -2402,23 +2614,6 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("Selection").SetValue(d, e.NewValue, null);
         }
 		
-		public static DependencyProperty BlocksProperty = DependencyProperty.RegisterAttached( "Blocks", typeof(System.Windows.Documents.BlockCollection), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BlocksChanged)));
-        public static System.Windows.Documents.BlockCollection GetBlocks(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Documents.BlockCollection)dependencyObject.GetValue(BlocksProperty);
-        }
-        public static void SetBlocks(DependencyObject dependencyObject, System.Windows.Documents.BlockCollection value)
-        {
-            dependencyObject.SetValue(BlocksProperty, value);
-        }
-		private static void BlocksChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("Blocks").SetValue(d, e.NewValue, null);
-        }
-		
 		public static DependencyProperty XamlProperty = DependencyProperty.RegisterAttached( "Xaml", typeof(System.String), typeof(d), new PropertyMetadata(new PropertyChangedCallback(XamlChanged)));
         public static System.String GetXaml(DependencyObject dependencyObject)
         {
@@ -2434,40 +2629,6 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("Xaml").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ContentStartProperty = DependencyProperty.RegisterAttached( "ContentStart", typeof(System.Windows.Documents.TextPointer), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ContentStartChanged)));
-        public static System.Windows.Documents.TextPointer GetContentStart(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Documents.TextPointer)dependencyObject.GetValue(ContentStartProperty);
-        }
-        public static void SetContentStart(DependencyObject dependencyObject, System.Windows.Documents.TextPointer value)
-        {
-            dependencyObject.SetValue(ContentStartProperty, value);
-        }
-		private static void ContentStartChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ContentStart").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ContentEndProperty = DependencyProperty.RegisterAttached( "ContentEnd", typeof(System.Windows.Documents.TextPointer), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ContentEndChanged)));
-        public static System.Windows.Documents.TextPointer GetContentEnd(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Documents.TextPointer)dependencyObject.GetValue(ContentEndProperty);
-        }
-        public static void SetContentEnd(DependencyObject dependencyObject, System.Windows.Documents.TextPointer value)
-        {
-            dependencyObject.SetValue(ContentEndProperty, value);
-        }
-		private static void ContentEndChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ContentEnd").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty PasswordProperty = DependencyProperty.RegisterAttached( "Password", typeof(System.String), typeof(d), new PropertyMetadata(new PropertyChangedCallback(PasswordChanged)));
@@ -2757,6 +2918,142 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("VerticalOffset").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ManipulationModeProperty = DependencyProperty.RegisterAttached( "ManipulationMode", typeof(System.Windows.Controls.ManipulationMode), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ManipulationModeChanged)));
+        public static System.Windows.Controls.ManipulationMode GetManipulationMode(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Controls.ManipulationMode)dependencyObject.GetValue(ManipulationModeProperty);
+        }
+        public static void SetManipulationMode(DependencyObject dependencyObject, System.Windows.Controls.ManipulationMode value)
+        {
+            dependencyObject.SetValue(ManipulationModeProperty, value);
+        }
+		private static void ManipulationModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ManipulationMode").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ScrollableWidthProperty = DependencyProperty.RegisterAttached( "ScrollableWidth", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ScrollableWidthChanged)));
+        public static System.Double GetScrollableWidth(DependencyObject dependencyObject)
+        {
+            return (System.Double)dependencyObject.GetValue(ScrollableWidthProperty);
+        }
+        public static void SetScrollableWidth(DependencyObject dependencyObject, System.Double value)
+        {
+            dependencyObject.SetValue(ScrollableWidthProperty, value);
+        }
+		private static void ScrollableWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ScrollableWidth").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ComputedHorizontalScrollBarVisibilityProperty = DependencyProperty.RegisterAttached( "ComputedHorizontalScrollBarVisibility", typeof(System.Windows.Visibility), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ComputedHorizontalScrollBarVisibilityChanged)));
+        public static System.Windows.Visibility GetComputedHorizontalScrollBarVisibility(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Visibility)dependencyObject.GetValue(ComputedHorizontalScrollBarVisibilityProperty);
+        }
+        public static void SetComputedHorizontalScrollBarVisibility(DependencyObject dependencyObject, System.Windows.Visibility value)
+        {
+            dependencyObject.SetValue(ComputedHorizontalScrollBarVisibilityProperty, value);
+        }
+		private static void ComputedHorizontalScrollBarVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ComputedHorizontalScrollBarVisibility").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ViewportHeightProperty = DependencyProperty.RegisterAttached( "ViewportHeight", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ViewportHeightChanged)));
+        public static System.Double GetViewportHeight(DependencyObject dependencyObject)
+        {
+            return (System.Double)dependencyObject.GetValue(ViewportHeightProperty);
+        }
+        public static void SetViewportHeight(DependencyObject dependencyObject, System.Double value)
+        {
+            dependencyObject.SetValue(ViewportHeightProperty, value);
+        }
+		private static void ViewportHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ViewportHeight").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ScrollableHeightProperty = DependencyProperty.RegisterAttached( "ScrollableHeight", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ScrollableHeightChanged)));
+        public static System.Double GetScrollableHeight(DependencyObject dependencyObject)
+        {
+            return (System.Double)dependencyObject.GetValue(ScrollableHeightProperty);
+        }
+        public static void SetScrollableHeight(DependencyObject dependencyObject, System.Double value)
+        {
+            dependencyObject.SetValue(ScrollableHeightProperty, value);
+        }
+		private static void ScrollableHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ScrollableHeight").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ComputedVerticalScrollBarVisibilityProperty = DependencyProperty.RegisterAttached( "ComputedVerticalScrollBarVisibility", typeof(System.Windows.Visibility), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ComputedVerticalScrollBarVisibilityChanged)));
+        public static System.Windows.Visibility GetComputedVerticalScrollBarVisibility(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Visibility)dependencyObject.GetValue(ComputedVerticalScrollBarVisibilityProperty);
+        }
+        public static void SetComputedVerticalScrollBarVisibility(DependencyObject dependencyObject, System.Windows.Visibility value)
+        {
+            dependencyObject.SetValue(ComputedVerticalScrollBarVisibilityProperty, value);
+        }
+		private static void ComputedVerticalScrollBarVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ComputedVerticalScrollBarVisibility").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ExtentHeightProperty = DependencyProperty.RegisterAttached( "ExtentHeight", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ExtentHeightChanged)));
+        public static System.Double GetExtentHeight(DependencyObject dependencyObject)
+        {
+            return (System.Double)dependencyObject.GetValue(ExtentHeightProperty);
+        }
+        public static void SetExtentHeight(DependencyObject dependencyObject, System.Double value)
+        {
+            dependencyObject.SetValue(ExtentHeightProperty, value);
+        }
+		private static void ExtentHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ExtentHeight").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ExtentWidthProperty = DependencyProperty.RegisterAttached( "ExtentWidth", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ExtentWidthChanged)));
+        public static System.Double GetExtentWidth(DependencyObject dependencyObject)
+        {
+            return (System.Double)dependencyObject.GetValue(ExtentWidthProperty);
+        }
+        public static void SetExtentWidth(DependencyObject dependencyObject, System.Double value)
+        {
+            dependencyObject.SetValue(ExtentWidthProperty, value);
+        }
+		private static void ExtentWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ExtentWidth").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty ClickModeProperty = DependencyProperty.RegisterAttached( "ClickMode", typeof(System.Windows.Controls.ClickMode), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ClickModeChanged)));
@@ -3337,6 +3634,23 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("IsDragging").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty IsIndeterminateProperty = DependencyProperty.RegisterAttached( "IsIndeterminate", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsIndeterminateChanged)));
+        public static System.Boolean GetIsIndeterminate(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsIndeterminateProperty);
+        }
+        public static void SetIsIndeterminate(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsIndeterminateProperty, value);
+        }
+		private static void IsIndeterminateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsIndeterminate").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty GroupNameProperty = DependencyProperty.RegisterAttached( "GroupName", typeof(System.String), typeof(d), new PropertyMetadata(new PropertyChangedCallback(GroupNameChanged)));
         public static System.String GetGroupName(DependencyObject dependencyObject)
         {
@@ -3388,57 +3702,6 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("CanHorizontallyScroll").SetValue(d, e.NewValue, null);
         }
 		
-		public static DependencyProperty ExtentWidthProperty = DependencyProperty.RegisterAttached( "ExtentWidth", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ExtentWidthChanged)));
-        public static System.Double GetExtentWidth(DependencyObject dependencyObject)
-        {
-            return (System.Double)dependencyObject.GetValue(ExtentWidthProperty);
-        }
-        public static void SetExtentWidth(DependencyObject dependencyObject, System.Double value)
-        {
-            dependencyObject.SetValue(ExtentWidthProperty, value);
-        }
-		private static void ExtentWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ExtentWidth").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ExtentHeightProperty = DependencyProperty.RegisterAttached( "ExtentHeight", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ExtentHeightChanged)));
-        public static System.Double GetExtentHeight(DependencyObject dependencyObject)
-        {
-            return (System.Double)dependencyObject.GetValue(ExtentHeightProperty);
-        }
-        public static void SetExtentHeight(DependencyObject dependencyObject, System.Double value)
-        {
-            dependencyObject.SetValue(ExtentHeightProperty, value);
-        }
-		private static void ExtentHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ExtentHeight").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ViewportHeightProperty = DependencyProperty.RegisterAttached( "ViewportHeight", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ViewportHeightChanged)));
-        public static System.Double GetViewportHeight(DependencyObject dependencyObject)
-        {
-            return (System.Double)dependencyObject.GetValue(ViewportHeightProperty);
-        }
-        public static void SetViewportHeight(DependencyObject dependencyObject, System.Double value)
-        {
-            dependencyObject.SetValue(ViewportHeightProperty, value);
-        }
-		private static void ViewportHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ViewportHeight").SetValue(d, e.NewValue, null);
-        }
-		
 		public static DependencyProperty ScrollOwnerProperty = DependencyProperty.RegisterAttached( "ScrollOwner", typeof(System.Windows.Controls.ScrollViewer), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ScrollOwnerChanged)));
         public static System.Windows.Controls.ScrollViewer GetScrollOwner(DependencyObject dependencyObject)
         {
@@ -3454,74 +3717,6 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("ScrollOwner").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ScrollableWidthProperty = DependencyProperty.RegisterAttached( "ScrollableWidth", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ScrollableWidthChanged)));
-        public static System.Double GetScrollableWidth(DependencyObject dependencyObject)
-        {
-            return (System.Double)dependencyObject.GetValue(ScrollableWidthProperty);
-        }
-        public static void SetScrollableWidth(DependencyObject dependencyObject, System.Double value)
-        {
-            dependencyObject.SetValue(ScrollableWidthProperty, value);
-        }
-		private static void ScrollableWidthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ScrollableWidth").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ComputedHorizontalScrollBarVisibilityProperty = DependencyProperty.RegisterAttached( "ComputedHorizontalScrollBarVisibility", typeof(System.Windows.Visibility), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ComputedHorizontalScrollBarVisibilityChanged)));
-        public static System.Windows.Visibility GetComputedHorizontalScrollBarVisibility(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Visibility)dependencyObject.GetValue(ComputedHorizontalScrollBarVisibilityProperty);
-        }
-        public static void SetComputedHorizontalScrollBarVisibility(DependencyObject dependencyObject, System.Windows.Visibility value)
-        {
-            dependencyObject.SetValue(ComputedHorizontalScrollBarVisibilityProperty, value);
-        }
-		private static void ComputedHorizontalScrollBarVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ComputedHorizontalScrollBarVisibility").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ScrollableHeightProperty = DependencyProperty.RegisterAttached( "ScrollableHeight", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ScrollableHeightChanged)));
-        public static System.Double GetScrollableHeight(DependencyObject dependencyObject)
-        {
-            return (System.Double)dependencyObject.GetValue(ScrollableHeightProperty);
-        }
-        public static void SetScrollableHeight(DependencyObject dependencyObject, System.Double value)
-        {
-            dependencyObject.SetValue(ScrollableHeightProperty, value);
-        }
-		private static void ScrollableHeightChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ScrollableHeight").SetValue(d, e.NewValue, null);
-        }
-		
-		public static DependencyProperty ComputedVerticalScrollBarVisibilityProperty = DependencyProperty.RegisterAttached( "ComputedVerticalScrollBarVisibility", typeof(System.Windows.Visibility), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ComputedVerticalScrollBarVisibilityChanged)));
-        public static System.Windows.Visibility GetComputedVerticalScrollBarVisibility(DependencyObject dependencyObject)
-        {
-            return (System.Windows.Visibility)dependencyObject.GetValue(ComputedVerticalScrollBarVisibilityProperty);
-        }
-        public static void SetComputedVerticalScrollBarVisibility(DependencyObject dependencyObject, System.Windows.Visibility value)
-        {
-            dependencyObject.SetValue(ComputedVerticalScrollBarVisibilityProperty, value);
-        }
-		private static void ComputedVerticalScrollBarVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("ComputedVerticalScrollBarVisibility").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty IsDirectionReversedProperty = DependencyProperty.RegisterAttached( "IsDirectionReversed", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsDirectionReversedChanged)));
@@ -3574,22 +3769,6 @@ namespace DesignTimeProperties
 
             d.GetType().GetProperty("PlacementTarget").SetValue(d, e.NewValue, null);
         }
-		
-		public static DependencyProperty IsIndeterminateProperty = DependencyProperty.RegisterAttached( "IsIndeterminate", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsIndeterminateChanged)));
-        public static System.Boolean GetIsIndeterminate(DependencyObject dependencyObject)
-        {
-            return (System.Boolean)dependencyObject.GetValue(IsIndeterminateProperty);
-        }
-        public static void SetIsIndeterminate(DependencyObject dependencyObject, System.Boolean value)
-        {
-            dependencyObject.SetValue(IsIndeterminateProperty, value);
-        }
-		private static void IsIndeterminateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
 
-            d.GetType().GetProperty("IsIndeterminate").SetValue(d, e.NewValue, null);
-        }
 	}
 }

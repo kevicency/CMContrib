@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Threading;
 using Caliburn.Micro;
 using Caliburn.Micro.Contrib;

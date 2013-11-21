@@ -80,8 +80,8 @@ namespace Caliburn.Micro.Contrib.Dialogs
             if (Dialog.IsResponseGiven) return;
 
             _givenResponse = _givenResponse
-                             ?? Responses.FirstOrDefault(x => x.IsDefault)
                              ?? Responses.FirstOrDefault(x => x.IsCancel)
+                             ?? Responses.FirstOrDefault(x => x.IsDefault)
                              ?? Responses.First();
 
             Dialog.GivenResponse = _givenResponse.Response;

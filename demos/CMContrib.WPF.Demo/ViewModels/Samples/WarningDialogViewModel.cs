@@ -26,7 +26,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
                 yield return warning.AsResult()
                     .CancelOnResponse(Answer.Abort)
                     .WhenCancelled().Invoke(() => retry = false)
-                    .WhenCancelled().Execute(new LogResult("Aborted").AsCoroutine);
+                    .WhenCancelled().Execute(new LogResult("Aborted").AsEnumerable);
 
                 retry = warning.GivenResponse == Answer.Retry;
 

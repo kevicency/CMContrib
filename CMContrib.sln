@@ -1,10 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.WPF.Demo", "demos\CMContrib.WPF.Demo\CMContrib.WPF.Demo.csproj", "{B591FF84-1963-4078-8CEE-00494CAA9CE0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.WPF", "src\CMContrib.WPF\CMContrib.WPF.csproj", "{026902EB-6B7D-4549-98A0-9E3E14DDCE63}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{852785C1-85B4-44DD-A81E-0E7ACE7018D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demos", "demos", "{3F6964C9-8A90-4F72-82B6-5178A1DD9695}"
@@ -15,23 +13,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.SL", "src\CMContrib.SL\CMContrib.SL.csproj", "{00BEBA5F-71B3-45C0-AD68-D3BA60F96427}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "spec", "spec", "{8736DFD2-0D28-4636-8C61-88E26EF5BA82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.SL.Demo", "demos\CMContrib.SL.Demo\CMContrib.SL.Demo.csproj", "{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignTimeProperties", "DesignTimeProperties", "{2A643F65-E820-4464-9A9C-347ACA8D6896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.WPF.Demo", "demos\CMContrib.WPF.Demo\CMContrib.WPF.Demo.csproj", "{B591FF84-1963-4078-8CEE-00494CAA9CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.WPF", "src\CMContrib.WPF\CMContrib.WPF.csproj", "{026902EB-6B7D-4549-98A0-9E3E14DDCE63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.SL", "src\CMContrib.SL\CMContrib.SL.csproj", "{00BEBA5F-71B3-45C0-AD68-D3BA60F96427}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.Test", "test\CMContrib.Test\CMContrib.Test.csproj", "{CEB90F99-CD77-4F7B-A199-8B7133AFAAF4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "spec", "spec", "{8736DFD2-0D28-4636-8C61-88E26EF5BA82}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.Spec", "spec\CMContrib.Spec\CMContrib.Spec.csproj", "{C809D8FF-B507-4221-9012-205C608D501D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignTimeProperties", "DesignTimeProperties", "{2A643F65-E820-4464-9A9C-347ACA8D6896}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignTimeProperties.WPF", "src\DesignTimeProperties\DesignTimeProperties.WPF\DesignTimeProperties.WPF.csproj", "{982FB578-ABA6-4796-ACF2-FB3E87C3E049}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignTimeProperties.Silverlight", "src\DesignTimeProperties\DesignTimeProperties.Silverlight\DesignTimeProperties.Silverlight.csproj", "{55AF99C8-DE96-4AB3-ACA6-040CE6513E99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMContrib.SL5", "src\CMContrib.SL5\CMContrib.SL5.csproj", "{B34177B9-94D0-4DFD-88D3-A5A85884F623}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{0A25E8CC-0E22-4CEE-960C-5667A110416C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,16 +81,6 @@ Global
 		{00BEBA5F-71B3-45C0-AD68-D3BA60F96427}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{00BEBA5F-71B3-45C0-AD68-D3BA60F96427}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{00BEBA5F-71B3-45C0-AD68-D3BA60F96427}.Release|x86.ActiveCfg = Release|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90}.Release|x86.ActiveCfg = Release|Any CPU
 		{CEB90F99-CD77-4F7B-A199-8B7133AFAAF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CEB90F99-CD77-4F7B-A199-8B7133AFAAF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEB90F99-CD77-4F7B-A199-8B7133AFAAF4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -136,9 +134,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B591FF84-1963-4078-8CEE-00494CAA9CE0} = {3F6964C9-8A90-4F72-82B6-5178A1DD9695}
-		{57D4B3AA-5CAE-465A-9847-1184AB0C2D90} = {3F6964C9-8A90-4F72-82B6-5178A1DD9695}
 		{CEB90F99-CD77-4F7B-A199-8B7133AFAAF4} = {852785C1-85B4-44DD-A81E-0E7ACE7018D1}
+		{B591FF84-1963-4078-8CEE-00494CAA9CE0} = {3F6964C9-8A90-4F72-82B6-5178A1DD9695}
 		{C809D8FF-B507-4221-9012-205C608D501D} = {8736DFD2-0D28-4636-8C61-88E26EF5BA82}
 		{982FB578-ABA6-4796-ACF2-FB3E87C3E049} = {2A643F65-E820-4464-9A9C-347ACA8D6896}
 		{55AF99C8-DE96-4AB3-ACA6-040CE6513E99} = {2A643F65-E820-4464-9A9C-347ACA8D6896}

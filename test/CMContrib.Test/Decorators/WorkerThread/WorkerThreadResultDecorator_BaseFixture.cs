@@ -15,7 +15,7 @@ namespace CMContrib.Test.Decorators.WorkerThread
         [TestFixtureTearDown]
         public void FixtureTearDown()
         {
-            ResultSynchronizationContext.Instance.Dispose();
+            // ResultSynchronizationContext.Instance.Dispose();
         }
     }
 }

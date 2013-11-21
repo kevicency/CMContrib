@@ -27,7 +27,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
                     x => new LogResult("Rescued Error with Coroutine: {0} - {1}",
                                        x.GetType(),
                                        x.Message)
-                             .AsCoroutine(),
+                             .AsEnumerable(),
                     false);
 
             yield return new CompleteWithErrorResult(argEx)
@@ -35,7 +35,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
                     x => new LogResult("Rescued Error with Coroutine: {0} - {1}",
                                        x.GetType(),
                                        x.Message).
-                             AsCoroutine(),
+                             AsEnumerable(),
                     false);
 
             yield return new CompleteWithErrorResult(ex)
@@ -51,7 +51,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
                     x => new LogResult("Rescued thrown Exception with Coroutine: {0} - {1}",
                                        x.GetType(),
                                        x.Message).
-                             AsCoroutine());
+                             AsEnumerable());
         }
     }
 }

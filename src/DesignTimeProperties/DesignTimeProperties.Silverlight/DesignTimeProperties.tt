@@ -17,6 +17,18 @@ private static bool TryGetEventArgsType(EventInfo info, out Type eventArgs)
     eventArgs = infoArray2[1].ParameterType;
     return true;
 }
+private static string TypeToString(Type type)
+{
+    var sb = new System.Text.StringBuilder();
+    var name = type.FullName;
+    if (!type.IsGenericType) return name;
+    sb.Append(name.Substring(0, name.IndexOf('`')));
+    sb.Append("<");
+    sb.Append(string.Join(", ", type.GetGenericArguments()
+                                    .Select(t => TypeToString(t))));
+    sb.Append(">");
+    return sb.ToString();
+}
 private void Generate(IEnumerable<Type> types)
 {
 	var q = 
@@ -30,6 +42,9 @@ private void Generate(IEnumerable<Type> types)
 	foreach(var p in q)
 	{
 		var name = p.Name;
+
+		if (name == "ItemContainerTemplateSelector") continue;
+
 		var type = TypeToString(p.PropertyType);
 #>
 		

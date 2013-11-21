@@ -32,7 +32,7 @@ namespace CMContrib.Test.Decorators.Rescue
             Exception rescuedError = null;
 
             Func<Exception, IEnumerable<IResult>> handler =
-                ex => new DelegateResult(() => rescuedError = ex).AsCoroutine();
+                ex => new DelegateResult(() => rescuedError = ex).AsEnumerable();
 
             var sut = new RescueResultDecorator(_inner, handler, true);
 
@@ -50,7 +50,7 @@ namespace CMContrib.Test.Decorators.Rescue
             resultMock.Setup(x => x.Execute(_context))
                 .Verifiable();
 
-            Func<Exception, IEnumerable<IResult>> handler = ex => resultMock.Object.AsCoroutine();
+            Func<Exception, IEnumerable<IResult>> handler = ex => resultMock.Object.AsEnumerable();
 
             var sut = new RescueResultDecorator(_inner, handler, true);
 
@@ -95,7 +95,7 @@ namespace CMContrib.Test.Decorators.Rescue
             var rescueError = new Exception();
 
             var sut = new RescueResultDecorator(_inner,
-                                                ex => TestHelper.MockResult(false, rescueError).Object.AsCoroutine(),
+                                                ex => TestHelper.MockResult(false, rescueError).Object.AsEnumerable(),
                                                 true);
 
             var args = sut.BlockingExecute();

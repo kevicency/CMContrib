@@ -36,7 +36,7 @@ namespace Caliburn.Micro.Contrib.Demo.ViewModels.Samples
                 });
 
             yield return browseResult
-                .WhenCancelled().Execute(new LogResult("BrowseFolder cancelled").AsCoroutine);
+                .WhenCancelled().Execute(new LogResult("BrowseFolder cancelled").AsEnumerable);
 
             yield return new LogResult(string.Format("Files in {0}:\n{1}",
                                                      browseResult.SelectedPath,

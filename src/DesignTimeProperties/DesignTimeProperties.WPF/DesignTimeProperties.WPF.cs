@@ -1,5 +1,16 @@
 ﻿
 
+
+
+
+
+
+
+
+
+
+
+
 using System.ComponentModel;
 using System.Windows;
 
@@ -1677,6 +1688,40 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("IsItemsHost").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty LogicalOrientationPublicProperty = DependencyProperty.RegisterAttached( "LogicalOrientationPublic", typeof(System.Windows.Controls.Orientation), typeof(d), new PropertyMetadata(new PropertyChangedCallback(LogicalOrientationPublicChanged)));
+        public static System.Windows.Controls.Orientation GetLogicalOrientationPublic(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Controls.Orientation)dependencyObject.GetValue(LogicalOrientationPublicProperty);
+        }
+        public static void SetLogicalOrientationPublic(DependencyObject dependencyObject, System.Windows.Controls.Orientation value)
+        {
+            dependencyObject.SetValue(LogicalOrientationPublicProperty, value);
+        }
+		private static void LogicalOrientationPublicChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("LogicalOrientationPublic").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty HasLogicalOrientationPublicProperty = DependencyProperty.RegisterAttached( "HasLogicalOrientationPublic", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(HasLogicalOrientationPublicChanged)));
+        public static System.Boolean GetHasLogicalOrientationPublic(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(HasLogicalOrientationPublicProperty);
+        }
+        public static void SetHasLogicalOrientationPublic(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(HasLogicalOrientationPublicProperty, value);
+        }
+		private static void HasLogicalOrientationPublicChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("HasLogicalOrientationPublic").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty BorderBrushProperty = DependencyProperty.RegisterAttached( "BorderBrush", typeof(System.Windows.Media.Brush), typeof(d), new PropertyMetadata(new PropertyChangedCallback(BorderBrushChanged)));
         public static System.Windows.Media.Brush GetBorderBrush(DependencyObject dependencyObject)
         {
@@ -2918,6 +2963,23 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("IsTextSearchCaseSensitive").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty UsesItemContainerTemplateProperty = DependencyProperty.RegisterAttached( "UsesItemContainerTemplate", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(UsesItemContainerTemplateChanged)));
+        public static System.Boolean GetUsesItemContainerTemplate(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(UsesItemContainerTemplateProperty);
+        }
+        public static void SetUsesItemContainerTemplate(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(UsesItemContainerTemplateProperty, value);
+        }
+		private static void UsesItemContainerTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("UsesItemContainerTemplate").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty HorizontalOffsetProperty = DependencyProperty.RegisterAttached( "HorizontalOffset", typeof(System.Double), typeof(d), new PropertyMetadata(new PropertyChangedCallback(HorizontalOffsetChanged)));
         public static System.Double GetHorizontalOffset(DependencyObject dependencyObject)
         {
@@ -3528,6 +3590,40 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("SelectionOpacity").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty IsSelectionActiveProperty = DependencyProperty.RegisterAttached( "IsSelectionActive", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsSelectionActiveChanged)));
+        public static System.Boolean GetIsSelectionActive(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsSelectionActiveProperty);
+        }
+        public static void SetIsSelectionActive(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsSelectionActiveProperty, value);
+        }
+		private static void IsSelectionActiveChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsSelectionActive").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty IsInactiveSelectionHighlightEnabledProperty = DependencyProperty.RegisterAttached( "IsInactiveSelectionHighlightEnabled", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsInactiveSelectionHighlightEnabledChanged)));
+        public static System.Boolean GetIsInactiveSelectionHighlightEnabled(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsInactiveSelectionHighlightEnabledProperty);
+        }
+        public static void SetIsInactiveSelectionHighlightEnabled(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsInactiveSelectionHighlightEnabledProperty, value);
+        }
+		private static void IsInactiveSelectionHighlightEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsInactiveSelectionHighlightEnabled").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty PageCountProperty = DependencyProperty.RegisterAttached( "PageCount", typeof(System.Int32), typeof(d), new PropertyMetadata(new PropertyChangedCallback(PageCountChanged)));
@@ -4208,6 +4304,23 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("IsDropDownOpen").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty ShouldPreserveUserEnteredPrefixProperty = DependencyProperty.RegisterAttached( "ShouldPreserveUserEnteredPrefix", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ShouldPreserveUserEnteredPrefixChanged)));
+        public static System.Boolean GetShouldPreserveUserEnteredPrefix(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(ShouldPreserveUserEnteredPrefixProperty);
+        }
+        public static void SetShouldPreserveUserEnteredPrefix(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(ShouldPreserveUserEnteredPrefixProperty, value);
+        }
+		private static void ShouldPreserveUserEnteredPrefixChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("ShouldPreserveUserEnteredPrefix").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty IsEditableProperty = DependencyProperty.RegisterAttached( "IsEditable", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsEditableChanged)));
@@ -4975,6 +5088,23 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("CanUserResizeRows").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty NewItemMarginProperty = DependencyProperty.RegisterAttached( "NewItemMargin", typeof(System.Windows.Thickness), typeof(d), new PropertyMetadata(new PropertyChangedCallback(NewItemMarginChanged)));
+        public static System.Windows.Thickness GetNewItemMargin(DependencyObject dependencyObject)
+        {
+            return (System.Windows.Thickness)dependencyObject.GetValue(NewItemMarginProperty);
+        }
+        public static void SetNewItemMargin(DependencyObject dependencyObject, System.Windows.Thickness value)
+        {
+            dependencyObject.SetValue(NewItemMarginProperty, value);
+        }
+		private static void NewItemMarginChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("NewItemMargin").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty SelectedCellsProperty = DependencyProperty.RegisterAttached( "SelectedCells", typeof(System.Collections.Generic.IList<System.Windows.Controls.DataGridCellInfo>), typeof(d), new PropertyMetadata(new PropertyChangedCallback(SelectedCellsChanged)));
         public static System.Collections.Generic.IList<System.Windows.Controls.DataGridCellInfo> GetSelectedCells(DependencyObject dependencyObject)
         {
@@ -5213,6 +5343,23 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("IsEditing").SetValue(d, e.NewValue, null);
         }
 		
+		public static DependencyProperty CanHierarchicallyScrollAndVirtualizeProperty = DependencyProperty.RegisterAttached( "CanHierarchicallyScrollAndVirtualize", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(CanHierarchicallyScrollAndVirtualizeChanged)));
+        public static System.Boolean GetCanHierarchicallyScrollAndVirtualize(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(CanHierarchicallyScrollAndVirtualizeProperty);
+        }
+        public static void SetCanHierarchicallyScrollAndVirtualize(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(CanHierarchicallyScrollAndVirtualizeProperty, value);
+        }
+		private static void CanHierarchicallyScrollAndVirtualizeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("CanHierarchicallyScrollAndVirtualize").SetValue(d, e.NewValue, null);
+        }
+		
 		public static DependencyProperty ItemProperty = DependencyProperty.RegisterAttached( "Item", typeof(System.Object), typeof(d), new PropertyMetadata(new PropertyChangedCallback(ItemChanged)));
         public static System.Object GetItem(DependencyObject dependencyObject)
         {
@@ -5330,6 +5477,23 @@ namespace DesignTimeProperties
                 return;
 
             d.GetType().GetProperty("AlternationIndex").SetValue(d, e.NewValue, null);
+        }
+		
+		public static DependencyProperty IsNewItemProperty = DependencyProperty.RegisterAttached( "IsNewItem", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsNewItemChanged)));
+        public static System.Boolean GetIsNewItem(DependencyObject dependencyObject)
+        {
+            return (System.Boolean)dependencyObject.GetValue(IsNewItemProperty);
+        }
+        public static void SetIsNewItem(DependencyObject dependencyObject, System.Boolean value)
+        {
+            dependencyObject.SetValue(IsNewItemProperty, value);
+        }
+		private static void IsNewItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!InDesignMode)
+                return;
+
+            d.GetType().GetProperty("IsNewItem").SetValue(d, e.NewValue, null);
         }
 		
 		public static DependencyProperty CalendarStyleProperty = DependencyProperty.RegisterAttached( "CalendarStyle", typeof(System.Windows.Style), typeof(d), new PropertyMetadata(new PropertyChangedCallback(CalendarStyleChanged)));
@@ -8392,23 +8556,6 @@ namespace DesignTimeProperties
             d.GetType().GetProperty("ToolBars").SetValue(d, e.NewValue, null);
         }
 		
-		public static DependencyProperty IsSelectionActiveProperty = DependencyProperty.RegisterAttached( "IsSelectionActive", typeof(System.Boolean), typeof(d), new PropertyMetadata(new PropertyChangedCallback(IsSelectionActiveChanged)));
-        public static System.Boolean GetIsSelectionActive(DependencyObject dependencyObject)
-        {
-            return (System.Boolean)dependencyObject.GetValue(IsSelectionActiveProperty);
-        }
-        public static void SetIsSelectionActive(DependencyObject dependencyObject, System.Boolean value)
-        {
-            dependencyObject.SetValue(IsSelectionActiveProperty, value);
-        }
-		private static void IsSelectionActiveChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!InDesignMode)
-                return;
-
-            d.GetType().GetProperty("IsSelectionActive").SetValue(d, e.NewValue, null);
-        }
-		
 		public static DependencyProperty CameraProperty = DependencyProperty.RegisterAttached( "Camera", typeof(System.Windows.Media.Media3D.Camera), typeof(d), new PropertyMetadata(new PropertyChangedCallback(CameraChanged)));
         public static System.Windows.Media.Media3D.Camera GetCamera(DependencyObject dependencyObject)
         {
@@ -8918,5 +9065,6 @@ namespace DesignTimeProperties
 
             d.GetType().GetProperty("RadiusY").SetValue(d, e.NewValue, null);
         }
+
 	}
 }

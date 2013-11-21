@@ -1,4 +1,4 @@
-﻿<#@ template language="C#v3.5" debug="True" hostspecific="True"#>
+﻿<#@ template language="C#" debug="True" hostspecific="True"#>
 <#@ output extension="cs" #>
 <#@ assembly name="System.Core" #>
 <#@ import namespace="System" #>
@@ -6,7 +6,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Reflection" #>
 <#
-var assembly = Assembly.LoadFrom(@"c:\Program Files\Reference Assemblies\Microsoft\Framework\Silverlight\v4.0\System.Windows.dll");
+var assembly = Assembly.LoadFrom(@"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\Silverlight\v5.0\System.Windows.dll");
 var uiElementType = assembly.GetType("System.Windows.UIElement");
 Func<Type, bool> filter = t => t.IsPublic && t.IsClass && ((t == uiElementType) || t.IsSubclassOf(uiElementType) );
 var types = assembly.GetTypes().Where(filter);
